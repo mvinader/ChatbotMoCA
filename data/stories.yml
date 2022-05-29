@@ -8,36 +8,120 @@ stories:
   - action: utter_presentación
   - action: utter_siguiente
   - intent: afirmación
-
+  - action: utter_siguiente
+  - intent: afirmación
 
 - story: recogida datos personales
   steps:
-  - action: utter_siguiente
   - action: utter_preguntar_nombre
   - intent: presentación_nombre
   - action: utter_agradecimiento
-  - action: utter_preguntar_edad
-  - intent: presentación_edad
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba1
+  steps:
+  - action: utter_prueba1
+  - intent: serie_alfanumérica
   - action: utter_agradecimiento
+  - action: utter_siguiente
+  - intent: afirmación
 
-"""
-- story: sad path 1
+- story: prueba4
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - action: utter_prueba4
+  - action: utter_prueba4_león
+  - intent: animal1
+  - action: utter_prueba4_rinoceronte
+  - intent: animal2
+  - action: utter_prueba4_camello
+  - intent: animal3
+  - action: utter_agradecimiento
+  - action: utter_siguiente
+  - intent: afirmación
 
-- story: sad path 2
+- story: prueba5
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-"""
+  - action: utter_prueba5_explicación
+  - action: utter_lista_memoria
+  - intent: memoria
+  - action: utter_prueba5_repetición_1
+  - action: utter_lista_memoria
+  - intent: memoria
+  - action: utter_prueba5_repetición_2
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba6
+  steps:
+  - action: utter_prueba6_serie_números_directo_explicación
+  - action: utter_prueba6_serie_números_directo_secuencia
+  - intent: serie_números_directo
+  - action: utter_prueba6_serie_números_inverso_explicación
+  - action: utter_prueba6_serie_números_inverso_secuencia
+  - intent: serie_números_inverso
+  - action: utter_prueba6_serie_letras_explicación
+  - action: utter_prueba6_serie_letras_explicación
+  - intent: serie_serie_letras
+  - action: utter_prueba6_serie_7_explicación
+  - action: utter_parar
+  - intent: serie_7
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba7
+  steps:
+  - action: utter_prueba7_1
+  - intent: frase_1
+  - action: utter_prueba7_1
+  - intent: frase_2
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba8
+  steps:
+  - action: utter_prueba8
+  - intent: palabras_F
+  - action: utter_parar
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba9
+  steps:
+  - action: utter_prueba9_enunciado_1
+  - intent: frutas
+  - action: utter_prueba9_correcto_1
+  - action: utter_prueba9_enunciado_2
+  - intent: para_viajar
+  - action: utter_prueba9_enunciado_3
+  - intent: para_medir
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba10
+  steps:
+  - action: utter_prueba10
+  - intent: memoria
+  - action: utter_agradecimiento
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba11_correcta
+  steps:
+  - action: utter_prueba11_fecha
+  - intent: fecha_correcta
+  - action: utter_prueba11_lugar
+  - intent: lugar
+  - action: utter_siguiente
+  - intent: afirmación
+
+- story: prueba11_incorrecta
+  steps:
+  - action: utter_prueba11_fecha
+  - intent: fecha_incorrecta
+  - action: utter_prueba11_fecha_aclaración
+  - intent: fecha_correcta
+  - action: utter_prueba11_lugar
+  - intent: lugar
+  - action: utter_siguiente
+  - intent: afirmación

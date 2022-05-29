@@ -2,27 +2,48 @@ version: "3.1"
 
 intents:
   - probar_chatbot
-  - saludo
-  - despedida
+  - saludo  
   - afirmación
   - negación
   - avance
   - presentación_nombre
   - presentación_edad
   - dudas
-"""
+  - animal1
+  - animal2
+  - animal3
+  - memoria
+  - serie_números_directo
+  - serie_números_inverso
+  - serie_letras
+  - serie_7
+  - frase_1
+  - frase_2
+  - palabras_F
+  - frutas
+  - para_viajar
+  - para_medir
+  - despedida
+
 entities:
   - nombre
-  - edad
-"""
-slots:
-  es_mujer:
-    type: bool
-    influence_conversation: true
+  - lista_memoria
+  - serie_alfanumérica
+  - serie_números_directo
+  - serie_números_inverso
+  - fecha
+  - lugar
 
+slots:
+  nombre:
+    type: text
+    influence_conversation: false
+  edad:
+    type: float
+    influence_conversation: false
 
 responses:
-  utter_soy_un_chatbot:
+  utter_prueba_chatbot:
   - text: |
       "Soy un chatbot."
 
@@ -39,22 +60,24 @@ responses:
       "¡Muy buenas!"
   - text: |
       "¡Bienvenido/a!"
-  
-  utter_despedida:
-  - text: |
-      "¡Adiós, {name}! Ha sido un placer"
-  - text: |
-      "¡Hasta la próxima, {name}!"
 
   utter_siguiente:
   - text: |
-      "¿Estás preparado?"
+      "¿Está preparado?"
   - text: |
       "¿Continuamos?"
   - text: |
       "¿Pasamos a lo siguiente?"
   - text: |
-      "¿Quieres seguir?"
+      "¿Quiere seguir?"
+
+utter_repetir:
+  - text: |
+      "¿Le gustaría que lo repitiera?"
+  - text: |
+      "¿Necesita que lo repita?"
+  - text: |
+      "¿Quiere que lo vuelva a explicar?"
 
   utter_agradecimiento:
   - text: |
@@ -66,31 +89,140 @@ responses:
 
  utter_preguntar_nombre:
   - text: |
-      "¿Cómo te llamas?"
+      "¿Cómo se llama?"
   - text: |
-      "¿Cuál es tu nombre?"
+      "¿Cuál es su nombre?"
 
-  utter_preguntar_edad:
+  utter_prueba1:
   - text: |
-      "¿Cuántos años tienes?"
+      "Me gustaría que me dijera en orden los números del 1 al 5 y las letras de la A la E, alternando entre ellos. Comience por el 1 y siga por la A. A continuación, el 2. Así sucesivamente. Termine con la letra E"
+
+  utter_prueba4:
   - text: |
-      "¿Cuál es tu edad?"
+      "Dígame el nombre de este animal."
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_prueba4_león:
+  - text: |
+      image: "https://th.bing.com/th/id/R.cdf8427e150f90945c2e78a5bdbbda1e?rik=BcFI%2btaP3C%2bsAw&riu=http%3a%2f%2ffc02.deviantart.net%2ffs71%2ff%2f2010%2f066%2fe%2fe%2fLion_Lineart_by_xxChuxx.jpg&ehk=ur4hQt7E%2fVMWJ%2fYes52EADN4mfz7lDofmj4wrSYbbLE%3d&risl=&pid=ImgRaw&r=0g"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_prueba4_rinoceronte:
+  - text: |
+      image: "https://th.bing.com/th/id/R.9eaa19c3dff89a07f58a5d707b99e5b5?rik=PXERycv25Yi4ag&riu=http%3a%2f%2fwww.alleausmalbilder.com%2fwp-content%2fuploads%2f2015%2f02%2fAusmalbilder-Nashorn-gratis-2.jpg&ehk=%2f8xFxcBIepZtkDO%2fA4FxbLVN8hSXihKROUn1WGLCDN0%3d&risl=&pid=ImgRaw&r=0"
+  
+  utter_prueba4_camello:
+  - text: |
+      image: "https://coloringhome.com/coloring/Aib/b9x/Aibb9xbBT.jpg"
 
-   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_prueba5_explicación:
+  - text: |
+      "Esta es una prueba de memoria. Le voy a leer una lista de palabras que debe recordar. Escuche con atención. Cuando acabe, dígame todas las palabras que pueda recordar. No importa el orden en el que me las 
+      diga."
 
-slots:
-  - respuesta1:
-    type: text
+  utter_lista_memoria:
+  - text: |
+      "Rostro, seda, templo, clavel, rojo."
 
+  utter_prueba5_repetición_1:
+  - text: |
+      "Ahora le voy a leer la misma lista de palabras una vez más. Intente acordarse del mayor número posible de palabras, incluyendo las que repitió en la primera ronda."
+  
+  utter_prueba5_repetición_2:
+  - text: |
+      "Le volveré a preguntar estas palabras al final de la prueba."
+  
+  utter_prueba6_serie_números_directo_explicación:
+  - text: |
+      "Le voy a leer una serie de números y, cuando haya terminado, deberá repetirlos en el mismo orden en el que yo los he dicho."
 
+  utter_prueba6_serie_números_directo_secuencia:
+  - text: |
+      "2, 1, 8, 5, 4." 
+
+  utter_prueba6_serie_números_inverso_explicación:
+  - text: |
+      "Le voy a leer otra serie de números y, cuando haya terminado, deberá repetirlos hacia atrás."
+
+  utter_prueba6_serie_números_inverso_secuencia:
+  - text: |
+      "7, 4, 2." 
+
+  utter_prueba6_serie_letras_explicación:
+  - text: |
+      "Voy a leerle una serie de letras. Cada vez que diga la letra A, dé un golpecito con la mano. Cuando diga una letra que no sea la A, no dé ningún golpecito."
+
+  utter_prueba6_serie_letras_secuencia:
+  - text: |
+      "F, B, A, C, M, N, A, A, J, K, L, B, A, F, A, K, D, E, A, A, A, J, A, M, O, F, A, A, B." 
+
+  utter_prueba6_serie_7_explicación:
+  - text: |
+      "Ahora me gustaría que restara 7 de 100 y que continuara restando 7 a la cifra de su respuesta anterior hasta que le pida que pare."
+
+  utter_parar:
+  - text: |
+      "Pare, por favor." 
+
+  utter_prueba7_1:
+  - text: |
+      "Ahora le voy a leer una frase. Repítala exactamente cuando yo termine: Solo sé que le toca a Juan 
+ayudar hoy."
+
+  utter_prueba7_2:
+  - text: |
+      "Ahora voy a leerle otra frase. Repítala exactamente cuando yo termine: El gato siempre se esconde debajo del sofá 
+cuando hay perros en la habitación."
+
+  utter_prueba8:
+  - text: |
+      "Ahora, diga el mayor número posible de palabras que comiencen por la letra F. Le pediré que pare al minuto. No se permiten nombres, números y las formas conjugadas de un verbo. ¿Está 
+preparado? [Pausa] [Tiempo 60 seg.] Pare"
+
+  utter_prueba9_enunciado_1:
+  - text: |
+      "Le diré dos palabras y me gustaría que usted me dijera a qué categoría pertenecen [pausa]: una naranja y un 
+plátano."
+
+  utter_prueba9_correcto_1:
+  - text: |
+      "Sí, las dos pertenecen a esta categoría de frutas."
+
+  utter_prueba9_pista_1:
+    - text: |
+      "Dígame otra categoría a la que también puedan pertenecer estas cosas."
+
+  utter_prueba9_incorrecto_1:
+    - text: |
+      "Sí y las dos pertenecen también a la categoría de frutas."
+
+  utter_prueba9_enunciado_2:
+    - text: |
+      "Ahora, un tren y una bicicleta."
+
+  utter_prueba9_enunciado_3:
+    - text: |
+      "Ahora, una regla y un reloj."
+
+  utter_prueba10:
+      - text: |
+      "Antes le he leído una serie de palabras y le he pedido que las recordase. Dígame ahora todas las palabras de las que se acuerde."
+
+  utter_prueba11_fecha:
+    - text: |
+      "Dígame en qué fecha estamos hoy."
+ 
+  utter_prueba11_fecha_aclaración:
+    - text: |
+      "Dígame el año, el mes, la fecha exacta y el día de la semana."
+
+  utter_prueba11_lugar:
+    - text: |
+      "Ahora, dígame cómo se llama este lugar y en qué localidad nos encontramos."
+
+  utter_despedida:
+  - text: |
+      "¡Adiós, {name}! Ha sido un placer"
+  - text: |
+      "¡Hasta la próxima, {name}!"
 
 session_config:
   session_expiration_time: 60

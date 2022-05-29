@@ -28,21 +28,6 @@ nlu:
     - muy buenas tardes
     - muy buenas noches
 
-- intent: despedida
-  examples: |
-    - adiós
-    - chao
-    - chaíto
-    - hasta luego
-    - hasta pronto
-    - hasta más ver
-    - hasta la próxima
-    - a más ver
-    - con Dios
-    - me voy
-    - te dejo
-    - nos vemos
-
 - intent: afirmación
   examples: |
     - sí
@@ -106,13 +91,6 @@ nlu:
     - me llaman [Marta] (nombre)
     - me llaman [Marta Vinader] (nombre)
 
-- intent: presentación_edad
-  examples: |
-    - [23] (edad)
-    - tengo [23] (edad)
-    - tengo [23] (edad) años
-    - mi edad es [23] (edad) años
-
 - intent: dudas
   examples: |
     - no sé
@@ -123,46 +101,153 @@ nlu:
     - a saber
     - vete tú a saber
 
+  - intent: serie_alfanumérica
+  examples: |
+    - [1, A, 2, B, 3, C, 4, D, 5, E] (serie_alfanumérica)
+    - [1] (serie_alfanumérica), [A] (serie_alfanumérica), [2] (serie_alfanumérica), [B] serie_alfanumérica), [3] (serie_alfanumérica), [C] (serie_alfanumérica), [4] (serie_alfanumérica), [D] (serie_alfanumérica), [5] (serie_alfanumérica), [E] (serie_alfanumérica)
+
+  - intent: animal1
+  examples: |
+    - león
+    - un león
+
+ - intent: animal2
+  examples: |
+    - rinoceronte
+    - un rinoceronte
+
+ - intent: animal3
+  examples: |
+    - camello
+    - un camello
+    - dromedario
+    - un dromedario
+    - no sé si un camello o un dromedario
+
+  - intent: memoria
+  examples: |
+    - [rostro, seda, templo, clavel, rojo] (lista_memoria)
+    - [rojo, seda, templo, rostro] (lista_memoria)
+    - [templo, clavel, rojo] (lista_memoria)
+    - [seda, clavel, rojo] (lista_memoria)
+    - [rostro] (lista_memoria), [rojo] (lista_memoria), [templo] (lista_memoria), [seda] (lista_memoria), [clavel] (lista_memoria)
+    - [templo] (lista_memoria), [seda] (lista_memoria), [rojo] (lista_memoria)
+    - [rostro] (lista_memoria), [seda] (lista_memoria), [rojo] (lista_memoria), [clavel] (lista_memoria)
+
+  - intent: serie_números_directo
+  examples: |
+    - [2, 1, 8, 5, 4] (serie_números_directo)
+    - [2] (serie_números_directo), [1] (serie_números_directo), [8] (serie_números_directo), [5] (serie_números_directo), [4] (serie_números_directo)
+
+  - intent: serie_números_inverso
+  examples: |
+    - [2, 7, 4] (serie_números_inverso)
+    - [2] (serie_números_inverso), [7] (serie_números_inverso), [4] (serie_números_inverso)
+
+  - intent: serie_letras
+  examples: |
+    - A
+
+  - intent: serie_7
+  examples: |
+    
+
+
+    
+  - intent: frase_1
+  examples: |
+    - Solo sé que le toca a Juan ayudar hoy.
+
+  - intent: frase_2
+  examples: |
+    - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
+
+  - intent: palabras_F
+  examples: |
+    - flor
+    - florero
+    - florista
+    - florería
+    - farola
+    - farolillo
+    - feliz
+    - felicidad
+    - felpa
+    - felpudo
+    - fiesta
+    - festejar
+    - festejo
+    - festivo
+    - funambulista
+    - frenesí
+    - fresa
+    - fresón
+    - filipino
+    - ficha
+    - fábula
+    - fabuloso
+    - fiera
+    - fruta
+
+  - intent: frutas
+  examples: |
+    - fruta
+    - frutas
+
+  - intent: para_viajar
+  examples: |
+    - medios de transporte
+    - transportes
+    - medios de locomoción
+    - para viajar
+
+  - intent: para_medir
+  examples: |
+    - instrumentos de medición
+    - para medir
+
+  - intent: fecha_correcta
+  examples: |
+    - Hoy es [2022, mayo, 29, domingo] (fecha)
+    - [2022, mayo, 29, domingo] (fecha)
+    - La fecha de hoy es [2022, mayo, 29, domingo] (fecha)
+
+  - intent: fecha_incorrecta
+  examples: |
+    - Hoy es [domingo] (fecha)
+    - [29 de mayo] (fecha)
+    - [domingo] (fecha)
+    - Estamos en [2022] (fecha)
+
+  - intent: lugar
+  examples: |
+    - [Aranjuez] (lugar)
+    - En [Aranjuez] (lugar)
+    - Estoy en [Aranjuez] (lugar)
+    - [Madrid] (lugar)
+    - En [Madrid] (lugar)
+    - Estoy en [Madrid] (lugar)
+
+- intent: despedida
+  examples: |
+    - adiós
+    - chao
+    - chaíto
+    - hasta luego
+    - hasta pronto
+    - hasta más ver
+    - hasta la próxima
+    - a más ver
+    - con Dios
+    - me voy
+    - te dejo
+    - nos vemos
+
 """
 - intent: ayuda
   examples: |
     - ayuda
     - no lo entiendo
     - repite
-"""
-
-"""- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
 """
 
