@@ -1,0 +1,168 @@
+version: "3.1"
+
+nlu:
+- intent: probar_chatbot
+  examples: |
+    - ¿eres un robot?
+    - ¿eres un humano?
+    - ¿eres una persona?
+    - ¿hablo con un robot?
+    - ¿hablo con una persona?
+    - ¿estoy hablando con un robot?
+    - ¿estoy hablando con una persona?
+
+- intent: saludo
+  examples: |
+    - hola
+    - holi
+    - qué pasa
+    - qué tal
+    - qué tal estamos
+    - cómo andamos
+    - buenas
+    - buenos días
+    - buen día
+    - buenas tardes
+    - buenas noches
+    - muy buenos días
+    - muy buenas tardes
+    - muy buenas noches
+
+- intent: despedida
+  examples: |
+    - adiós
+    - chao
+    - chaíto
+    - hasta luego
+    - hasta pronto
+    - hasta más ver
+    - hasta la próxima
+    - a más ver
+    - con Dios
+    - me voy
+    - te dejo
+    - nos vemos
+
+- intent: afirmación
+  examples: |
+    - sí
+    - sip
+    - yes
+    - claro
+    - obvio
+    - ajá
+    - por supuesto
+    - seguro
+    - vale
+    - correcto
+    - así es
+    - es verdad
+    - cierto
+    - genial
+    - perfecto
+    - maravilloso
+
+- intent: negación
+  examples: |
+    - no
+    - nanai
+    - negativo
+    - nunca
+    - no creo
+    - para nada
+    - imposible
+    - no puede ser
+    - me niego
+    - no quiero
+
+- intent: avance
+  examples: |
+    - vamos allá
+    - siguiente
+    - avanza
+    - preparado
+    - dale
+    - venga
+"""
+- intent: retroceso
+  examples: |
+    - vamos allá
+    - siguiente
+    - avanza
+    - preparado
+    - dale
+    - venga
+"""
+- intent: presentación_nombre
+  examples: |
+    - [Marta] (nombre)
+    - [Marta Vinader] (nombre)
+    - soy [Marta] (nombre)
+    - soy [Marta Vinader] (nombre)
+    - me llamo [Marta] (nombre)
+    - me llamo [Marta Vinader] (nombre)
+    - mi nombre es [Marta] (nombre)
+    - mi nombre es [Marta Vinader] (nombre)
+    - me llaman [Marta] (nombre)
+    - me llaman [Marta Vinader] (nombre)
+
+- intent: presentación_edad
+  examples: |
+    - [23] (edad)
+    - tengo [23] (edad)
+    - tengo [23] (edad) años
+    - mi edad es [23] (edad) años
+
+- intent: dudas
+  examples: |
+    - no sé
+    - no lo sé
+    - ni idea
+    - no tengo ni idea
+    - yo qué sé
+    - a saber
+    - vete tú a saber
+
+"""
+- intent: ayuda
+  examples: |
+    - ayuda
+    - no lo entiendo
+    - repite
+"""
+
+"""- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+"""
+

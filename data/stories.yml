@@ -1,0 +1,43 @@
+version: "3.1"
+
+stories:
+
+- story: presentación
+  steps:
+  - action: utter_saludo
+  - action: utter_presentación
+  - action: utter_siguiente
+  - intent: afirmación
+
+
+- story: recogida datos personales
+  steps:
+  - action: utter_siguiente
+  - action: utter_preguntar_nombre
+  - intent: presentación_nombre
+  - action: utter_agradecimiento
+  - action: utter_preguntar_edad
+  - intent: presentación_edad
+  - action: utter_agradecimiento
+
+"""
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+"""

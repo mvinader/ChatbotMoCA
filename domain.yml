@@ -1,0 +1,97 @@
+version: "3.1"
+
+intents:
+  - probar_chatbot
+  - saludo
+  - despedida
+  - afirmación
+  - negación
+  - avance
+  - presentación_nombre
+  - presentación_edad
+  - dudas
+"""
+entities:
+  - nombre
+  - edad
+"""
+slots:
+  es_mujer:
+    type: bool
+    influence_conversation: true
+
+
+responses:
+  utter_soy_un_chatbot:
+  - text: |
+      "Soy un chatbot."
+
+  utter_presentación:
+  - text: |
+      "Soy un chatbot encargado de ayudar en el diagnóstico precoz de la enfermedad de Alzheimer. Estoy basado en un test cognitivo llamado MoCA. Iré ejecutando diversas pruebas y asignando puntos en función de los resultados. El máximo son 30 puntos y una puntuación igual o superior a 26 se considera normal."
+
+  utter_saludo:
+  - text: |
+      "¡Hola!"
+  - text: |
+      "¡Buenas!"
+  - text: |
+      "¡Muy buenas!"
+  - text: |
+      "¡Bienvenido/a!"
+  
+  utter_despedida:
+  - text: |
+      "¡Adiós, {name}! Ha sido un placer"
+  - text: |
+      "¡Hasta la próxima, {name}!"
+
+  utter_siguiente:
+  - text: |
+      "¿Estás preparado?"
+  - text: |
+      "¿Continuamos?"
+  - text: |
+      "¿Pasamos a lo siguiente?"
+  - text: |
+      "¿Quieres seguir?"
+
+  utter_agradecimiento:
+  - text: |
+      "Genial. Gracias."
+  - text: |
+      "Muchas gracias."
+  - text: |
+      "Muy amable."
+
+ utter_preguntar_nombre:
+  - text: |
+      "¿Cómo te llamas?"
+  - text: |
+      "¿Cuál es tu nombre?"
+
+  utter_preguntar_edad:
+  - text: |
+      "¿Cuántos años tienes?"
+  - text: |
+      "¿Cuál es tu edad?"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+   utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+slots:
+  - respuesta1:
+    type: text
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
