@@ -7,8 +7,8 @@ intents:
   - negación
   - avance
   - presentación_nombre
-  - presentación_edad
   - dudas
+  - serie_alfanumérica
   - animal1
   - animal2
   - animal3
@@ -23,24 +23,81 @@ intents:
   - frutas
   - para_viajar
   - para_medir
+  - fecha_correcta
+  - fecha_incorrecta
+  - lugar
   - despedida
+  - abandono
+  - ayuda
 
 entities:
   - nombre
-  - lista_memoria
   - serie_alfanumérica
+  - lista_memoria
   - serie_números_directo
   - serie_números_inverso
+  - serie_7
   - fecha
   - lugar
+  - res_prueba1
+  - res_prueba4
+  - res_final
+
+# Poner respuestas animales como slots???
 
 slots:
   nombre:
     type: text
     influence_conversation: false
-  edad:
+    mappings:
+      - type: from_entity
+        entity: nombre
+        intent: presentación_nombre
+
+  res_prueba1:
     type: float
-    influence_conversation: false
+    initial_value: 0
+    influence_conversation: true    
+    min_value: 0.0
+    max_value: 1.0
+    mappings:
+      - type: from_entity
+        entity: res_prueba1
+
+  res_prueba4:
+    type: float
+    initial_value: 0
+    influence_conversation: true    
+    min_value: 0.0
+    max_value: 3.0
+    mappings:
+      - type: from_entity
+        entity: res_prueba4
+
+  lista_memoria:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: lista_memoria
+        intent: memoria
+
+  serie_alfanumérica:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: serie_alfanumérica
+        intent: serie_alfanumérica
+
+  res_final:
+    type: float
+    initial_value: 0
+    min_value: 0.0
+    max_value: 30.0
+    mappings:
+      - type: from_entity
+        entity: res_final
 
 responses:
   utter_prueba_chatbot:
@@ -53,17 +110,17 @@ responses:
 
   utter_saludo:
   - text: |
-      "¡Hola!"
+      "¡Hola, {nombre}!"
   - text: |
-      "¡Buenas!"
+      "¡Buenas, {nombre}!"
   - text: |
-      "¡Muy buenas!"
+      "¡Muy buenas, {nombre}!"
   - text: |
-      "¡Bienvenido/a!"
+      "¡Bienvenido/a, {nombre}!"
 
   utter_siguiente:
   - text: |
-      "¿Está preparado?"
+      "¿Está preparado/a?"
   - text: |
       "¿Continuamos?"
   - text: |
@@ -71,7 +128,7 @@ responses:
   - text: |
       "¿Quiere seguir?"
 
-utter_repetir:
+  utter_repetir:
   - text: |
       "¿Le gustaría que lo repitiera?"
   - text: |
@@ -87,11 +144,15 @@ utter_repetir:
   - text: |
       "Muy amable."
 
- utter_preguntar_nombre:
+  utter_preguntar_nombre:
   - text: |
       "¿Cómo se llama?"
   - text: |
       "¿Cuál es su nombre?"
+
+  utter_preguntar_estudios:
+  - text: |
+      "¿Tiene 12 años o menos de estudio?"
 
   utter_prueba1:
   - text: |
@@ -158,71 +219,82 @@ utter_repetir:
   - text: |
       "Ahora me gustaría que restara 7 de 100 y que continuara restando 7 a la cifra de su respuesta anterior hasta que le pida que pare."
 
-  utter_parar:
+  utter_parar_prueba6:
   - text: |
       "Pare, por favor." 
 
   utter_prueba7_1:
   - text: |
-      "Ahora le voy a leer una frase. Repítala exactamente cuando yo termine: Solo sé que le toca a Juan 
-ayudar hoy."
+      "Ahora le voy a leer una frase. Repítala exactamente cuando yo termine: Solo sé que le toca a Juan ayudar hoy."
 
   utter_prueba7_2:
   - text: |
-      "Ahora voy a leerle otra frase. Repítala exactamente cuando yo termine: El gato siempre se esconde debajo del sofá 
-cuando hay perros en la habitación."
+      "Ahora voy a leerle otra frase. Repítala exactamente cuando yo termine: El gato siempre se esconde debajo del sofá cuando hay perros en la habitación."
 
   utter_prueba8:
   - text: |
-      "Ahora, diga el mayor número posible de palabras que comiencen por la letra F. Le pediré que pare al minuto. No se permiten nombres, números y las formas conjugadas de un verbo. ¿Está 
-preparado? [Pausa] [Tiempo 60 seg.] Pare"
+      "Ahora, diga el mayor número posible de palabras que comiencen por la letra F. Le pediré que pare al minuto. No se permiten nombres, números y las formas conjugadas de un verbo. ¿Está  preparado?"
+
+  utter_parar_prueba8:
+  - text: |
+      "Pare."
 
   utter_prueba9_enunciado_1:
   - text: |
-      "Le diré dos palabras y me gustaría que usted me dijera a qué categoría pertenecen [pausa]: una naranja y un 
-plátano."
+      "Le diré dos palabras y me gustaría que usted me dijera a qué categoría pertenecen [pausa]: una naranja y un plátano."
 
   utter_prueba9_correcto_1:
   - text: |
       "Sí, las dos pertenecen a esta categoría de frutas."
 
   utter_prueba9_pista_1:
-    - text: |
+   - text: |
       "Dígame otra categoría a la que también puedan pertenecer estas cosas."
 
   utter_prueba9_incorrecto_1:
-    - text: |
+   - text: |
       "Sí y las dos pertenecen también a la categoría de frutas."
 
   utter_prueba9_enunciado_2:
-    - text: |
+   - text: |
       "Ahora, un tren y una bicicleta."
 
   utter_prueba9_enunciado_3:
-    - text: |
+   - text: |
       "Ahora, una regla y un reloj."
 
   utter_prueba10:
-      - text: |
+   - text: |
       "Antes le he leído una serie de palabras y le he pedido que las recordase. Dígame ahora todas las palabras de las que se acuerde."
 
   utter_prueba11_fecha:
-    - text: |
+   - text: |
       "Dígame en qué fecha estamos hoy."
  
   utter_prueba11_fecha_aclaración:
-    - text: |
+   - text: |
       "Dígame el año, el mes, la fecha exacta y el día de la semana."
 
   utter_prueba11_lugar:
-    - text: |
+   - text: |
       "Ahora, dígame cómo se llama este lugar y en qué localidad nos encontramos."
+
+  utter_resultados:
+   - text: |
+      "A continuación, le proporcionaré unos resultados basados en sus respuestas."
 
   utter_despedida:
   - text: |
-      "¡Adiós, {name}! Ha sido un placer"
+      "¡Adiós, {nombre}! Ha sido un placer"
   - text: |
-      "¡Hasta la próxima, {name}!"
+      "¡Hasta la próxima, {nombre}!"
+
+actions:
+  - action_menos_12_años_estudios
+  - action_resultado_prueba1_bien
+  - action_resultado_prueba10
+  - action_set_reminder
+  - action_react_to_reminder
 
 session_config:
   session_expiration_time: 60

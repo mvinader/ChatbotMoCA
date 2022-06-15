@@ -4,56 +4,127 @@ stories:
 
 - story: presentación
   steps:
+  - intent: saludo
   - action: utter_saludo
   - action: utter_presentación
   - action: utter_siguiente
   - intent: afirmación
-  - action: utter_siguiente
-  - intent: afirmación
-
-- story: recogida datos personales
-  steps:
   - action: utter_preguntar_nombre
   - intent: presentación_nombre
   - action: utter_agradecimiento
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_datos_personales
 
-- story: prueba1
+- story: menos_12_años_estudios
   steps:
-  - action: utter_prueba1
-  - intent: serie_alfanumérica
+  - checkpoint: final_datos_personales
+  - action: utter_preguntar_estudios
+  - intent: afirmación
+  - action: action_menos_12_años_estudios
   - action: utter_agradecimiento
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_preguntar_estudios
+
+- story: más_12_años_estudios
+  steps:
+  - checkpoint: final_datos_personales
+  - action: utter_preguntar_estudios
+  - intent: negación
+  - action: utter_agradecimiento
+  - action: utter_siguiente
+  - intent: afirmación
+  - checkpoint: final_preguntar_estudios
+  
+- story: enunciado_prueba1
+  steps:
+  - checkpoint: final_preguntar_estudios
+  - action: utter_prueba1
+  - checkpoint: final_enunciado_prueba1
+
+- story: prueba1_ayuda
+  steps:
+  - checkpoint: final_enunciado_prueba1
+  - intent: ayuda
+  - action: utter_prueba1
+  - checkpoint: final_enunciado_prueba1
+  - intent: serie_alfanumérica
+  #- slot_was_set:
+  #  - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
+  - action: action_resultado_prueba1_bien
+  - action: utter_siguiente
+  - intent: afirmación
+  - checkpoint: final_prueba1
+
+- story: prueba1_bien
+  steps:
+  - checkpoint: final_enunciado_prueba1
+  - intent: serie_alfanumérica
+  #- slot_was_set:
+  #  - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
+  - action: action_resultado_prueba1_bien
+  - action: utter_siguiente
+  - intent: afirmación
+  - checkpoint: final_prueba1
+
+#- story: prueba1_mal
+#  steps:
+#  - checkpoint: final_enunciado_prueba1
+#  - intent: serie_alfanumérica
+#  - action: action_resultado_prueba1_mal
+#  - action: utter_siguiente
+#  - intent: afirmación
+#  - checkpoint: final_prueba1
 
 - story: prueba4
   steps:
+  - checkpoint: final_prueba1
   - action: utter_prueba4
   - action: utter_prueba4_león
   - intent: animal1
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - res_prueba4: 1
   - action: utter_prueba4_rinoceronte
   - intent: animal2
+  - action: action_resultado_animal2
+  - slot_was_set:
+    - res_prueba4: 2
   - action: utter_prueba4_camello
   - intent: animal3
-  - action: utter_agradecimiento
+  - action: action_resultado_animal3
+  - slot_was_set:
+    - res_prueba4: 3
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba4
 
 - story: prueba5
   steps:
+  - checkpoint: final_prueba4
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
   - intent: memoria
+    entities:
+    - lista_memoria: rostro, seda, templo, clavel, rojo
+  - slot_was_set:
+    - lista_memoria: rostro, seda, templo, clavel, rojo
   - action: utter_prueba5_repetición_1
   - action: utter_lista_memoria
   - intent: memoria
+    entities:
+    - lista_memoria: seda, clavel, rojo
+  - slot_was_set:
+    - lista_memoria: seda, clavel, rojo
   - action: utter_prueba5_repetición_2
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba5
 
 - story: prueba6
   steps:
+  - checkpoint: final_prueba5
   - action: utter_prueba6_serie_números_directo_explicación
   - action: utter_prueba6_serie_números_directo_secuencia
   - intent: serie_números_directo
@@ -61,33 +132,41 @@ stories:
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números_inverso
   - action: utter_prueba6_serie_letras_explicación
-  - action: utter_prueba6_serie_letras_explicación
-  - intent: serie_serie_letras
+  - intent: serie_letras
   - action: utter_prueba6_serie_7_explicación
-  - action: utter_parar
   - intent: serie_7
+  - action: utter_parar_prueba6
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba6
 
 - story: prueba7
   steps:
+  - checkpoint: final_prueba6
   - action: utter_prueba7_1
   - intent: frase_1
-  - action: utter_prueba7_1
+  - action: utter_prueba7_2
   - intent: frase_2
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba7
 
 - story: prueba8
   steps:
-  - action: utter_prueba8
+  - checkpoint: final_prueba7
+  - action: utter_prueba8  
+  - intent: afirmación
+  - action: action_set_reminder
   - intent: palabras_F
-  - action: utter_parar
+  - action: action_react_to_reminder
+  - action: utter_parar_prueba8
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba8
 
 - story: prueba9
   steps:
+  - checkpoint: final_prueba8
   - action: utter_prueba9_enunciado_1
   - intent: frutas
   - action: utter_prueba9_correcto_1
@@ -97,26 +176,31 @@ stories:
   - intent: para_medir
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba9
 
 - story: prueba10
   steps:
+  - checkpoint: final_prueba9
   - action: utter_prueba10
   - intent: memoria
-  - action: utter_agradecimiento
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba10
 
 - story: prueba11_correcta
   steps:
+  - checkpoint: final_prueba10
   - action: utter_prueba11_fecha
   - intent: fecha_correcta
   - action: utter_prueba11_lugar
   - intent: lugar
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba11
 
 - story: prueba11_incorrecta
   steps:
+  - checkpoint: final_prueba10
   - action: utter_prueba11_fecha
   - intent: fecha_incorrecta
   - action: utter_prueba11_fecha_aclaración
@@ -125,3 +209,10 @@ stories:
   - intent: lugar
   - action: utter_siguiente
   - intent: afirmación
+  - checkpoint: final_prueba11
+
+- story: resultados
+  steps:
+  - checkpoint: final_prueba11
+  - action: utter_resultados
+  - action: utter_despedida

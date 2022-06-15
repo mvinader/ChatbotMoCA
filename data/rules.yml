@@ -2,9 +2,32 @@ version: "3.1"
 
 rules:
 
+- rule: Saludar siempre que el usuario salude
+  steps:
+  - action: utter_siguiente
+  - intent: negación
+  - action: utter_despedida
+
+#- rule: Schedule a reminder
+#  steps:
+#  - intent: ask_remind_call
+#    entities:
+#    - PERSON
+#  - action: action_set_reminder
+
+#- rule: Trigger `action_react_to_reminder` for `palabras_F`
+#  steps:
+#  - intent: palabras_F
+#  - action: action_react_to_reminder
+
 - rule: Despedirse siempre que el usuario se despida
   steps:
   - intent: despedida
+  - action: utter_despedida
+
+- rule: Cancelar siempre que el usuario lo pida
+  steps:
+  - intent: abandono
   - action: utter_despedida
 
 - rule: Decir "soy un chatbot" siempre que el usuario lo pruebe
