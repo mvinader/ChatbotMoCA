@@ -33,6 +33,9 @@ intents:
 entities:
   - nombre
   - serie_alfanumérica
+  - animal1
+  - animal2
+  - animal3
   - lista_memoria
   - serie_números_directo
   - serie_números_inverso
@@ -43,8 +46,6 @@ entities:
   - res_prueba4
   - res_final
 
-# Poner respuestas animales como slots???
-
 slots:
   nombre:
     type: text
@@ -54,15 +55,48 @@ slots:
         entity: nombre
         intent: presentación_nombre
 
+  serie_alfanumérica:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: serie_alfanumérica
+        intent: serie_alfanumérica
+
   res_prueba1:
     type: float
     initial_value: 0
-    influence_conversation: true    
+    influence_conversation: false
     min_value: 0.0
     max_value: 1.0
     mappings:
       - type: from_entity
         entity: res_prueba1
+        intent: serie_alfanumérica
+
+  animal1:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: animal1
+        intent: animal1
+  
+  animal2:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: animal2
+        intent: animal2
+  
+  animal3:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: animal3
+        intent: animal3
 
   res_prueba4:
     type: float
@@ -82,13 +116,6 @@ slots:
         entity: lista_memoria
         intent: memoria
 
-  serie_alfanumérica:
-    type: list
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: serie_alfanumérica
-        intent: serie_alfanumérica
 
   res_final:
     type: float
@@ -106,7 +133,10 @@ responses:
 
   utter_presentación:
   - text: |
-      "Soy un chatbot encargado de ayudar en el diagnóstico precoz de la enfermedad de Alzheimer. Estoy basado en un test cognitivo llamado MoCA. Iré ejecutando diversas pruebas y asignando puntos en función de los resultados. El máximo son 30 puntos y una puntuación igual o superior a 26 se considera normal."
+      "La Evaluación Cognitiva Montreal (Montreal cognitive assessment / MoCA) ha sido concebida para evaluar las disfunciones cognitivas leves. Este instrumento examina las siguientes habilidades:
+      atención, concentración, funciones ejecutivas (incluyendo la capacidad de abstracción), memoria, lenguaje, capacidades visuoconstructivas, cálculo y orientación. Cualquier persona que comprenda 
+      y siga sus instrucciones puede administrar el MoCA, si bien únicamente un profesional de la salud especialista en el ámbito cognitivo podrá interpretar sus resultados. El tiempo de administración 
+      requerido es de aproximadamente diez minutos."
 
   utter_saludo:
   - text: |
@@ -292,6 +322,9 @@ responses:
 actions:
   - action_menos_12_años_estudios
   - action_resultado_prueba1_bien
+  - action_resultado_animal1
+  - action_resultado_animal2
+  - action_resultado_animal3
   - action_resultado_prueba10
   - action_set_reminder
   - action_react_to_reminder

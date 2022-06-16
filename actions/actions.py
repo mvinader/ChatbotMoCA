@@ -58,6 +58,63 @@ class ActionResultadoPrueba1(Action):
 
         return [SlotSet("res_prueba1", resultado), SlotSet("res_final", resultado_final)]
 
+class ActionResultadoAnimal1(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_animal1"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        resultado_prueba = tracker.get_slot("animal1")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+
+        if resultado_prueba == "león":
+            resultado = 1
+            resultado_final = resultado_final_contenedor + resultado
+
+        return [SlotSet("res_final", resultado_final)]
+
+class ActionResultadoAnimal2(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_animal2"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        resultado_prueba = tracker.get_slot("animal2")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+
+        if resultado_prueba == "rinoceronte":
+            resultado = 1
+            resultado_final = resultado_final_contenedor + resultado
+
+        return [SlotSet("res_final", resultado_final)]
+
+class ActionResultadoAnimal3(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_animal3"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        resultado_prueba = tracker.get_slot("animal3")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+
+        if resultado_prueba == "camello" | resultado_prueba == "dromedario":
+            resultado = 1
+            resultado_final = resultado_final_contenedor + resultado
+
+        return [SlotSet("res_final", resultado_final)]
+
 class ActionSetReminder(Action):
     # set a timer for the user
     def name(self) -> Text:

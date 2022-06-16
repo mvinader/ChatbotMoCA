@@ -37,7 +37,7 @@ stories:
   - intent: afirmación
   - checkpoint: final_preguntar_estudios
   
-- story: enunciado_prueba1
+- story: prueba1_enunciado
   steps:
   - checkpoint: final_preguntar_estudios
   - action: utter_prueba1
@@ -50,9 +50,9 @@ stories:
   - action: utter_prueba1
   - checkpoint: final_enunciado_prueba1
   - intent: serie_alfanumérica
-  #- slot_was_set:
-  #  - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
   - action: action_resultado_prueba1_bien
+  - slot_was_set:
+    - serie_alfanumérica
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba1
@@ -61,62 +61,94 @@ stories:
   steps:
   - checkpoint: final_enunciado_prueba1
   - intent: serie_alfanumérica
-  #- slot_was_set:
-  #  - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
   - action: action_resultado_prueba1_bien
+  - slot_was_set:
+    - serie_alfanumérica:
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba1
 
-#- story: prueba1_mal
-#  steps:
-#  - checkpoint: final_enunciado_prueba1
-#  - intent: serie_alfanumérica
-#  - action: action_resultado_prueba1_mal
-#  - action: utter_siguiente
-#  - intent: afirmación
-#  - checkpoint: final_prueba1
-
-- story: prueba4
+- story: prueba4_enunciado
   steps:
   - checkpoint: final_prueba1
+  - action: utter_prueba4
+  - checkpoint: final_enunciado_prueba4
+
+- story: prueba4_ayuda
+  steps:
+  - checkpoint: final_enunciado_prueba4
+  - intent: ayuda
   - action: utter_prueba4
   - action: utter_prueba4_león
   - intent: animal1
   - action: action_resultado_animal1
   - slot_was_set:
-    - res_prueba4: 1
+    - animal1
   - action: utter_prueba4_rinoceronte
   - intent: animal2
   - action: action_resultado_animal2
   - slot_was_set:
-    - res_prueba4: 2
+    - animal2
   - action: utter_prueba4_camello
   - intent: animal3
   - action: action_resultado_animal3
   - slot_was_set:
-    - res_prueba4: 3
+    - animal3
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba4
 
-- story: prueba5
+- story: prueba4_bien
+  steps:
+  - checkpoint: final_enunciado_prueba4
+  - action: utter_prueba4_león
+  - intent: animal1
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - animal1
+  - action: utter_prueba4_rinoceronte
+  - intent: animal2
+  - action: action_resultado_animal2
+  - slot_was_set:
+    - animal2
+  - action: utter_prueba4_camello
+  - intent: animal3
+  - action: action_resultado_animal3
+  - slot_was_set:
+    - animal3
+  - action: utter_siguiente
+  - intent: afirmación
+  - checkpoint: final_prueba4
+
+- story: prueba5_enunciado
+  steps:
+  - checkpoint: final_prueba4
+  - action: utter_prueba5_explicación
+  - checkpoint: final_prueba5_enunciado
+
+- story: prueba5_ayuda
   steps:
   - checkpoint: final_prueba4
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
   - intent: memoria
-    entities:
-    - lista_memoria: rostro, seda, templo, clavel, rojo
-  - slot_was_set:
-    - lista_memoria: rostro, seda, templo, clavel, rojo
   - action: utter_prueba5_repetición_1
   - action: utter_lista_memoria
   - intent: memoria
-    entities:
-    - lista_memoria: seda, clavel, rojo
-  - slot_was_set:
-    - lista_memoria: seda, clavel, rojo
+  - action: utter_prueba5_repetición_2
+  - action: utter_siguiente
+  - intent: afirmación
+  - checkpoint: final_prueba5
+
+- story: prueba5_bien
+  steps:
+  - checkpoint: final_prueba4
+  - action: utter_prueba5_explicación
+  - action: utter_lista_memoria
+  - intent: memoria
+  - action: utter_prueba5_repetición_1
+  - action: utter_lista_memoria
+  - intent: memoria
   - action: utter_prueba5_repetición_2
   - action: utter_siguiente
   - intent: afirmación

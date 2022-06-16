@@ -99,21 +99,22 @@ nlu:
 
 - intent: animal1
   examples: |
-    - león
-    - un león
+    - [león] (animal1)
+    - un [león] (animal1)
 
 - intent: animal2
   examples: |
-    - rinoceronte
-    - un rinoceronte
+    - [rinoceronte] (animal2)
+    - un [rinoceronte] (animal2)
 
 - intent: animal3
   examples: |
-    - camello
-    - un camello
-    - dromedario
-    - un dromedario
-    - no sé si un camello o un dromedario
+    - [camello] (animal3)
+    - un [camello] (animal3)
+    - [dromedario] (animal3)
+    - un [dromedario] (animal3)
+    - no sé si un [camello] (animal3) o un [dromedario] (animal3)
+    - o un [camello] (animal3) o un [dromedario] (animal3)
 
 - intent: memoria
   examples: |
