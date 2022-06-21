@@ -38,3 +38,4 @@ policies:
      max_history: 50
      epochs: 100
    - name: RulePolicy
+   - name: FormPolicy

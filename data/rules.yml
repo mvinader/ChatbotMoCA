@@ -8,6 +8,37 @@ rules:
   - intent: negación
   - action: utter_despedida
 
+- rule: activar fecha_form
+  steps:
+  - action: utter_prueba11_fecha
+  - action: fecha_form
+  - active_loop: fecha_form
+
+- rule: entregar fecha_form
+  # Asegurarse de que se empieza desde un bucle activo
+  condition:
+  - active_loop: fecha_form
+  steps:
+  - action: fecha_form
+  # Si no se necesitan más slots
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # Entregar el formulario
+  - action: utter_prueba11_lugar
+
+- rule: interrupción en fecha_form
+  condition:
+  # Condición para que el formulario esté activo
+  - active_loop: fecha_form
+  steps:
+  # Unhappy path
+  - intent: probar_chatbot
+  - action: utter_prueba_chatbot
+  # Se vuelve al formulario
+  - action: fecha_form
+  - active_loop: fecha_form
+
 #- rule: Schedule a reminder
 #  steps:
 #  - intent: ask_remind_call

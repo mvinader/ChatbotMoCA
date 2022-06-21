@@ -39,11 +39,14 @@ entities:
   - lista_memoria
   - serie_números_directo
   - serie_números_inverso
+  - resultado_As
   - serie_7
+  - día
+  - número_fecha
+  - mes
+  - año
   - fecha
   - lugar
-  - res_prueba1
-  - res_prueba4
   - res_final
 
 slots:
@@ -61,17 +64,6 @@ slots:
     mappings:
       - type: from_entity
         entity: serie_alfanumérica
-        intent: serie_alfanumérica
-
-  res_prueba1:
-    type: float
-    initial_value: 0
-    influence_conversation: false
-    min_value: 0.0
-    max_value: 1.0
-    mappings:
-      - type: from_entity
-        entity: res_prueba1
         intent: serie_alfanumérica
 
   animal1:
@@ -98,16 +90,6 @@ slots:
         entity: animal3
         intent: animal3
 
-  res_prueba4:
-    type: float
-    initial_value: 0
-    influence_conversation: true    
-    min_value: 0.0
-    max_value: 3.0
-    mappings:
-      - type: from_entity
-        entity: res_prueba4
-
   lista_memoria:
     type: list
     influence_conversation: true
@@ -116,6 +98,57 @@ slots:
         entity: lista_memoria
         intent: memoria
 
+  resultado_As:
+    type: float
+    influence_conversation: true
+    initial_value: 0
+    min_value: 0.0
+    mappings:
+      - type: from_entity
+        entity: resultado_As
+        intent: serie_letras
+
+  día:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: día
+        intent: fecha_correcta
+
+  número_fecha:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: número_fecha
+        intent: fecha_correcta
+
+  mes:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: mes
+        intent: fecha_correcta
+
+  año:
+    type: float
+    initial_value: 1800
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: año
+        intent: fecha_correcta
+
+  fecha:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: fecha
+        conditions:
+        - active_loop: fecha_form
 
   res_final:
     type: float
@@ -125,6 +158,15 @@ slots:
     mappings:
       - type: from_entity
         entity: res_final
+
+forms:
+  fecha_form:
+    required_slots:
+    - día
+    - número
+    - mes
+    - año
+
 
 responses:
   utter_prueba_chatbot:
@@ -244,55 +286,7 @@ responses:
   utter_prueba6_serie_letras_secuencia:
   - text: |
       "F, B, A, C, M, N, A, A, J, K, L, B, A, F, A, K, D, E, A, A, A, J, A, M, O, F, A, A, B." 
-  
-  #utter_prueba6_letra1:
-  #- text: |
-  #    "F, B, A" 
-#
-  #utter_prueba6_letra2:
-  #- text: |
-  #    "C, M, N, A" 
-#
-  #utter_prueba6_letra3:
-  #- text: |
-  #    "A" 
-#
-  #utter_prueba6_letra4:
-  #- text: |
-  #    "J, K, L, B, A" 
-  #
-  #utter_prueba6_letra5:
-  #- text: |
-  #    "F, A" 
-  #
-  #utter_prueba6_letra6:
-  #- text: |
-  #    "K, D, E, A" 
-  #
-  #utter_prueba6_letra7:
-  #- text: |
-  #    "A" 
-#
-  #utter_prueba6_letra8:
-  #- text: |
-  #    "A" 
-#
-  #utter_prueba6_letra9:
-  #- text: |
-  #    "J, A" 
-#
-  #utter_prueba6_letra10:
-  #- text: |
-  #    "M, O, F, A" 
-#
-  #utter_prueba6_letra11:
-  #- text: |
-  #    "A" 
-#
-  #utter_prueba6_letra12:
-  #- text: |
-  #    "B" 
-
+ 
   utter_prueba6_serie_7_explicación:
   - text: |
       "Ahora me gustaría que restara 7 de 100 y que continuara restando 7 a la cifra de su respuesta anterior hasta que le pida que pare."
@@ -344,14 +338,10 @@ responses:
   utter_prueba10:
    - text: |
       "Antes le he leído una serie de palabras y le he pedido que las recordase. Dígame ahora todas las palabras de las que se acuerde."
-
+ 
   utter_prueba11_fecha:
    - text: |
-      "Dígame en qué fecha estamos hoy."
- 
-  utter_prueba11_fecha_aclaración:
-   - text: |
-      "Dígame el año, el mes, la fecha exacta y el día de la semana."
+      "Cierre los ojos y Dígame el año, el mes, la fecha exacta y el día de la semana."
 
   utter_prueba11_lugar:
    - text: |
@@ -373,9 +363,14 @@ actions:
   - action_resultado_animal1
   - action_resultado_animal2
   - action_resultado_animal3
-  - action_resultado_prueba10
+  - action_resultado_serie_letras
+
+
+
   - action_set_reminder
   - action_react_to_reminder
+  - action_resultado_prueba10
+  - action_resultado_fecha
 
 session_config:
   session_expiration_time: 60

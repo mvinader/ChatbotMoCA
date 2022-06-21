@@ -138,7 +138,25 @@ nlu:
 
 - intent: serie_letras
   examples: |
-    - A
+    - [1] (resultado_As)
+    - [2] (resultado_As)
+#   - 3 (resultado_As)
+    #- 4 (resultado_As)
+    #- 5 (resultado_As)
+    #- 6 (resultado_As)
+    #- 7 (resultado_As)
+    #- 9 (resultado_As)
+    #- 10 (resultado_As)
+    #- uno (resultado_As)
+    #- dos (resultado_As)
+    #- tres (resultado_As)
+    #- cuatro (resultado_As)
+    #- cinco (resultado_As)
+    #- seis (resultado_As)
+    #- siete (resultado_As)
+    #- ocho (resultado_As)
+    #- nueve (resultado_As)
+    #- diez (resultado_As)
 
 - intent: serie_7
   examples: |
@@ -198,9 +216,9 @@ nlu:
 
 - intent: fecha_correcta
   examples: |
-    - Hoy es [2022, mayo, 29, domingo] (fecha)
-    - [2022, mayo, 29, domingo] (fecha)
-    - La fecha de hoy es [2022, mayo, 29, domingo] (fecha)
+    - Hoy es [2022] (año), [mayo] (mes), [29] (número_fecha), [domingo] (día)
+    - [2022] (año), [mayo] (mes), [29] (número_fecha), [domingo] (día)
+    - La fecha de hoy es [2022] (año), [mayo] (mes), [29] (número_fecha), [domingo] (día)
 
 - intent: fecha_incorrecta
   examples: |
