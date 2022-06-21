@@ -246,6 +246,7 @@ nlu:
 - intent: ayuda
   examples: |
     - ayuda
+    - ayúdame
     - no lo entiendo
     - repite
     - por favor, repítemelo

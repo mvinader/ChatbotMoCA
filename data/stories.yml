@@ -48,7 +48,6 @@ stories:
   - checkpoint: final_enunciado_prueba1
   - intent: ayuda
   - action: utter_prueba1
-  - checkpoint: final_enunciado_prueba1
   - intent: serie_alfanumérica
   - action: action_resultado_prueba1_bien
   - slot_was_set:
@@ -128,7 +127,8 @@ stories:
 
 - story: prueba5_ayuda
   steps:
-  - checkpoint: final_prueba4
+  - checkpoint: final_prueba5_enunciado
+  - intent: ayuda
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
   - intent: memoria
@@ -142,8 +142,7 @@ stories:
 
 - story: prueba5_bien
   steps:
-  - checkpoint: final_prueba4
-  - action: utter_prueba5_explicación
+  - checkpoint: final_prueba5_enunciado
   - action: utter_lista_memoria
   - intent: memoria
   - action: utter_prueba5_repetición_1
@@ -164,13 +163,175 @@ stories:
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números_inverso
   - action: utter_prueba6_serie_letras_explicación
-  - intent: serie_letras
-  - action: utter_prueba6_serie_7_explicación
-  - intent: serie_7
-  - action: utter_parar_prueba6
-  - action: utter_siguiente
-  - intent: afirmación
+  - action: utter_prueba6_serie_letras_secuencia
+  # OJOOOOOOO
+  - action: utter_prueba6_letra1
   - checkpoint: final_prueba6
+
+#- story: prueba6_letra2_mal
+#  steps:
+#  - checkpoint: prueba6_letra1
+#  - intent: negación
+#  - action: utter_prueba6_letra2
+#  - checkpoint: prueba6_letra2
+#
+#- story: prueba6_letra2_bien
+#  steps:
+#  - checkpoint: prueba6_letra1
+#  - intent: afirmación
+#  - action: utter_prueba6_letra2
+#  - checkpoint: prueba6_letra2
+#
+#- story: prueba6_letra3_mal
+#  steps:
+#  - checkpoint: prueba6_letra2
+#  - intent: negación
+#  - action: utter_prueba6_letra3
+#  - checkpoint: prueba6_letra3
+#
+#- story: prueba6_letra3_bien
+#  steps:
+#  - checkpoint: prueba6_letra2
+#  - intent: afirmación
+#  - action: utter_prueba6_letra3
+#  - checkpoint: prueba6_letra3
+#
+#- story: prueba6_letra4_mal
+#  steps:
+#  - checkpoint: prueba6_letra3
+#  - intent: negación
+#  - action: utter_prueba6_letra4
+#  - checkpoint: prueba6_letra4
+#
+#- story: prueba6_letra4_bien
+#  steps:
+#  - checkpoint: prueba6_letra3
+#  - intent: afirmación
+#  - action: utter_prueba6_letra4
+#  - checkpoint: prueba6_letra4
+#
+#- story: prueba6_letra5_mal
+#  steps:
+#  - checkpoint: prueba6_letra4
+#  - intent: negación
+#  - action: utter_prueba6_letra5
+#  - checkpoint: prueba6_letra5
+#
+#- story: prueba6_letra5_bien
+#  steps:
+#  - checkpoint: prueba6_letra4
+#  - intent: afirmación
+#  - action: utter_prueba6_letra5
+#  - checkpoint: prueba6_letra5
+#
+#- story: prueba6_letra6_mal
+#  steps:
+#  - checkpoint: prueba6_letra5
+#  - intent: negación
+#  - action: utter_prueba6_letra6
+#  - checkpoint: prueba6_letra6
+#
+#- story: prueba6_letra6_bien
+#  steps:
+#  - checkpoint: prueba6_letra5
+#  - intent: afirmación
+#  - action: utter_prueba6_letra6
+#  - checkpoint: prueba6_letra6
+#
+#- story: prueba6_letra7_mal
+#  steps:
+#  - checkpoint: prueba6_letra6
+#  - intent: negación
+#  - action: utter_prueba6_letra7
+#  - checkpoint: prueba6_letra7
+#
+#- story: prueba6_letra7_bien
+#  steps:
+#  - checkpoint: prueba6_letra6
+#  - intent: afirmación
+#  - action: utter_prueba6_letra7
+#  - checkpoint: prueba6_letra7
+#
+#- story: prueba6_letra8_mal
+#  steps:
+#  - checkpoint: prueba6_letra7
+#  - intent: negación
+#  - action: utter_prueba6_letra8
+#  - checkpoint: prueba6_letra8
+#
+#- story: prueba6_letra8_bien
+#  steps:
+#  - checkpoint: prueba6_letra7
+#  - intent: negación
+#  - action: utter_prueba6_letra8
+#  - checkpoint: prueba6_letra8
+#
+#- story: prueba6_letra9_mal
+#  steps:
+#  - checkpoint: prueba6_letra8
+#  - intent: negación
+#  - action: utter_prueba6_letra9
+#  - checkpoint: prueba6_letra9
+#
+#- story: prueba6_letra9_bien
+#  steps:
+#  - checkpoint: prueba6_letra8
+#  - intent: afirmación
+#  - action: utter_prueba6_letra9
+#  - checkpoint: prueba6_letra9
+#
+#- story: prueba6_letra10_mal
+#  steps:
+#  - checkpoint: prueba6_letra9
+#  - intent: negación
+#  - action: utter_prueba6_letra10
+#  - checkpoint: prueba6_letra10
+#
+#- story: prueba6_letra10_bien
+#  steps:
+#  - checkpoint: prueba6_letra9
+#  - intent: afirmación
+#  - action: utter_prueba6_letra10
+#  - checkpoint: prueba6_letra10
+#
+#- story: prueba6_letra11_mal
+#  steps:
+#  - checkpoint: prueba6_letra10
+#  - intent: negación
+#  - action: utter_prueba6_letra11
+#  - checkpoint: prueba6_letra11
+#
+#- story: prueba6_letra11_bien
+#  steps:
+#  - checkpoint: prueba6_letra10
+#  - intent: afirmación
+#  - action: utter_prueba6_letra11
+#  - checkpoint: prueba6_letra11
+#
+#- story: prueba6_letra12_mal
+#  steps:
+#  - checkpoint: prueba6_letra11
+#  - intent: negación
+#  - action: utter_prueba6_letra12
+#  - checkpoint: prueba6_letra12
+#
+#- story: prueba6_letra12_mal
+#  steps:
+#  - checkpoint: prueba6_letra11
+#  - intent: afirmación
+#  - action: utter_prueba6_letra12
+#  - checkpoint: prueba6_letra12
+#
+#- story: prueba6_serie_letras
+#  steps:
+#  - checkpoint: prueba6_letra12
+#  - intent: serie_letras
+#  - action: utter_prueba6_serie_7_explicación
+#  - intent: serie_7
+#  - action: utter_parar_prueba6
+#  - action: utter_siguiente
+#  - intent: afirmación
+#  - checkpoint: final_prueba6
 
 - story: prueba7
   steps:

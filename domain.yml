@@ -244,6 +244,54 @@ responses:
   utter_prueba6_serie_letras_secuencia:
   - text: |
       "F, B, A, C, M, N, A, A, J, K, L, B, A, F, A, K, D, E, A, A, A, J, A, M, O, F, A, A, B." 
+  
+  #utter_prueba6_letra1:
+  #- text: |
+  #    "F, B, A" 
+#
+  #utter_prueba6_letra2:
+  #- text: |
+  #    "C, M, N, A" 
+#
+  #utter_prueba6_letra3:
+  #- text: |
+  #    "A" 
+#
+  #utter_prueba6_letra4:
+  #- text: |
+  #    "J, K, L, B, A" 
+  #
+  #utter_prueba6_letra5:
+  #- text: |
+  #    "F, A" 
+  #
+  #utter_prueba6_letra6:
+  #- text: |
+  #    "K, D, E, A" 
+  #
+  #utter_prueba6_letra7:
+  #- text: |
+  #    "A" 
+#
+  #utter_prueba6_letra8:
+  #- text: |
+  #    "A" 
+#
+  #utter_prueba6_letra9:
+  #- text: |
+  #    "J, A" 
+#
+  #utter_prueba6_letra10:
+  #- text: |
+  #    "M, O, F, A" 
+#
+  #utter_prueba6_letra11:
+  #- text: |
+  #    "A" 
+#
+  #utter_prueba6_letra12:
+  #- text: |
+  #    "B" 
 
   utter_prueba6_serie_7_explicación:
   - text: |
