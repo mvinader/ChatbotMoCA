@@ -67,9 +67,47 @@ stories:
   - intent: afirmación
   - checkpoint: final_prueba1
 
-- story: prueba4_enunciado
+- story: prueba2_enunciado
   steps:
   - checkpoint: final_prueba1
+  - action: utter_prueba2_enunciado
+  - checkpoint: final_enunciado_prueba2
+
+- story: prueba2_ayuda
+  steps:
+  - checkpoint: final_enunciado_prueba2
+  - intent: ayuda
+  - action: utter_prueba2_enunciado
+  - action: utter_prueba2_imagen
+  - action: action_set_reminder
+  - intent: lista_objetos
+  - action: action_react_to_reminder
+  #- intent: serie_alfanumérica
+  #- action: action_resultado_prueba1_bien
+  #- slot_was_set:
+  #  - serie_alfanumérica
+  - action: utter_siguiente
+  - intent: afirmación
+  - checkpoint: final_prueba2
+
+- story: prueba2_bien
+  steps:
+  - checkpoint: final_enunciado_prueba2
+  - action: utter_prueba2_imagen
+  - action: action_set_reminder
+  - intent: lista_objetos
+  - action: action_react_to_reminder
+  #- intent: serie_alfanumérica
+  #- action: action_resultado_prueba1_bien
+  #- slot_was_set:
+  #  - serie_alfanumérica
+  - action: utter_siguiente
+  - intent: afirmación
+  - checkpoint: final_prueba2
+
+- story: prueba4_enunciado
+  steps:
+  - checkpoint: final_prueba2
   - action: utter_prueba4
   - checkpoint: final_enunciado_prueba4
 
