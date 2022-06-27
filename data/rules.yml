@@ -64,4 +64,4 @@ rules:
 - rule: Decir "soy un chatbot" siempre que el usuario lo pruebe
   steps:
   - intent: probar_chatbot
-  - action: utter_soy_un_chatbot
+  - action: utter_prueba_chatbot

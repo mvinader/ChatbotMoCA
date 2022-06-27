@@ -206,6 +206,13 @@ stories:
   - action: action_resultado_serie_letras
   - slot_was_set:
     - resultado_As
+  - action: utter_prueba6_serie_7_explicación
+  - action: action_set_reminder
+  - intent: serie_7
+  - action: action_react_to_reminder
+  - action: utter_parar_prueba6
+  - action: utter_siguiente
+  - intent: afirmación
   - checkpoint: final_prueba6
 
 - story: prueba7
