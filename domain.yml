@@ -5,9 +5,9 @@ intents:
   - saludo  
   - afirmación
   - negación
-  - avance
+  #- avance
   - presentación_nombre
-  - dudas
+  #- dudas
   - serie_alfanumérica
   - lista_objetos
   - animal1
@@ -29,7 +29,7 @@ intents:
   - lugar
   - despedida
   - abandono
-  - ayuda
+  #- ayuda
 
 entities:
   - nombre

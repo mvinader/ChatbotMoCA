@@ -60,14 +60,14 @@ nlu:
     - me niego
     - no quiero
 
-- intent: avance
-  examples: |
-    - vamos allá
-    - siguiente
-    - avanza
-    - preparado
-    - dale
-    - venga
+#- intent: avance
+#  examples: |
+#    - vamos allá
+#    - siguiente
+#    - avanza
+#    - preparado
+#    - dale
+#    - venga
 
 - intent: presentación_nombre
   examples: |
@@ -82,15 +82,15 @@ nlu:
     - me llaman [Marta] (nombre)
     - me llaman [Marta Vinader] (nombre)
 
-- intent: dudas
-  examples: |
-    - no sé
-    - no lo sé
-    - ni idea
-    - no tengo ni idea
-    - yo qué sé
-    - a saber
-    - vete tú a saber
+#- intent: dudas
+#  examples: |
+#    - no sé
+#    - no lo sé
+#    - ni idea
+#    - no tengo ni idea
+#    - yo qué sé
+#    - a saber
+#    - vete tú a saber
 
 - intent: serie_alfanumérica
   examples: |
@@ -204,7 +204,6 @@ nlu:
     - fábula
     - fabuloso
     - fiera
-    - fruta
 
 - intent: frutas
   examples: |
@@ -270,12 +269,12 @@ nlu:
     - no quiero seguir
     - no quiero continuar
 
-- intent: ayuda
-  examples: |
-    - ayuda
-    - ayúdame
-    - no lo entiendo
-    - repite
-    - por favor, repítemelo
-    - necesito escucharlo otra vez
-    - ¿me lo puedes repetir?
+#- intent: ayuda
+#  examples: |
+#    - ayuda
+#    - ayúdame
+#    - no lo entiendo
+#    - repite
+#    - por favor, repítemelo
+#    - necesito escucharlo otra vez
+#    - ¿me lo puedes repetir?
