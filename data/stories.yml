@@ -43,8 +43,8 @@ stories:
   - action: utter_prueba1
   - intent: serie_alfanumérica
   - action: action_resultado_prueba1_bien
-  - slot_was_set:
-    - serie_alfanumérica
+  #- slot_was_set:
+  #  - serie_alfanumérica
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba1
@@ -57,10 +57,6 @@ stories:
   - action: action_set_reminder
   - intent: lista_objetos
   - action: action_react_to_reminder
-  #- intent: serie_alfanumérica
-  #- action: action_resultado_prueba1_bien
-  #- slot_was_set:
-  #  - serie_alfanumérica
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba2
@@ -72,18 +68,18 @@ stories:
   - action: utter_prueba4_león
   - intent: animal1
   - action: action_resultado_animal1
-  - slot_was_set:
-    - animal1
+  #- slot_was_set:
+  #  - animal1
   - action: utter_prueba4_rinoceronte
   - intent: animal2
   - action: action_resultado_animal2
-  - slot_was_set:
-    - animal2
+  #- slot_was_set:
+  #  - animal2
   - action: utter_prueba4_camello
   - intent: animal3
   - action: action_resultado_animal3
-  - slot_was_set:
-    - animal3
+  #- slot_was_set:
+  #  - animal3
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba4
@@ -115,8 +111,8 @@ stories:
   - action: utter_prueba6_serie_letras_secuencia
   - intent: serie_letras
   - action: action_resultado_serie_letras
-  - slot_was_set:
-    - resultado_As
+  #- slot_was_set:
+  #  - resultado_As
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder
   - intent: serie_7

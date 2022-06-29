@@ -62,7 +62,7 @@ slots:
 
   serie_alfanumérica:
     type: list
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: serie_alfanumérica
@@ -70,7 +70,7 @@ slots:
 
   animal1:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: animal1
@@ -78,7 +78,7 @@ slots:
   
   animal2:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: animal2
@@ -86,7 +86,7 @@ slots:
   
   animal3:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: animal3
@@ -94,7 +94,7 @@ slots:
 
   lista_memoria:
     type: list
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: lista_memoria
@@ -102,7 +102,7 @@ slots:
 
   resultado_As:
     type: float
-    influence_conversation: true
+    influence_conversation: false
     initial_value: 0
     min_value: 0.0
     mappings:
@@ -139,7 +139,7 @@ slots:
   año:
     type: float
     #initial_value: 1800
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: año
