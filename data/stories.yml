@@ -127,8 +127,10 @@ stories:
   - checkpoint: final_prueba6
   - action: utter_prueba7_1
   - intent: frase_1
+  - action: action_resultado_prueba7_1
   - action: utter_prueba7_2
   - intent: frase_2
+  - action: action_resultado_prueba7_2
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba7
@@ -142,6 +144,7 @@ stories:
   - intent: palabras_F
   - action: action_react_to_reminder
   - action: utter_parar_prueba8
+  - action: action_resultado_prueba8
   - action: utter_siguiente
   - intent: afirmación
   - checkpoint: final_prueba8

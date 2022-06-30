@@ -25,7 +25,7 @@ intents:
   - para_viajar
   - para_medir
   - fecha_correcta
-  - fecha_incorrecta
+  #- fecha_incorrecta
   - lugar
   - despedida
   - abandono
@@ -43,6 +43,7 @@ entities:
   - serie_números_inverso
   - resultado_As
   - serie_7
+  - lista_F
   - día
   - número_fecha
   - mes
@@ -110,6 +111,14 @@ slots:
         entity: resultado_As
         intent: serie_letras
 
+  lista_F:
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: lista_F
+        intent: palabras_F
+
   día:
     type: text
     influence_conversation: true
@@ -121,7 +130,7 @@ slots:
 
   número_fecha:
     type: float
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: número_fecha
@@ -138,7 +147,6 @@ slots:
         - active_loop: fecha_form
   año:
     type: float
-    #initial_value: 1800
     influence_conversation: false
     mappings:
       - type: from_entity
@@ -331,13 +339,13 @@ responses:
   - text: |
       "Sí, las dos pertenecen a esta categoría de frutas."
 
-  utter_prueba9_pista_1:
-   - text: |
-      "Dígame otra categoría a la que también puedan pertenecer estas cosas."
-
-  utter_prueba9_incorrecto_1:
-   - text: |
-      "Sí y las dos pertenecen también a la categoría de frutas."
+  #utter_prueba9_pista_1:
+  # - text: |
+  #    "Dígame otra categoría a la que también puedan pertenecer estas #cosas."
+#
+  #utter_prueba9_incorrecto_1:
+  # - text: |
+  #    "Sí y las dos pertenecen también a la categoría de frutas."
 
   utter_prueba9_enunciado_2:
    - text: |
@@ -417,6 +425,9 @@ actions:
   - action_resultado_animal2
   - action_resultado_animal3
   - action_resultado_serie_letras
+  - action_resultado_prueba7_1
+  - action_resultado_prueba7_2
+  - action_resultado_prueba8
 
   - action_set_reminder
   - action_react_to_reminder

@@ -135,6 +135,44 @@ class ActionResultadoSerieLetras(Action):
 
         return [SlotSet("resultado_As", resultado_6_A), SlotSet("res_final", resultado_final)]
 
+class ActionResultadoPrueba7_1(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_prueba7_1"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: DomainDict) -> List[Dict[Text, Any]]:
+            
+        resultado_7 = tracker.latest_message["intent"].get("name")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+
+        if resultado_7 == "frase_1":
+            resultado = 1
+            resultado_final = resultado_final_contenedor + resultado
+
+        return [SlotSet("res_final", resultado_final)]
+
+class ActionResultadoPrueba7_2(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_prueba7_2"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: DomainDict) -> List[Dict[Text, Any]]:
+            
+        resultado_7 = tracker.latest_message["intent"].get("name")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+
+        if resultado_7 == "frase_2":
+            resultado = 1
+            resultado_final = resultado_final_contenedor + resultado
+
+        return [SlotSet("res_final", resultado_final)]
+
 class ActionSetReminder(Action):
     # set a timer for the user
     def name(self) -> Text:
@@ -169,6 +207,26 @@ class ActionReactToReminder(Action):
         dispatcher.utter_message(f"Pare.")
 
         return []
+
+class ActionResultadoPrueba8(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_prueba8"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain:  Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        resultado_8 = tracker.get_slot("lista_F")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+        #topicList:['topic_1', 'topic_2']
+
+        if len(resultado_8) >= 11:
+            resultado = 1
+            resultado_final = resultado_final_contenedor + resultado
+
+        return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba10(Action):
     # return the name of the action

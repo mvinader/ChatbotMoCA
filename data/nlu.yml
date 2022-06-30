@@ -181,29 +181,10 @@ nlu:
 
 - intent: palabras_F
   examples: |
-    - flor
-    - florero
-    - florista
-    - florería
-    - farola
-    - farolillo
-    - feliz
-    - felicidad
-    - felpa
-    - felpudo
-    - fiesta
-    - festejar
-    - festejo
-    - festivo
-    - funambulista
-    - frenesí
-    - fresa
-    - fresón
-    - filipino
-    - ficha
-    - fábula
-    - fabuloso
-    - fiera
+    - [flor] (lista_F), farola (lista_F), feliz (lista_F), felpa (lista_F), fieltro (lista_F), fiesta (lista_F), funambulista (lista_F), frenesí (lista_F), fresa (lista_F)
+    - [florero] (lista_F), farolillo (lista_F), felicidad, felpudo (lista_F), festejar (lista_F), fresón (lista_F), fábula (lista_F), feroz (lista_F)
+    - [florista] (lista_F), festejo (lista_F), filipino (lista_F), fabuloso (lista_F)
+    - [florería] (lista_F), festivo (lista_F), ficha (lista_F), fiera (lista_F)
 
 - intent: frutas
   examples: |
@@ -227,13 +208,14 @@ nlu:
     - Hoy es [2022] (año), [mayo] (mes), [29] (número_fecha), [domingo] (día)
     - [2022] (año), [mayo] (mes), [29] (número_fecha), [domingo] (día)
     - La fecha de hoy es [2022] (año), [mayo] (mes), [29] (número_fecha), [domingo] (día)
+    - Estamos a [2022] (año), [mayo] (mes), [29] (número_fecha), [domingo] (día)
 
-- intent: fecha_incorrecta
-  examples: |
-    - Hoy es [domingo] (fecha)
-    - [29 de mayo] (fecha)
-    - [domingo] (fecha)
-    - Estamos en [2022] (fecha)
+#- intent: fecha_incorrecta
+#  examples: |
+#    - Hoy es [domingo] (fecha)
+#    - [29 de mayo] (fecha)
+#    - [domingo] (fecha)
+#    - Estamos en [2022] (fecha)
 
 - intent: lugar
   examples: |
