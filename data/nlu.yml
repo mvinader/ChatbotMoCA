@@ -181,10 +181,10 @@ nlu:
 
 - intent: palabras_F
   examples: |
-    - [flor] (lista_F), farola (lista_F), feliz (lista_F), felpa (lista_F), fieltro (lista_F), fiesta (lista_F), funambulista (lista_F), frenesí (lista_F), fresa (lista_F)
-    - [florero] (lista_F), farolillo (lista_F), felicidad, felpudo (lista_F), festejar (lista_F), fresón (lista_F), fábula (lista_F), feroz (lista_F)
-    - [florista] (lista_F), festejo (lista_F), filipino (lista_F), fabuloso (lista_F)
-    - [florería] (lista_F), festivo (lista_F), ficha (lista_F), fiera (lista_F)
+    - [flor] (lista_F), [farola] (lista_F), [feliz] (lista_F), [felpa] (lista_F), [fieltro] (lista_F), [fiesta] (lista_F), [funambulista] (lista_F), [frenesí] (lista_F)
+    - [florero] (lista_F), [farolillo] (lista_F), [felicidad] (lista_F), [felpudo] (lista_F), [festejar] (lista_F), [fresón] (lista_F), [fábula] (lista_F), [feroz] (lista_F)
+    - [florista] (lista_F), [festejo] (lista_F), [filipino] (lista_F), [fabuloso] (lista_F), [fresa] (lista_F)
+    - [florería] (lista_F), [festivo] (lista_F), [ficha] (lista_F), [fiera] (lista_F)
 
 - intent: frutas
   examples: |

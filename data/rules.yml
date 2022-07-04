@@ -22,9 +22,9 @@ rules:
   - action: fecha_form
   # Si no se necesitan más slots
   - active_loop: null
-  - slot_was_set:
+  - slot_was_set:   # ToDo: comprobar si está bien
     - requested_slot: null
-  # Entregar el formulario
+  # Acciones a llevar a cabo cuando se entrega el formulario
   - action: utter_prueba11_lugar
 
 - rule: interrupción en fecha_form
