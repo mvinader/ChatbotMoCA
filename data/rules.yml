@@ -2,42 +2,42 @@ version: "3.1"
 
 rules:
 
-- rule: Saludar siempre que el usuario salude
-  steps:
-  - action: utter_siguiente
-  - intent: negación
-  - action: utter_despedida
+#- rule: Saludar siempre que el usuario salude
+#  steps:
+#  - intent: saludo
+#  - action: utter_saludo
 
-- rule: activar fecha_form
-  steps:
-  - action: utter_prueba11_fecha
-  - action: fecha_form
-  - active_loop: fecha_form
-
-- rule: entregar fecha_form
-  # Asegurarse de que se empieza desde un bucle activo
-  condition:
-  - active_loop: fecha_form
-  steps:
-  - action: fecha_form
-  # Si no se necesitan más slots
-  - active_loop: null
-  - slot_was_set:   # ToDo: comprobar si está bien
-    - requested_slot: null
-  # Acciones a llevar a cabo cuando se entrega el formulario
-  - action: utter_prueba11_lugar
-
-- rule: interrupción en fecha_form
-  condition:
-  # Condición para que el formulario esté activo
-  - active_loop: fecha_form
-  steps:
-  # Unhappy path
-  - intent: probar_chatbot
-  - action: utter_prueba_chatbot
-  # Se vuelve al formulario
-  - action: fecha_form
-  - active_loop: fecha_form
+#- rule: activar fecha_form
+#  steps:
+#  - action: utter_prueba11_fecha
+#  - action: fecha_form
+#  - active_loop: fecha_form
+#
+#- rule: entregar fecha_form
+#  # Asegurarse de que se empieza desde un bucle activo
+#  condition:
+#  - active_loop: fecha_form
+#  steps:
+#  - action: fecha_form
+#  # Si no se necesitan más slots
+#  - active_loop: null
+#  - slot_was_set:   # ToDo: comprobar si está bien
+#    - requested_slot: null
+#  # Acciones a llevar a cabo cuando se entrega el formulario
+#  - action: action_resultado_fecha
+#  - action: utter_prueba11_lugar
+#
+#- rule: interrupción en fecha_form
+#  condition:
+#  # Condición para que el formulario esté activo
+#  - active_loop: fecha_form
+#  steps:
+#  # Unhappy path
+#  - intent: probar_chatbot
+#  - action: utter_prueba_chatbot
+#  # Se vuelve al formulario
+#  - action: fecha_form
+#  - active_loop: fecha_form
 
 #- rule: Schedule a reminder
 #  steps:

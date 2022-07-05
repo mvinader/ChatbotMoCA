@@ -24,6 +24,21 @@ import datetime, locale
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+
+class ActionNombre(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_nombre"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        nombre = tracker.slots.get("nombre")
+
+        return [SlotSet("nombre", nombre)]
+
 class ActionMenos12AñosEstudios(Action):
     # return the name of the action
     def name(self) -> Text:
@@ -34,8 +49,11 @@ class ActionMenos12AñosEstudios(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        resultado_final_contenedor = tracker.slots.get("res_final")
-        resultado_final = resultado_final_contenedor + 1
+        resultado_años = tracker.latest_message["intent"].get("name")
+
+        if resultado_años == "afirmación":
+            resultado_final_contenedor = tracker.slots.get("res_final")
+            resultado_final = resultado_final_contenedor + 1
 
         return [SlotSet("res_final", resultado_final)]
 
