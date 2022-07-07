@@ -22,9 +22,6 @@ stories:
   - intent: afirmación
   - action: utter_preguntar_nombre
   - intent: presentación_nombre
-  #- action: action_nombre
-  - slot_was_set:
-    - nombre
   - action: utter_preguntar_estudios
   - or:
     - intent: afirmación
@@ -34,8 +31,6 @@ stories:
   - action: utter_prueba1
   - intent: serie_alfanumérica
   - action: action_resultado_prueba1_bien
-  #- slot_was_set:
-  #  - serie_alfanumérica
   - action: utter_prueba2_enunciado
   - action: utter_prueba2_imagen
   - action: action_set_reminder
@@ -45,20 +40,12 @@ stories:
   - action: utter_prueba4_león
   - intent: animal1
   - action: action_resultado_animal1
-  #- slot_was_set:
-  #  - animal1
   - action: utter_prueba4_rinoceronte
   - intent: animal2
   - action: action_resultado_animal2
-  #- slot_was_set:
-  #  - animal2
   - action: utter_prueba4_camello
   - intent: animal3
   - action: action_resultado_animal3
-  #- slot_was_set:
-  #  - animal3
- # - action: utter_siguiente
- # - intent: afirmación
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
   - intent: memoria
@@ -76,8 +63,6 @@ stories:
   - action: utter_prueba6_serie_letras_secuencia
   - intent: serie_letras
   - action: action_resultado_serie_letras
-  #- slot_was_set:
-  #  - resultado_As
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder
   - intent: serie_7
@@ -136,8 +121,6 @@ stories:
  # - action: action_resultado_fecha
  # - action: utter_prueba11_lugar
   - intent: lugar
- # - action: utter_siguiente
- # - intent: afirmación
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
@@ -159,4 +142,101 @@ stories:
   - action: action_menos_12_años_estudios
   - action: utter_agradecimiento
   - action: utter_prueba1
-  - intent: nlu_fallback
+  - intent: serie_alfanumérica
+    entities:
+    - serie_alfanumérica: '1'
+    - serie_alfanumérica: A
+    - serie_alfanumérica: '2'
+    - serie_alfanumérica: B
+    - serie_alfanumérica: '3'
+    - serie_alfanumérica: C
+    - serie_alfanumérica: '4'
+    - serie_alfanumérica: D
+    - serie_alfanumérica: '5'
+    - serie_alfanumérica: E
+  - action: action_resultado_prueba1_bien
+  - action: utter_prueba2_enunciado
+  - action: utter_prueba2_imagen
+
+- story: interactive_story_1
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - action: utter_presentación
+  - action: utter_siguiente
+  - intent: afirmación
+  - action: utter_preguntar_nombre
+  - intent: presentación_nombre
+    entities:
+    - nombre: Marta
+  - slot_was_set:
+    - nombre: Marta
+  - action: utter_preguntar_estudios
+  - intent: negación
+  - action: action_menos_12_años_estudios
+  - action: utter_agradecimiento
+  - action: utter_prueba1
+  - intent: serie_alfanumérica
+    entities:
+    - serie_alfanumérica: '1'
+    - serie_alfanumérica: A
+    - serie_alfanumérica: '2'
+    - serie_alfanumérica: B
+    - serie_alfanumérica: '3'
+    - serie_alfanumérica: C
+    - serie_alfanumérica: '4'
+    - serie_alfanumérica: D
+    - serie_alfanumérica: '5'
+    - serie_alfanumérica: E
+  - action: action_resultado_prueba1_bien
+
+- story: interactive_story_1
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - action: utter_presentación
+  - action: utter_siguiente
+  - intent: afirmación
+  - action: utter_preguntar_nombre
+  - intent: presentación_nombre
+    entities:
+    - nombre: Marta
+  - slot_was_set:
+    - nombre: Marta
+  - action: utter_preguntar_estudios
+  - intent: negación
+  - action: action_menos_12_años_estudios
+  - slot_was_set:
+    - res_final: 0
+  - action: utter_agradecimiento
+  - action: utter_prueba1
+  - intent: serie_alfanumérica
+    entities:
+    - serie_alfanumérica: 1,A,2,B,3,C,4,D,5,E
+  - action: action_resultado_prueba1_bien
+  - slot_was_set:
+    - res_final: 0
+  - action: utter_prueba2_enunciado
+  - action: utter_prueba2_imagen
+  - intent: lista_objetos
+    entities:
+    - lista_objetos: tijeras
+    - lista_objetos: taza
+    - lista_objetos: camiseta
+    - lista_objetos: reloj
+    - lista_objetos: plátano
+    - lista_objetos: hoja
+    - lista_objetos: lámpara
+    - lista_objetos: llave
+    - lista_objetos: vela
+    - lista_objetos: cuchara
+  - action: utter_prueba4
+  - action: utter_prueba4_león
+  - intent: animal1
+    entities:
+    - animal1: león
+  - slot_was_set:
+    - animal1: león
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - res_final: 1

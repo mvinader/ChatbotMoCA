@@ -72,18 +72,22 @@ nlu:
   examples: |
     - [1, A, 2, B, 3, C, 4, D, 5, E](serie_alfanumérica)
     - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
+    - [1,A,2,B,3,C,4,D,5,E](serie_alfanumérica)
 - intent: lista_objetos
   examples: |
     - [tijeras, taza, camiseta, reloj, plátano, hoja, lámpara, llave, vela, cuchara](lista_objetos)
+    - [tijeras,taza,camiseta,reloj,plátano,hoja,lámpara,llave,vela,cuchara](lista_objetos)
     - [cuchara, lámpara, hoja, plátano, camiseta](lista_objetos)
     - [reloj, tijeras, llave, vela, taza, cuchara](lista_objetos)
     - [taza, camiseta](lista_objetos)
     - [llave, plátano, hoja, cuchara, vela, tijeras, reloj, taza, lámpara, camiseta](lista_objetos)
     - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
+  # - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
 - intent: animal1
   examples: |
     - [león](animal1)
     - un [león](animal1)
+    - [león](animal1)
 - intent: animal2
   examples: |
     - [rinoceronte](animal2)
@@ -183,6 +187,3 @@ nlu:
     - para
     - no quiero seguir
     - no quiero continuar
-- intent: nlu_fallback
-  examples: |
-    - 1, A, 2, B, 3, C, 4, D, 5, E

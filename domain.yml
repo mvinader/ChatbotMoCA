@@ -27,9 +27,9 @@ intents:
 - serie_números_directo
 - serie_números_inverso
 entities:
-- nombre
-- serie_alfanumérica
 - lista_objetos
+- serie_alfanumérica
+- nombre
 - animal1
 - animal2
 - animal3
@@ -194,7 +194,7 @@ responses:
       "¿Tiene 12 años o menos de estudio?"
   utter_prueba1:
   - text: |
-      "Me gustaría que me dijera en orden los números del 1 al 5 y las letras de la A la E, alternando entre ellos. Comience por el 1 y siga por la A. A continuación, el 2. Así sucesivamente. Termine con la letra E."
+      "Me gustaría que me dijera en orden los números del 1 al 5 y las letras de la A a la E, alternando entre ellos. Comience por el 1 y siga por la A. A continuación, el 2. Así sucesivamente. Termine con la letra E."
   utter_prueba2_enunciado:
   - text: |
       "Quiero que mire este dibujo y me diga la mayor cantidad de objetos que pueda. Tiene un minuto para encontrar la mayor cantidad de objetos que pueda. Comience."

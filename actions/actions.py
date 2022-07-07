@@ -25,19 +25,6 @@ import datetime, locale
 #
 #         return []
 
-class ActionNombre(Action):
-    # return the name of the action
-    def name(self) -> Text:
-        return "action_nombre"
-
-    #register info in a slot
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        nombre = tracker.slots.get("nombre")
-
-        return [SlotSet("nombre", nombre)]
 
 class ActionMenos12AñosEstudios(Action):
     # return the name of the action
@@ -50,11 +37,13 @@ class ActionMenos12AñosEstudios(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         resultado_años = tracker.latest_message["intent"].get("name")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_años == "afirmación":
-            resultado_final_contenedor = tracker.slots.get("res_final")
-            resultado_final = resultado_final_contenedor + 1
+            resultado = 1
 
+        resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba1(Action):
@@ -68,14 +57,16 @@ class ActionResultadoPrueba1(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         resultado_1 = tracker.get_slot("serie_alfanumérica")
+       # lista = resultado_1[0]
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
-        if resultado_1 == ["1, A, 2, B, 3, C, 4, D, 5, E"]:
+        if resultado_1 == ["1, A, 2, B, 3, C, 4, D, 5, E"] or resultado_1 == ["1,A,2,B,3,C,4,D,5,E"]:
             #resultado = (int(resultado_prueba)+1)
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
-        return [SlotSet("serie_alfanumérica", resultado_1), SlotSet("res_final", resultado_final)]
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoAnimal1(Action):
     # return the name of the action
@@ -89,12 +80,13 @@ class ActionResultadoAnimal1(Action):
 
         resultado_león = tracker.get_slot("animal1")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_león == "león":
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
-        return [SlotSet("animal1", resultado_león), SlotSet("res_final", resultado_final)]
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoAnimal2(Action):
     # return the name of the action
@@ -108,12 +100,13 @@ class ActionResultadoAnimal2(Action):
 
         resultado_rino = tracker.get_slot("animal2")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_rino == "rinoceronte":
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
-        return [SlotSet("animal2", resultado_rino), SlotSet("res_final", resultado_final)]
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoAnimal3(Action):
     # return the name of the action
@@ -127,12 +120,13 @@ class ActionResultadoAnimal3(Action):
 
         resultado_camello = tracker.get_slot("animal3")
         resultado_final_contenedor = tracker.slots.get("res_final")
-
+        resultado = 0
+        
         if resultado_camello == "camello" or resultado_camello == "dromedario":
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
-        return [SlotSet("animal3", resultado_camello), SlotSet("res_final", resultado_final)]
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoSerieLetras(Action):
     # return the name of the action
@@ -146,12 +140,13 @@ class ActionResultadoSerieLetras(Action):
 
         resultado_6_A = tracker.get_slot("resultado_As")
         resultado_final_contenedor = tracker.slots.get("res_final")
-        
+        resultado = 0
+
         if resultado_6_A == 11 or resultado_6_A == 10 or resultado_6_A == 9:
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
-        return [SlotSet("resultado_As", resultado_6_A), SlotSet("res_final", resultado_final)]
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba7_1(Action):
     # return the name of the action
@@ -165,11 +160,12 @@ class ActionResultadoPrueba7_1(Action):
             
         resultado_7 = tracker.latest_message["intent"].get("name")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_7 == "frase_1":
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
+        resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba7_2(Action):
@@ -184,11 +180,12 @@ class ActionResultadoPrueba7_2(Action):
             
         resultado_7 = tracker.latest_message["intent"].get("name")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_7 == "frase_2":
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
+        resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionSetReminder(Action):
@@ -238,12 +235,13 @@ class ActionResultadoPrueba8(Action):
             
         resultado_8 = tracker.get_slot("lista_F")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
         #topicList:['topic_1', 'topic_2']
 
         if len(resultado_8) >= 11:
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
+        resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba9_2(Action):
@@ -258,11 +256,12 @@ class ActionResultadoPrueba9_2(Action):
         
         resultado_9_2 = tracker.latest_message["intent"].get("name")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_9_2 == "para_viajar":
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
+        resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba9_3(Action):
@@ -277,11 +276,12 @@ class ActionResultadoPrueba9_3(Action):
             
         resultado_9_3 = tracker.latest_message["intent"].get("name")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_9_3 == "para_medir":
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
+        resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba10(Action):
@@ -296,14 +296,15 @@ class ActionResultadoPrueba10(Action):
 
         resultado_prueba = tracker.get_slot("lista_memoria")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         if resultado_prueba == ["rostro, seda, templo, clavel, rojo"]:
             #1 pto por cada palabra recordada
             #resultado = (int(resultado_prueba)+1)
             resultado = resultado + 1
-            resultado_final = resultado_final_contenedor + resultado
 
-        return [SlotSet("res_prueba10", resultado), SlotSet("res_final", resultado_final)]
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
 
 class ValidateFechaForm(FormValidationAction):
     def name(self) -> Text:
@@ -388,6 +389,7 @@ class ActionResultadoFecha(Action):
         resultado_mes = tracker.get_slot("mes")
         resultado_año = tracker.get_slot("año")
         resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
 
         locale.setlocale(locale.LC_ALL, 'es_ES')
         date = datetime.datetime.now()
@@ -400,8 +402,8 @@ class ActionResultadoFecha(Action):
 
         if resultado_día == día and resultado_mes == mes and resultado_número_día == número_día and resultado_año == año:
             resultado = 1
-            resultado_final = resultado_final_contenedor + resultado
 
+        resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoFinal(Action):
