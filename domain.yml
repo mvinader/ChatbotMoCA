@@ -14,7 +14,6 @@ intents:
 - lugar
 - memoria
 - negación
-- nlu_fallback
 - palabras_F
 - para_medir
 - para_viajar
@@ -27,9 +26,9 @@ intents:
 - serie_números_directo
 - serie_números_inverso
 entities:
-- lista_objetos
-- serie_alfanumérica
 - nombre
+- serie_alfanumérica
+- lista_objetos
 - animal1
 - animal2
 - animal3
@@ -61,6 +60,13 @@ slots:
     - type: from_entity
       entity: serie_alfanumérica
       intent: serie_alfanumérica
+  lista_objetos:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: lista_objetos
+      intent: lista_objetos
   animal1:
     type: text
     influence_conversation: false
@@ -98,6 +104,13 @@ slots:
     - type: from_entity
       entity: resultado_As
       intent: serie_letras
+  serie_7:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: serie_7
+      intent: serie_7
   lista_F:
     type: list
     influence_conversation: false
@@ -153,6 +166,8 @@ forms:
     - mes
     - año
 responses:
+  utter_default:
+  - text: "Disculpe, pero no lo he entendido bien. ¿Puede repetirlo?"
   utter_prueba_chatbot:
   - text: |
       "Soy un chatbot."
@@ -161,13 +176,13 @@ responses:
       "La Evaluación Cognitiva Montreal (Montreal cognitive assessment / MoCA) ha sido concebida para evaluar las disfunciones cognitivas leves. Este instrumento examina las siguientes habilidades: atención, concentración, funciones ejecutivas (incluyendo la capacidad de abstracción), memoria, lenguaje, capacidades visuoconstructivas, cálculo y orientación. Cualquier persona que comprenda y siga sus instrucciones puede administrar el MoCA, si bien únicamente un profesional de la salud especialista en el ámbito cognitivo podrá interpretar sus resultados. El tiempo de administración requerido es de aproximadamente diez minutos."
   utter_saludo:
   - text: |
-      "¡Hola, {nombre}!"
+      "¡Hola!"
   - text: |
-      "¡Buenas, {nombre}!"
+      "¡Buenas!"
   - text: |
-      "¡Muy buenas, {nombre}!"
+      "¡Muy buenas!"
   - text: |
-      "¡Bienvenido/a, {nombre}!"
+      "¡Bienvenido/a!"
   utter_siguiente:
   - text: |
       "¿Está preparado/a?"
@@ -246,9 +261,6 @@ responses:
   utter_prueba6_serie_7_explicación:
   - text: |
       "Ahora me gustaría que restara 7 de 100 y que continuara restando 7 a la cifra de su respuesta anterior hasta que le pida que pare."
-  utter_parar_prueba6:
-  - text: |
-      "Pare, por favor." 
   utter_prueba7_1:
   - text: |
       "Ahora le voy a leer una frase. Repítala exactamente cuando yo termine: Solo sé que le toca a Juan ayudar hoy."
@@ -258,9 +270,6 @@ responses:
   utter_prueba8:
   - text: |
       "Ahora, diga el mayor número posible de palabras que comiencen por la letra F. Le pediré que pare al minuto. No se permiten nombres, números y las formas conjugadas de un verbo. ¿Está  preparado?"
-  utter_parar_prueba8:
-  - text: |
-      "Pare."
   utter_prueba9_enunciado_1:
   - text: |
       "Le diré dos palabras y me gustaría que usted me dijera a qué categoría pertenecen: una naranja y un plátano."
@@ -307,38 +316,33 @@ responses:
       "¡Hasta la próxima, {nombre}!"
 actions:
 - action_menos_12_años_estudios
-- action_nombre
+- action_resultado_prueba1
 - action_react_to_reminder
+- action_set_reminder
+- action_resultado_prueba2
 - action_resultado_animal1
 - action_resultado_animal2
 - action_resultado_animal3
+- validate_fecha_form
 - action_resultado_fecha
-- action_resultado_final
-- action_resultado_prueba10
-- action_resultado_prueba1_bien
 - action_resultado_prueba7_1
 - action_resultado_prueba7_2
 - action_resultado_prueba8
 - action_resultado_prueba9_2
 - action_resultado_prueba9_3
 - action_resultado_serie_letras
-- action_set_reminder
+- action_resultado_serie_7
+- action_resultado_prueba10
+- action_resultado_final
+- utter_default
+- utter_prueba_chatbot
+- utter_saludo
+- utter_siguiente
 - utter_agradecimiento
-- utter_ask_año
-- utter_ask_día
-- utter_ask_mes
-- utter_ask_número_fecha
-- utter_despedida
-- utter_lista_memoria
-- utter_parar_prueba6
-- utter_parar_prueba8
+- utter_presentación
 - utter_preguntar_estudios
 - utter_preguntar_nombre
-- utter_presentación
 - utter_prueba1
-- utter_prueba10
-- utter_prueba11_fecha
-- utter_prueba11_lugar
 - utter_prueba2_enunciado
 - utter_prueba2_imagen
 - utter_prueba4
@@ -358,15 +362,20 @@ actions:
 - utter_prueba7_2
 - utter_prueba8
 - utter_prueba9_correcto_1
+- utter_prueba9_incorrecto_1
 - utter_prueba9_enunciado_1
 - utter_prueba9_enunciado_2
 - utter_prueba9_enunciado_3
-- utter_prueba9_incorrecto_1
-- utter_prueba_chatbot
+- utter_lista_memoria
+- utter_prueba10
+- utter_prueba11_fecha
+- utter_prueba11_lugar
+- utter_ask_año
+- utter_ask_día
+- utter_ask_mes
+- utter_ask_número_fecha
 - utter_resultados
-- utter_saludo
-- utter_siguiente
-- validate_fecha_form
+- utter_despedida
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

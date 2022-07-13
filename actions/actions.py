@@ -39,7 +39,7 @@ class ActionMenos12AñosEstudios(Action):
         resultado_años = tracker.latest_message["intent"].get("name")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
-
+    
         if resultado_años == "afirmación":
             resultado = 1
 
@@ -49,7 +49,7 @@ class ActionMenos12AñosEstudios(Action):
 class ActionResultadoPrueba1(Action):
     # return the name of the action
     def name(self) -> Text:
-        return "action_resultado_prueba1_bien"
+        return "action_resultado_prueba1"
 
     #register info in a slot
     def run(self, dispatcher: CollectingDispatcher,
@@ -57,13 +57,74 @@ class ActionResultadoPrueba1(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         resultado_1 = tracker.get_slot("serie_alfanumérica")
-       # lista = resultado_1[0]
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
-        if resultado_1 == ["1, A, 2, B, 3, C, 4, D, 5, E"] or resultado_1 == ["1,A,2,B,3,C,4,D,5,E"]:
-            #resultado = (int(resultado_prueba)+1)
+        if resultado_1 == ["1", "A", "2", "B", "3", "C", "4", "D", "5", "E"]:
             resultado = 1
+
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
+
+class ActionSetReminder1(Action):
+    # set a timer for the user
+    def name(self) -> Text:
+        return "action_set_reminder"
+    
+    async def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        date = datetime.datetime.now() + datetime.timedelta(seconds=60)
+        #entities = tracker.latest_message.get("entities")
+
+        reminder = ReminderScheduled (
+            "lista_objetos",
+            trigger_date_time = date,
+            #entities = entities
+            name = "my_reminder",
+            kill_on_user_message = False,
+        )
+
+        return [reminder]
+
+class ActionReactToReminder(Action):
+    # remind the user to do something
+    def name(self) -> Text:
+        return "action_react_to_reminder"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(f"Pare.")
+
+        return []
+
+class ActionResultadoPrueba1(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_prueba2"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        resultado_2 = tracker.get_slot("lista_objetos")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+        cuenta = 0
+        for i in range(len(resultado_2)):
+            if "tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara" in resultado_2:
+                cuenta += 1
+        resultado = 0
+        def switch(cuenta):
+            if(cuenta == 9 or cuenta == 10):
+                resultado = 3
+            elif(cuenta == 6 or cuenta == 7 or cuenta == 8):
+                resultado = 2
+            elif(cuenta == 4 or cuenta == 5):
+                resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
@@ -148,6 +209,58 @@ class ActionResultadoSerieLetras(Action):
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
+class ActionSetReminder2(Action):
+    # set a timer for the user
+    def name(self) -> Text:
+        return "action_set_reminder"
+    
+    async def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        date = datetime.datetime.now() + datetime.timedelta(seconds=60)
+        #entities = tracker.latest_message.get("entities")
+
+        reminder = ReminderScheduled (
+            "serie_7",
+            trigger_date_time = date,
+            #entities = entities
+            name = "my_reminder",
+            kill_on_user_message = False,
+        )
+
+        return [reminder]
+
+class ActionResultadoSerie7(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_serie_7"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        resultado_6_serie = tracker.get_slot("serie_7")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+        i = resultado_6_serie[0] - 7
+        cuenta = 0
+        while i > 0:
+            if i in resultado_6_serie:
+                cuenta += 1
+            i -= 7
+        resultado = 0    
+        def switch(cuenta):
+            if(cuenta == 1):
+                resultado = 1
+            elif(cuenta == 2 or cuenta == 3):
+                resultado = 2
+            elif(cuenta > 3):
+                resultado = 3
+
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
+
 class ActionResultadoPrueba7_1(Action):
     # return the name of the action
     def name(self) -> Text:
@@ -188,11 +301,11 @@ class ActionResultadoPrueba7_2(Action):
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
-class ActionSetReminder(Action):
+class ActionSetReminder2(Action):
     # set a timer for the user
     def name(self) -> Text:
         return "action_set_reminder"
-
+    
     async def run(self, dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
@@ -209,19 +322,6 @@ class ActionSetReminder(Action):
         )
 
         return [reminder]
-
-class ActionReactToReminder(Action):
-    # remind the user to do something
-    def name(self) -> Text:
-        return "action_react_to_reminder"
-
-    async def run(self, dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(f"Pare.")
-
-        return []
 
 class ActionResultadoPrueba8(Action):
     # return the name of the action

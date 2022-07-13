@@ -30,12 +30,13 @@ stories:
   - action: utter_agradecimiento
   - action: utter_prueba1
   - intent: serie_alfanumérica
-  - action: action_resultado_prueba1_bien
+  - action: action_resultado_prueba1
   - action: utter_prueba2_enunciado
   - action: utter_prueba2_imagen
   - action: action_set_reminder
   - intent: lista_objetos
   - action: action_react_to_reminder
+  - action: action_resultado_prueba2
   - action: utter_prueba4
   - action: utter_prueba4_león
   - intent: animal1
@@ -67,7 +68,7 @@ stories:
   - action: action_set_reminder
   - intent: serie_7
   - action: action_react_to_reminder
-  - action: utter_parar_prueba6
+  - action: action_resultado_serie_7
   - action: utter_prueba7_1
   - intent: frase_1
   - action: action_resultado_prueba7_1
@@ -79,7 +80,6 @@ stories:
   - action: action_set_reminder
   - intent: palabras_F
   - action: action_react_to_reminder
-  - action: utter_parar_prueba8
   - action: action_resultado_prueba8
   - action: utter_prueba9_enunciado_1  
   - intent: frutas
@@ -124,39 +124,15 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
-- story: interactive_story_1
+
+- story: interactive_story_0
   steps:
   - intent: saludo
   - action: utter_saludo
   - action: utter_presentación
   - action: utter_siguiente
-  - intent: afirmación
-  - action: utter_preguntar_nombre
-  - intent: presentación_nombre
-    entities:
-    - nombre: Marta
-  - slot_was_set:
-    - nombre: Marta
-  - action: utter_preguntar_estudios
   - intent: negación
-  - action: action_menos_12_años_estudios
-  - action: utter_agradecimiento
-  - action: utter_prueba1
-  - intent: serie_alfanumérica
-    entities:
-    - serie_alfanumérica: '1'
-    - serie_alfanumérica: A
-    - serie_alfanumérica: '2'
-    - serie_alfanumérica: B
-    - serie_alfanumérica: '3'
-    - serie_alfanumérica: C
-    - serie_alfanumérica: '4'
-    - serie_alfanumérica: D
-    - serie_alfanumérica: '5'
-    - serie_alfanumérica: E
-  - action: action_resultado_prueba1_bien
-  - action: utter_prueba2_enunciado
-  - action: utter_prueba2_imagen
+  - action: utter_despedida
 
 - story: interactive_story_1
   steps:
@@ -172,8 +148,10 @@ stories:
   - slot_was_set:
     - nombre: Marta
   - action: utter_preguntar_estudios
-  - intent: negación
+  - intent: afirmación
   - action: action_menos_12_años_estudios
+  - slot_was_set:
+    - res_final: 1
   - action: utter_agradecimiento
   - action: utter_prueba1
   - intent: serie_alfanumérica
@@ -188,34 +166,21 @@ stories:
     - serie_alfanumérica: D
     - serie_alfanumérica: '5'
     - serie_alfanumérica: E
-  - action: action_resultado_prueba1_bien
-
-- story: interactive_story_1
-  steps:
-  - intent: saludo
-  - action: utter_saludo
-  - action: utter_presentación
-  - action: utter_siguiente
-  - intent: afirmación
-  - action: utter_preguntar_nombre
-  - intent: presentación_nombre
-    entities:
-    - nombre: Marta
   - slot_was_set:
-    - nombre: Marta
-  - action: utter_preguntar_estudios
-  - intent: negación
-  - action: action_menos_12_años_estudios
+    - serie_alfanumérica:
+      - '1'
+      - A
+      - '2'
+      - B
+      - '3'
+      - C
+      - '4'
+      - D
+      - '5'
+      - E
+  - action: action_resultado_prueba1
   - slot_was_set:
-    - res_final: 0
-  - action: utter_agradecimiento
-  - action: utter_prueba1
-  - intent: serie_alfanumérica
-    entities:
-    - serie_alfanumérica: 1,A,2,B,3,C,4,D,5,E
-  - action: action_resultado_prueba1_bien
-  - slot_was_set:
-    - res_final: 0
+    - res_final: 2
   - action: utter_prueba2_enunciado
   - action: utter_prueba2_imagen
   - intent: lista_objetos
@@ -230,13 +195,18 @@ stories:
     - lista_objetos: llave
     - lista_objetos: vela
     - lista_objetos: cuchara
-  - action: utter_prueba4
-  - action: utter_prueba4_león
-  - intent: animal1
-    entities:
-    - animal1: león
   - slot_was_set:
-    - animal1: león
-  - action: action_resultado_animal1
+    - lista_objetos:
+      - tijeras
+      - taza
+      - camiseta
+      - reloj
+      - plátano
+      - hoja
+      - lámpara
+      - llave
+      - vela
+      - cuchara
+  - action: action_resultado_prueba2
   - slot_was_set:
-    - res_final: 1
+    - res_final: 2

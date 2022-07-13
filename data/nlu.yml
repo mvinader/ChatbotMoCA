@@ -70,24 +70,25 @@ nlu:
     - [Marta](nombre)
 - intent: serie_alfanumérica
   examples: |
-    - [1, A, 2, B, 3, C, 4, D, 5, E](serie_alfanumérica)
     - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
-    - [1,A,2,B,3,C,4,D,5,E](serie_alfanumérica)
+    - [1](serie_alfanumérica), [A](serie_alfanumérica), [B](serie_alfanumérica), [C](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
+    - [A](serie_alfanumérica), [1](serie_alfanumérica), [B](serie_alfanumérica), [2](serie_alfanumérica), [C](serie_alfanumérica), [3](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
+    - [1](serie_alfanumérica), [2](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
+    - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [D](serie_alfanumérica), [4](serie_alfanumérica), [E](serie_alfanumérica), [5](serie_alfanumérica), [F](serie_alfanumérica)
+    - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica)
+    - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
 - intent: lista_objetos
   examples: |
-    - [tijeras, taza, camiseta, reloj, plátano, hoja, lámpara, llave, vela, cuchara](lista_objetos)
-    - [tijeras,taza,camiseta,reloj,plátano,hoja,lámpara,llave,vela,cuchara](lista_objetos)
-    - [cuchara, lámpara, hoja, plátano, camiseta](lista_objetos)
-    - [reloj, tijeras, llave, vela, taza, cuchara](lista_objetos)
-    - [taza, camiseta](lista_objetos)
-    - [llave, plátano, hoja, cuchara, vela, tijeras, reloj, taza, lámpara, camiseta](lista_objetos)
     - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
-  # - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
+    - [cuchara](lista_objetos), [lámpara](lista_objetos), [hoja](lista_objetos), [plátano](lista_objetos), [camiseta](lista_objetos)
+    - [reloj](lista_objetos), [tijeras](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [taza](lista_objetos), [cuchara](lista_objetos)
+    - [taza](lista_objetos), [camiseta](lista_objetos)
+    - [llave](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [cuchara](lista_objetos), [vela](lista_objetos), [tijeras](lista_objetos), [reloj](lista_objetos), [taza](lista_objetos), [lámpara](lista_objetos), [camiseta](lista_objetos)
+    - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
 - intent: animal1
   examples: |
     - [león](animal1)
     - un [león](animal1)
-    - [león](animal1)
 - intent: animal2
   examples: |
     - [rinoceronte](animal2)
@@ -187,3 +188,21 @@ nlu:
     - para
     - no quiero seguir
     - no quiero continuar
+- lookup: serie_alfanumérica
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - A
+    - B
+    - C
+    - D
+    - E
+    - F
+    - G
