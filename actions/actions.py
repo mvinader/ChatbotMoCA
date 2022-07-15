@@ -115,7 +115,7 @@ class ActionResultadoPrueba1(Action):
         resultado_final_contenedor = tracker.slots.get("res_final")
         cuenta = 0
         for i in range(len(resultado_2)):
-            if "tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara" in resultado_2:
+            if "tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara" in resultado_2[i]:
                 cuenta += 1
         resultado = 0
         def switch(cuenta):
@@ -139,7 +139,7 @@ class ActionResultadoAnimal1(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        resultado_león = tracker.get_slot("animal1")
+        resultado_león = tracker.get_slot("animales")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
@@ -159,7 +159,7 @@ class ActionResultadoAnimal2(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        resultado_rino = tracker.get_slot("animal2")
+        resultado_rino = tracker.get_slot("animales")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
@@ -179,7 +179,7 @@ class ActionResultadoAnimal3(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        resultado_camello = tracker.get_slot("animal3")
+        resultado_camello = tracker.get_slot("animales")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
         

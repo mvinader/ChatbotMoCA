@@ -39,13 +39,13 @@ stories:
   - action: action_resultado_prueba2
   - action: utter_prueba4
   - action: utter_prueba4_león
-  - intent: animal1
+  - intent: animales
   - action: action_resultado_animal1
   - action: utter_prueba4_rinoceronte
-  - intent: animal2
+  - intent: animales
   - action: action_resultado_animal2
   - action: utter_prueba4_camello
-  - intent: animal3
+  - intent: animales
   - action: action_resultado_animal3
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
@@ -210,3 +210,198 @@ stories:
   - action: action_resultado_prueba2
   - slot_was_set:
     - res_final: 2
+  - action: utter_prueba4
+  - action: utter_prueba4_león
+  - intent: animales
+    entities:
+    - animales: león
+  - slot_was_set:
+    - animales: león
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - res_final: 2
+  - action: utter_prueba4_rinoceronte
+  - intent: animales
+    entities:
+    - animales: rinoceronte
+  - slot_was_set:
+    - animales: rinoceronte
+  - action: action_resultado_animal2
+  - slot_was_set:
+    - res_final: 3
+  - action: utter_prueba4_camello
+  - intent: animales
+    entities:
+    - animales: camello
+  - slot_was_set:
+    - animales: camello
+  - action: action_resultado_animal3
+  - slot_was_set:
+    - res_final: 4
+  - action: utter_prueba5_explicación
+  - action: utter_lista_memoria
+  - intent: memoria
+    entities:
+    - lista_memoria: rostro
+    - lista_memoria: rojo
+    - lista_memoria: templo
+    - lista_memoria: seda
+    - lista_memoria: clavel
+  - slot_was_set:
+    - lista_memoria:
+      - rostro
+      - rojo
+      - templo
+      - seda
+      - clavel
+  - action: utter_prueba5_repetición_1
+  - action: utter_lista_memoria
+  - intent: memoria
+    entities:
+    - lista_memoria: templo
+    - lista_memoria: seda
+    - lista_memoria: rojo
+  - slot_was_set:
+    - lista_memoria:
+      - templo
+      - seda
+      - rojo
+  - action: utter_prueba5_repetición_2
+  - action: utter_prueba6_serie_números_directo_explicación
+  - action: utter_prueba6_serie_números_directo_secuencia
+
+- story: interactive_story_2
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - action: utter_presentación
+  - action: utter_siguiente
+  - intent: afirmación
+  - action: utter_preguntar_nombre
+  - intent: presentación_nombre
+    entities:
+    - nombre: Marta Vinader
+  - slot_was_set:
+    - nombre: Marta Vinader
+  - action: utter_preguntar_estudios
+  - intent: negación
+  - action: action_menos_12_años_estudios
+  - slot_was_set:
+    - res_final: 0
+  - action: utter_agradecimiento
+  - action: utter_prueba1
+  - intent: serie_alfanumérica
+    entities:
+    - serie_alfanumérica: '1'
+    - serie_alfanumérica: A
+    - serie_alfanumérica: '2'
+    - serie_alfanumérica: B
+    - serie_alfanumérica: '3'
+    - serie_alfanumérica: C
+    - serie_alfanumérica: '4'
+    - serie_alfanumérica: D
+    - serie_alfanumérica: '5'
+    - serie_alfanumérica: E
+  - slot_was_set:
+    - serie_alfanumérica:
+      - '1'
+      - A
+      - '2'
+      - B
+      - '3'
+      - C
+      - '4'
+      - D
+      - '5'
+      - E
+  - action: action_resultado_prueba1
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_prueba2_enunciado
+  - action: utter_prueba2_imagen
+  - intent: lista_objetos
+    entities:
+    - lista_objetos: tijeras
+    - lista_objetos: taza
+    - lista_objetos: camiseta
+    - lista_objetos: reloj
+    - lista_objetos: plátano
+    - lista_objetos: hoja
+    - lista_objetos: lámpara
+    - lista_objetos: llave
+    - lista_objetos: vela
+    - lista_objetos: cuchara
+  - slot_was_set:
+    - lista_objetos:
+      - tijeras
+      - taza
+      - camiseta
+      - reloj
+      - plátano
+      - hoja
+      - lámpara
+      - llave
+      - vela
+      - cuchara
+  - action: action_resultado_prueba2
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_prueba4
+  - action: utter_prueba4_león
+  - intent: animales
+    entities:
+    - animales: león
+  - slot_was_set:
+    - animales: león
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - res_final: 2
+  - action: utter_prueba4_rinoceronte
+  - intent: animales
+    entities:
+    - animales: rinoceronte
+  - slot_was_set:
+    - animales: rinoceronte
+  - action: action_resultado_animal2
+  - slot_was_set:
+    - res_final: 3
+  - action: utter_prueba4_camello
+  - intent: animales
+    entities:
+    - animales: camello
+  - slot_was_set:
+    - animales: camello
+  - action: action_resultado_animal3
+  - slot_was_set:
+    - res_final: 4
+  - action: utter_prueba5_explicación
+  - action: utter_lista_memoria
+  - intent: memoria
+    entities:
+    - lista_memoria: rostro
+    - lista_memoria: rojo
+    - lista_memoria: templo
+    - lista_memoria: seda
+    - lista_memoria: clavel
+  - slot_was_set:
+    - lista_memoria:
+      - rostro
+      - rojo
+      - templo
+      - seda
+      - clavel
+  - action: utter_prueba5_repetición_1
+  - action: utter_lista_memoria
+  - intent: memoria
+    entities:
+    - lista_memoria: templo
+    - lista_memoria: seda
+    - lista_memoria: rojo
+  - slot_was_set:
+    - lista_memoria:
+      - templo
+      - seda
+      - rojo
+  - action: utter_prueba5_repetición_2
+  - action: utter_prueba6_serie_números_directo_explicación
+  - action: utter_prueba6_serie_números_directo_secuencia

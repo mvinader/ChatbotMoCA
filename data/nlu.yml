@@ -67,7 +67,7 @@ nlu:
     - mi nombre es [Marta Vinader](nombre)
     - me llaman [Marta](nombre)
     - me llaman [Marta Vinader](nombre)
-    - [Marta](nombre)
+    - [Marta Vinader](nombre)
 - intent: serie_alfanumérica
   examples: |
     - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
@@ -85,22 +85,23 @@ nlu:
     - [taza](lista_objetos), [camiseta](lista_objetos)
     - [llave](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [cuchara](lista_objetos), [vela](lista_objetos), [tijeras](lista_objetos), [reloj](lista_objetos), [taza](lista_objetos), [lámpara](lista_objetos), [camiseta](lista_objetos)
     - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
-- intent: animal1
+- intent: animales
   examples: |
-    - [león](animal1)
-    - un [león](animal1)
-- intent: animal2
-  examples: |
-    - [rinoceronte](animal2)
-    - un [rinoceronte](animal2)
-- intent: animal3
-  examples: |
-    - [camello](animal3)
-    - un [camello](animal3)
-    - [dromedario](animal3)
-    - un [dromedario](animal3)
-    - no sé si un [camello](animal3) o un [dromedario](animal3)
-    - o un [camello](animal3) o un [dromedario](animal3)
+    - [león](animales)
+    - un [león](animales)
+    - es un [león](animales)
+    - [rinoceronte](animales)
+    - un [rinoceronte](animales)
+    - es un [rinoceronte](animales)
+    - [camello](animales)
+    - un [camello](animales)
+    - es un [camello](animales)
+    - [dromedario](animales)
+    - un [dromedario](animales)
+    - es un [dromedario](animales)
+    - no sé si un [camello](animales) o un [dromedario](animales)
+    - no sé si es un [camello](animales) o un [dromedario](animales)
+    - o un [camello](animales) o un [dromedario](animales)
 - intent: memoria
   examples: |
     - [rostro, seda, templo, clavel, rojo](lista_memoria)
@@ -206,3 +207,22 @@ nlu:
     - E
     - F
     - G
+
+- lookup: animales
+  examples: |
+    - león
+    - rinoceronte
+    - camello
+    - dromedario
+    - hipopótamo
+    - tigre
+    - guepardo
+    - leopardo
+    - jirafa
+    - vaca
+    - perro
+    - gato
+    - elefante
+    - bisonte
+    - cocodrilo
+    - gacela

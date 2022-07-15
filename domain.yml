@@ -2,9 +2,7 @@ version: '3.1'
 intents:
 - abandono
 - afirmación
-- animal1
-- animal2
-- animal3
+- animales
 - despedida
 - fecha_correcta
 - frase_1
@@ -29,9 +27,7 @@ entities:
 - nombre
 - serie_alfanumérica
 - lista_objetos
-- animal1
-- animal2
-- animal3
+- animales
 - lista_memoria
 - serie_números_directo
 - serie_números_inverso
@@ -67,27 +63,13 @@ slots:
     - type: from_entity
       entity: lista_objetos
       intent: lista_objetos
-  animal1:
+  animales:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: animal1
-      intent: animal1
-  animal2:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: animal2
-      intent: animal2
-  animal3:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: animal3
-      intent: animal3
+      entity: animales
+      intent: animales
   lista_memoria:
     type: list
     influence_conversation: false
@@ -167,7 +149,7 @@ forms:
     - año
 responses:
   utter_default:
-  - text: "Disculpe, pero no lo he entendido bien. ¿Puede repetirlo?"
+  - text: Disculpe, pero no lo he entendido bien. ¿Puede repetirlo?
   utter_prueba_chatbot:
   - text: |
       "Soy un chatbot."
@@ -316,33 +298,38 @@ responses:
       "¡Hasta la próxima, {nombre}!"
 actions:
 - action_menos_12_años_estudios
-- action_resultado_prueba1
 - action_react_to_reminder
-- action_set_reminder
-- action_resultado_prueba2
 - action_resultado_animal1
 - action_resultado_animal2
 - action_resultado_animal3
-- validate_fecha_form
 - action_resultado_fecha
+- action_resultado_final
+- action_resultado_prueba1
+- action_resultado_prueba10
+- action_resultado_prueba2
 - action_resultado_prueba7_1
 - action_resultado_prueba7_2
 - action_resultado_prueba8
 - action_resultado_prueba9_2
 - action_resultado_prueba9_3
-- action_resultado_serie_letras
 - action_resultado_serie_7
-- action_resultado_prueba10
-- action_resultado_final
-- utter_default
-- utter_prueba_chatbot
-- utter_saludo
-- utter_siguiente
+- action_resultado_serie_letras
+- action_set_reminder
 - utter_agradecimiento
-- utter_presentación
+- utter_ask_año
+- utter_ask_día
+- utter_ask_mes
+- utter_ask_número_fecha
+- utter_default
+- utter_despedida
+- utter_lista_memoria
 - utter_preguntar_estudios
 - utter_preguntar_nombre
+- utter_presentación
 - utter_prueba1
+- utter_prueba10
+- utter_prueba11_fecha
+- utter_prueba11_lugar
 - utter_prueba2_enunciado
 - utter_prueba2_imagen
 - utter_prueba4
@@ -362,20 +349,15 @@ actions:
 - utter_prueba7_2
 - utter_prueba8
 - utter_prueba9_correcto_1
-- utter_prueba9_incorrecto_1
 - utter_prueba9_enunciado_1
 - utter_prueba9_enunciado_2
 - utter_prueba9_enunciado_3
-- utter_lista_memoria
-- utter_prueba10
-- utter_prueba11_fecha
-- utter_prueba11_lugar
-- utter_ask_año
-- utter_ask_día
-- utter_ask_mes
-- utter_ask_número_fecha
+- utter_prueba9_incorrecto_1
+- utter_prueba_chatbot
 - utter_resultados
-- utter_despedida
+- utter_saludo
+- utter_siguiente
+- validate_fecha_form
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
