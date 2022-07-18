@@ -46,10 +46,23 @@ rules:
 #    - PERSON
 #  - action: action_set_reminder
 
-#- rule: Trigger `action_react_to_reminder` for `palabras_F`
-#  steps:
-#  - intent: palabras_F
-#  - action: action_react_to_reminder
+- rule: Reaccionar a `EXTERNAL_reminder_1`
+  steps:
+  - intent: EXTERNAL_reminder_1
+  - action: action_react_to_reminder
+  - action: action_resultado_prueba2
+
+- rule: Reaccionar a `EXTERNAL_reminder_2`
+  steps:
+  - intent: EXTERNAL_reminder_2
+  - action: action_react_to_reminder
+  - action: action_resultado_serie_7
+
+- rule: Reaccionar a `EXTERNAL_reminder_3`
+  steps:
+  - intent: EXTERNAL_reminder_3
+  - action: action_react_to_reminder
+  - action: action_resultado_prueba8
 
 - rule: Despedirse siempre que el usuario se despida
   steps:

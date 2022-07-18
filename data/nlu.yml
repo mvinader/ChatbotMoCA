@@ -67,16 +67,39 @@ nlu:
     - mi nombre es [Marta Vinader](nombre)
     - me llaman [Marta](nombre)
     - me llaman [Marta Vinader](nombre)
-    - [Marta Vinader](nombre)
+    - [Pepe](nombre)
+    - [María del Carmen](nombre)
+    - [Francisco Javier](nombre)
+    - [Esther](nombre)
+    - [Pilar](nombre)
+    - [Manolo](nombre)
+    - [Ana](nombre)
+    - [Marcos](nombre)
+    - [Rosa](nombre)
+    - [Adrián](nombre)
+    - [Cecilia](nombre)
+    - [Alberto](nombre)
+    - [Lidia](nombre)
+    - [Fernando](nombre)
+    - [Olivia](nombre)
+    - [Miguel](nombre)
+    - [Álvaro](nombre)
+    - [José Manuel](nombre)
+    - [Eduardo](nombre)
+    - [Julio](nombre)
+    - [Esperanza](nombre)
+    - [Elisa](nombre)
+    - [Victoria](nombre)
+    - [Jesús](nombre)
+    - [Pedro](nombre)
+    - [Jesús](nombre)
 - intent: serie_alfanumérica
   examples: |
-    - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
-    - [1](serie_alfanumérica), [A](serie_alfanumérica), [B](serie_alfanumérica), [C](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
-    - [A](serie_alfanumérica), [1](serie_alfanumérica), [B](serie_alfanumérica), [2](serie_alfanumérica), [C](serie_alfanumérica), [3](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
-    - [1](serie_alfanumérica), [2](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
-    - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [D](serie_alfanumérica), [4](serie_alfanumérica), [E](serie_alfanumérica), [5](serie_alfanumérica), [F](serie_alfanumérica)
-    - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica)
-    - [1](serie_alfanumérica), [A](serie_alfanumérica), [2](serie_alfanumérica), [B](serie_alfanumérica), [3](serie_alfanumérica), [C](serie_alfanumérica), [4](serie_alfanumérica), [D](serie_alfanumérica), [5](serie_alfanumérica), [E](serie_alfanumérica)
+    - 1, A, 2, B, 3, C, 4, D, 5, E
+    - 1, A, , B, 3, C, D, 5, E
+    - A, 2, B, 3, C, 4, 5, E
+    - 1, A, C, 4, D, 5, E
+    - 1, A, 2, B, 3, C, 4
 - intent: lista_objetos
   examples: |
     - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
@@ -102,30 +125,47 @@ nlu:
     - no sé si un [camello](animales) o un [dromedario](animales)
     - no sé si es un [camello](animales) o un [dromedario](animales)
     - o un [camello](animales) o un [dromedario](animales)
+    - [león](animales)
+    - [rinoceronte](animales)
+    - [camello](animales)
 - intent: memoria
   examples: |
-    - [rostro, seda, templo, clavel, rojo](lista_memoria)
-    - [rojo, seda, templo, rostro](lista_memoria)
-    - [templo, clavel, rojo](lista_memoria)
-    - [seda, clavel, rojo](lista_memoria)
+    - [rostro](lista_memoria), [seda](lista_memoria), [templo](lista_memoria), [clavel](lista_memoria), [rojo](lista_memoria)
+    - [rojo](lista_memoria), [seda](lista_memoria), [templo](lista_memoria), [rostro](lista_memoria)
+    - [templo](lista_memoria), [clavel](lista_memoria), [rojo](lista_memoria)
+    - [seda](lista_memoria), [clavel](lista_memoria), [rojo](lista_memoria)
     - [rostro](lista_memoria), [rojo](lista_memoria), [templo](lista_memoria), [seda](lista_memoria), [clavel](lista_memoria)
     - [templo](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria)
     - [rostro](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria), [clavel](lista_memoria)
-- intent: serie_números_directo
+    - [rostro](lista_memoria), [rojo](lista_memoria), [templo](lista_memoria), [seda](lista_memoria), [clavel](lista_memoria)
+    - [templo](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria)
+- intent: serie_números
   examples: |
-    - [2, 1, 8, 5, 4](serie_números_directo)
-    - [2](serie_números_directo), [1](serie_números_directo), [8](serie_números_directo), [5](serie_números_directo), [4](serie_números_directo)
-- intent: serie_números_inverso
-  examples: |
-    - [2, 7, 4](serie_números_inverso)
-    - [2](serie_números_inverso), [7](serie_números_inverso), [4](serie_números_inverso)
+    - 2, 1, 8, 5, 4
+    - 2, 1, 7, 6
+    - 2, 1, 8, 5
+    - 1, 2, 4, 7, 8
+    - 2, 7, 4
+    - 4, 7, 2
+    - 2, 7, 8
+    - 7, 2
 - intent: serie_letras
   examples: |
     - [1](resultado_As)
     - [2](resultado_As)
+    - [3](resultado_As)
+    - [4](resultado_As)
+    - [5](resultado_As)
+    - [6](resultado_As)
+    - [7](resultado_As)
+    - [8](resultado_As)
+    - [9](resultado_As)
+    - [10](resultado_As)
+    - [11](resultado_As)
+    - [10](resultado_As)
 - intent: serie_7
   examples: |
-    - [93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2](serie_7)
+    - [93](serie_7), [86](serie_7), [79](serie_7), [72](serie_7), [65](serie_7), [58](serie_7), [51](serie_7), [44](serie_7), [37](serie_7), [30](serie_7), [23](serie_7), [16](serie_7), [9](serie_7), [2](serie_7)
 - intent: frase_1
   examples: |
     - Solo sé que le toca a Juan ayudar hoy.
@@ -134,7 +174,7 @@ nlu:
     - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
 - intent: palabras_F
   examples: |
-    - [flor](lista_F), [farola](lista_F), [feliz](lista_F), [felpa](lista_F), [fieltro](lista_F), [fiesta](lista_F), [funambulista](lista_F), [frenesí](lista_F)
+    - [flor](lista_F), [farola](lista_F), [feliz](lista_F), [felpa](lista_F), [fieltro](lista_F), [fiesta](lista_F), [funambulista](lista_F), [frenesí](lista_F), [fresa](lista_F), [frontón](lista_F), [filipino](lista_F)
     - [florero](lista_F), [farolillo](lista_F), [felicidad](lista_F), [felpudo](lista_F), [festejar](lista_F), [fresón](lista_F), [fábula](lista_F), [feroz](lista_F)
     - [florista](lista_F), [festejo](lista_F), [filipino](lista_F), [fabuloso](lista_F), [fresa](lista_F)
     - [florería](lista_F), [festivo](lista_F), [ficha](lista_F), [fiera](lista_F)
@@ -207,7 +247,6 @@ nlu:
     - E
     - F
     - G
-
 - lookup: animales
   examples: |
     - león
@@ -226,3 +265,17 @@ nlu:
     - bisonte
     - cocodrilo
     - gacela
+- lookup: mes
+  examples: |
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre

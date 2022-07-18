@@ -21,16 +21,18 @@ intents:
 - serie_7
 - serie_alfanumérica
 - serie_letras
-- serie_números_directo
-- serie_números_inverso
+- serie_números
+- EXTERNAL_reminder_1
+- EXTERNAL_reminder_2
+- EXTERNAL_reminder_3
 entities:
 - nombre
 - serie_alfanumérica
 - lista_objetos
 - animales
 - lista_memoria
-- serie_números_directo
-- serie_números_inverso
+#- serie_números
+#- numeros
 - resultado_As
 - serie_7
 - lista_F
@@ -50,10 +52,10 @@ slots:
       entity: nombre
       intent: presentación_nombre
   serie_alfanumérica:
-    type: list
+    type: text
     influence_conversation: false
     mappings:
-    - type: from_entity
+    - type: from_text
       entity: serie_alfanumérica
       intent: serie_alfanumérica
   lista_objetos:
@@ -77,6 +79,12 @@ slots:
     - type: from_entity
       entity: lista_memoria
       intent: memoria
+  serie_números:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      intent: serie_números
   resultado_As:
     type: float
     influence_conversation: false
@@ -93,6 +101,18 @@ slots:
     - type: from_entity
       entity: serie_7
       intent: serie_7
+  frase_1:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      intent: frase_1
+  frase_2:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      intent: frase_2
   lista_F:
     type: list
     influence_conversation: false
@@ -100,6 +120,18 @@ slots:
     - type: from_entity
       entity: lista_F
       intent: palabras_F
+  para_viajar:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      intent: para_viajar
+  para_medir:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      intent: para_medir
   día:
     type: text
     influence_conversation: true
@@ -298,23 +330,27 @@ responses:
       "¡Hasta la próxima, {nombre}!"
 actions:
 - action_menos_12_años_estudios
+- action_resultado_prueba1
+- action_resultado_prueba2
+- action_set_reminder_1
 - action_react_to_reminder
 - action_resultado_animal1
 - action_resultado_animal2
 - action_resultado_animal3
-- action_resultado_fecha
-- action_resultado_final
-- action_resultado_prueba1
-- action_resultado_prueba10
-- action_resultado_prueba2
+- action_resultado_serie_números_directo
+- action_resultado_serie_números_inverso
+- action_resultado_serie_letras
+- action_set_reminder_2
+- action_resultado_serie_7
 - action_resultado_prueba7_1
 - action_resultado_prueba7_2
+- action_set_reminder_3
 - action_resultado_prueba8
 - action_resultado_prueba9_2
 - action_resultado_prueba9_3
-- action_resultado_serie_7
-- action_resultado_serie_letras
-- action_set_reminder
+- action_resultado_prueba10
+- action_resultado_fecha
+- action_resultado_final
 - utter_agradecimiento
 - utter_ask_año
 - utter_ask_día

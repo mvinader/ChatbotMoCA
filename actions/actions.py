@@ -60,16 +60,16 @@ class ActionResultadoPrueba1(Action):
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
-        if resultado_1 == ["1", "A", "2", "B", "3", "C", "4", "D", "5", "E"]:
+        if resultado_1 == ["1", "A", "2", "B", "3", "C", "4", "D", "5", "E"] or resultado_1 == ["1, A, 2, B, 3, C, 4, D, 5, E"] or resultado_1 == "1, A, 2, B, 3, C, 4, D, 5, E":
             resultado = 1
-
+            
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
 class ActionSetReminder1(Action):
     # set a timer for the user
     def name(self) -> Text:
-        return "action_set_reminder"
+        return "action_set_reminder_1"
     
     async def run(self, dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -79,10 +79,10 @@ class ActionSetReminder1(Action):
         #entities = tracker.latest_message.get("entities")
 
         reminder = ReminderScheduled (
-            "lista_objetos",
+            "EXTERNAL_reminder_1",
             trigger_date_time = date,
             #entities = entities
-            name = "my_reminder",
+            name = "reminder_1",
             kill_on_user_message = False,
         )
 
@@ -101,7 +101,7 @@ class ActionReactToReminder(Action):
 
         return []
 
-class ActionResultadoPrueba1(Action):
+class ActionResultadoPrueba2(Action):
     # return the name of the action
     def name(self) -> Text:
         return "action_resultado_prueba2"
@@ -117,15 +117,19 @@ class ActionResultadoPrueba1(Action):
         for i in range(len(resultado_2)):
             if "tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara" in resultado_2[i]:
                 cuenta += 1
-        resultado = 0
-        def switch(cuenta):
-            if(cuenta == 9 or cuenta == 10):
-                resultado = 3
-            elif(cuenta == 6 or cuenta == 7 or cuenta == 8):
-                resultado = 2
-            elif(cuenta == 4 or cuenta == 5):
-                resultado = 1
 
+        def switch(cuenta):
+            resultado_local = 0
+            if(cuenta == 9 or cuenta == 10):
+                resultado_local = 3
+            elif(cuenta == 6 or cuenta == 7 or cuenta == 8):
+                resultado_local = 2
+            elif(cuenta == 4 or cuenta == 5):
+                resultado_local = 1
+            return resultado_local
+
+        resultado = 0
+        resultado = switch(cuenta)
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
@@ -189,6 +193,46 @@ class ActionResultadoAnimal3(Action):
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
+class ActionResultadoSerieNúmerosDirecto(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_serie_números_directo"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        resultado_6_directo = tracker.get_slot("serie_números")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
+
+        if resultado_6_directo == ["2", "1", "8", "5", "4"] or resultado_6_directo == ["2, 1, 8, 5, 4"] or resultado_6_directo == "2, 1, 8, 5, 4":
+            resultado = 1
+
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
+
+class ActionResultadoSerieNúmerosInverso(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_serie_números_inverso"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        resultado_6_inverso = tracker.get_slot("serie_números")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
+
+        if resultado_6_inverso == ["2", "4", "7"] or resultado_6_inverso == ["2, 4, 7"] or resultado_6_inverso == "2, 4, 7":
+            resultado = 1
+
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
+
 class ActionResultadoSerieLetras(Action):
     # return the name of the action
     def name(self) -> Text:
@@ -212,7 +256,7 @@ class ActionResultadoSerieLetras(Action):
 class ActionSetReminder2(Action):
     # set a timer for the user
     def name(self) -> Text:
-        return "action_set_reminder"
+        return "action_set_reminder_2"
     
     async def run(self, dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -222,10 +266,10 @@ class ActionSetReminder2(Action):
         #entities = tracker.latest_message.get("entities")
 
         reminder = ReminderScheduled (
-            "serie_7",
+            "EXTERNAL_reminder_2",
             trigger_date_time = date,
             #entities = entities
-            name = "my_reminder",
+            name = "reminder_2",
             kill_on_user_message = False,
         )
 
@@ -257,7 +301,9 @@ class ActionResultadoSerie7(Action):
                 resultado = 2
             elif(cuenta > 3):
                 resultado = 3
+            return resultado
 
+        resultado = switch(cuenta)
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
@@ -271,11 +317,11 @@ class ActionResultadoPrueba7_1(Action):
             tracker: Tracker,
             domain: DomainDict) -> List[Dict[Text, Any]]:
             
-        resultado_7 = tracker.latest_message["intent"].get("name")
+        resultado_7 = tracker.get_slot("frase_1")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
-        if resultado_7 == "frase_1":
+        if resultado_7 == "Solo sé que le toca a Juan ayudar hoy." or resultado_7 == "Solo sé que le toca a Juan ayudar hoy" or resultado_7 == "solo se que le toca a Juan ayudar hoy":
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
@@ -291,11 +337,11 @@ class ActionResultadoPrueba7_2(Action):
             tracker: Tracker,
             domain: DomainDict) -> List[Dict[Text, Any]]:
             
-        resultado_7 = tracker.latest_message["intent"].get("name")
+        resultado_7 = tracker.get_slot("frase_2")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
-        if resultado_7 == "frase_2":
+        if resultado_7 == "El gato siempre se esconde debajo del sofá cuando hay perros en la habitación." or resultado_7 == "El gato siempre se esconde debajo del sofá cuando hay perros en la habitación." or resultado_7 == "el gato siempre se esconde debajo del sofá cuando hay perros en la habitación" or resultado_7 == "el gato siempre se esconde debajo del sofa cuando hay perros en la habitacion":
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
@@ -304,7 +350,7 @@ class ActionResultadoPrueba7_2(Action):
 class ActionSetReminder2(Action):
     # set a timer for the user
     def name(self) -> Text:
-        return "action_set_reminder"
+        return "action_set_reminder_3"
     
     async def run(self, dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -314,10 +360,10 @@ class ActionSetReminder2(Action):
         #entities = tracker.latest_message.get("entities")
 
         reminder = ReminderScheduled (
-            "palabras_F",
+            "EXTERNAL_reminder_3",
             trigger_date_time = date,
             #entities = entities
-            name = "my_reminder",
+            name = "reminder_3",
             kill_on_user_message = False,
         )
 
@@ -354,7 +400,7 @@ class ActionResultadoPrueba9_2(Action):
             tracker: Tracker,
             domain:  Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        resultado_9_2 = tracker.latest_message["intent"].get("name")
+        resultado_9_2 = tracker.get_slot("para_viajar")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
@@ -374,7 +420,7 @@ class ActionResultadoPrueba9_3(Action):
             tracker: Tracker,
             domain:  Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
-        resultado_9_3 = tracker.latest_message["intent"].get("name")
+        resultado_9_3 = tracker.get_slot("para_medir")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
@@ -397,11 +443,9 @@ class ActionResultadoPrueba10(Action):
         resultado_prueba = tracker.get_slot("lista_memoria")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
-
-        if resultado_prueba == ["rostro, seda, templo, clavel, rojo"]:
-            #1 pto por cada palabra recordada
-            #resultado = (int(resultado_prueba)+1)
-            resultado = resultado + 1
+        for i in range(len(resultado_prueba)):
+            if "rostro" or "seda" or "templo" or "clavel" or "rojo" in resultado_prueba[i]:
+                resultado += 1
 
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
