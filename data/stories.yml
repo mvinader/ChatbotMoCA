@@ -157,167 +157,8 @@ stories:
   - action: utter_agradecimiento
   - action: utter_prueba1
   - intent: serie_alfanumérica
-    entities:
-    - serie_alfanumérica: '1'
-    - serie_alfanumérica: A
-    - serie_alfanumérica: '2'
-    - serie_alfanumérica: B
-    - serie_alfanumérica: '3'
-    - serie_alfanumérica: C
-    - serie_alfanumérica: '4'
-    - serie_alfanumérica: D
-    - serie_alfanumérica: '5'
-    - serie_alfanumérica: E
   - slot_was_set:
-    - serie_alfanumérica:
-      - '1'
-      - A
-      - '2'
-      - B
-      - '3'
-      - C
-      - '4'
-      - D
-      - '5'
-      - E
-  - action: action_resultado_prueba1
-  - slot_was_set:
-    - res_final: 2
-  - action: utter_prueba2_enunciado
-  - action: utter_prueba2_imagen
-  - action: action_set_reminder_1
-  - intent: lista_objetos
-    entities:
-    - lista_objetos: tijeras
-    - lista_objetos: taza
-    - lista_objetos: camiseta
-    - lista_objetos: reloj
-    - lista_objetos: plátano
-    - lista_objetos: hoja
-    - lista_objetos: lámpara
-    - lista_objetos: llave
-    - lista_objetos: vela
-    - lista_objetos: cuchara
-  - slot_was_set:
-    - lista_objetos:
-      - tijeras
-      - taza
-      - camiseta
-      - reloj
-      - plátano
-      - hoja
-      - lámpara
-      - llave
-      - vela
-      - cuchara
- # - action: action_react_to_reminder
-  - action: action_resultado_prueba2
-  - slot_was_set:
-    - res_final: 5
-  - action: utter_prueba4
-  - action: utter_prueba4_león
-  - intent: animales
-    entities:
-    - animales: león
-  - slot_was_set:
-    - animales: león
-  - action: action_resultado_animal1
-  - slot_was_set:
-    - res_final: 6
-  - action: utter_prueba4_rinoceronte
-  - intent: animales
-    entities:
-    - animales: rinoceronte
-  - slot_was_set:
-    - animales: rinoceronte
-  - action: action_resultado_animal2
-  - slot_was_set:
-    - res_final: 7
-  - action: utter_prueba4_camello
-  - intent: animales
-    entities:
-    - animales: camello
-  - slot_was_set:
-    - animales: camello
-  - action: action_resultado_animal3
-  - slot_was_set:
-    - res_final: 8
-  - action: utter_prueba5_explicación
-  - action: utter_lista_memoria
-  - intent: memoria
-    entities:
-    - lista_memoria: rostro
-    - lista_memoria: rojo
-    - lista_memoria: templo
-    - lista_memoria: seda
-    - lista_memoria: clavel
-  - slot_was_set:
-    - lista_memoria:
-      - rostro
-      - rojo
-      - templo
-      - seda
-      - clavel
-  - action: utter_prueba5_repetición_1
-  - action: utter_lista_memoria
-  - intent: memoria
-    entities:
-    - lista_memoria: templo
-    - lista_memoria: seda
-    - lista_memoria: rojo
-  - slot_was_set:
-    - lista_memoria:
-      - templo
-      - seda
-      - rojo
-  - action: utter_prueba5_repetición_2
-  - action: utter_prueba6_serie_números_directo_explicación
-  - action: utter_prueba6_serie_números_directo_secuencia
-
-- story: interactive_story_2
-  steps:
-  - intent: saludo
-  - action: utter_saludo
-  - action: utter_presentación
-  - action: utter_siguiente
-  - intent: afirmación
-  - action: utter_preguntar_nombre
-  - intent: presentación_nombre
-    entities:
-    - nombre: Marta Vinader
-  - slot_was_set:
-    - nombre: Marta Vinader
-  - action: utter_preguntar_estudios
-  - intent: negación
-  - action: action_menos_12_años_estudios
-  - slot_was_set:
-    - res_final: 0
-  - action: utter_agradecimiento
-  - action: utter_prueba1
-  - intent: serie_alfanumérica
-    entities:
-    - serie_alfanumérica: '1'
-    - serie_alfanumérica: A
-    - serie_alfanumérica: '2'
-    - serie_alfanumérica: B
-    - serie_alfanumérica: '3'
-    - serie_alfanumérica: C
-    - serie_alfanumérica: '4'
-    - serie_alfanumérica: D
-    - serie_alfanumérica: '5'
-    - serie_alfanumérica: E
-  - slot_was_set:
-    - serie_alfanumérica:
-      - '1'
-      - A
-      - '2'
-      - B
-      - '3'
-      - C
-      - '4'
-      - D
-      - '5'
-      - E
+    - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
   - action: action_resultado_prueba1
   - slot_was_set:
     - res_final: 1
@@ -348,7 +189,6 @@ stories:
       - llave
       - vela
       - cuchara
- # - action: action_react_to_reminder
   - action: action_resultado_prueba2
   - slot_was_set:
     - res_final: 4
@@ -412,34 +252,18 @@ stories:
   - action: utter_prueba6_serie_números_directo_explicación
   - action: utter_prueba6_serie_números_directo_secuencia
   - intent: serie_números
-    entities:
-    - serie_números: '2'
-    - serie_números: '1'
-    - serie_números: '8'
-    - serie_números: '5'
-    - serie_números: '4'
   - slot_was_set:
     - serie_números:
-      - '2'
-      - '1'
-      - '8'
-      - '5'
-      - '4'
+      - 2, 1, 8, 5, 4
   - action: action_resultado_serie_números_directo
   - slot_was_set:
     - res_final: 8
   - action: utter_prueba6_serie_números_inverso_explicación
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números
-    entities:
-    - serie_números: '2'
-    - serie_números: '7'
-    - serie_números: '4'
   - slot_was_set:
     - serie_números:
-      - '2'
-      - '7'
-      - '4'
+      - 2, 4, 7
   - action: action_resultado_serie_números_inverso
   - slot_was_set:
     - res_final: 9
@@ -448,49 +272,15 @@ stories:
   - intent: serie_letras
     entities:
     - resultado_As: '10'
+  - slot_was_set:
+    - resultado_As: '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
     - res_final: 10
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
-  - intent: serie_7
-    entities:
-    - resultado_As: '10'
-  - action: action_resultado_serie_7
-  - slot_was_set:
-    - res_final: 10
-  - action: utter_prueba7_1
-  - intent: frase_1
-  - action: action_resultado_prueba7_1
-  - slot_was_set:
-    - res_final: 11
-  - action: utter_prueba7_2
-  - intent: frase_2
-  - action: action_resultado_prueba7_2
-  - slot_was_set:
-    - res_final: 12
-  - action: utter_prueba8  
-  - intent: afirmación
-  - action: action_set_reminder_3
-  - intent: palabras_F
-    entities:
-    - lista_F: flor
-    - lista_F: farola
-    - lista_F: feliz
-    - lista_F: felpa
-    - lista_F: fieltro
-    - lista_F: fiesta
-    - lista_F: funambulista
-    - lista_F: frenesí
-    - lista_F: fresa
-    - lista_F: frontón
-    - lista_F: frilipino
-  - action: action_resultado_prueba8
-  - slot_was_set:
-    - res_final: 13
-  - action: utter_prueba9_enunciado_1
 
-- story: interactive_story_3
+- story: interactive_story_2
   steps:
   - intent: saludo
   - action: utter_saludo
@@ -500,9 +290,9 @@ stories:
   - action: utter_preguntar_nombre
   - intent: presentación_nombre
     entities:
-    - nombre: Jesús
+    - nombre: Marta Vinader
   - slot_was_set:
-    - nombre: Jesús
+    - nombre: Marta Vinader
   - action: utter_preguntar_estudios
   - intent: negación
   - action: action_menos_12_años_estudios
@@ -543,7 +333,6 @@ stories:
       - llave
       - vela
       - cuchara
- # - action: action_react_to_reminder
   - action: action_resultado_prueba2
   - slot_was_set:
     - res_final: 4
@@ -608,7 +397,8 @@ stories:
   - action: utter_prueba6_serie_números_directo_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números: 2, 1, 8, 5, 4
+    - serie_números:
+      - 2, 1, 8, 5, 4
   - action: action_resultado_serie_números_directo
   - slot_was_set:
     - res_final: 8
@@ -616,7 +406,8 @@ stories:
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números: 2, 4, 7
+    - serie_números:
+      - 2, 4, 7
   - action: action_resultado_serie_números_inverso
   - slot_was_set:
     - res_final: 9
@@ -632,59 +423,8 @@ stories:
     - res_final: 10
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
-  - intent: serie_7
-    entities:
-    - serie_7: '93'
-    - serie_7: '86'
-    - serie_7: '79'
-    - serie_7: '72'
-    - serie_7: '65'
-    - serie_7: '58'
-    - serie_7: '51'
-    - serie_7: '44'
-    - serie_7: '37'
-    - serie_7: '30'
-    - serie_7: '23'
-    - serie_7: '16'
-    - serie_7: '9'
-    - serie_7: '2'
-  - action: action_resultado_serie_7
-  - slot_was_set:
-    - res_final: 10
-  - action: utter_prueba7_1
-  - intent: frase_1
-  - action: action_resultado_prueba7_1
-  - slot_was_set:
-    - res_final: 11
-  - action: utter_prueba7_2
-  - intent: frase_2
-  - action: action_resultado_prueba7_2
-  - slot_was_set:
-    - res_final: 12
-  - action: utter_prueba8  
-  - intent: afirmación
-  - action: action_set_reminder_3
-  - intent: palabras_F
-    entities:
-    - lista_F: flor
-    - lista_F: farola
-    - lista_F: feliz
-    - lista_F: felpa
-    - lista_F: fieltro
-    - lista_F: fiesta
-    - lista_F: funambulista
-    - lista_F: frenesí
-    - lista_F: fresa
-    - lista_F: frontón
-    - lista_F: frilipino
-  - action: action_resultado_prueba8
-  - slot_was_set:
-    - res_final: 13
-  - action: utter_prueba9_enunciado_1
 
-
-
-  - story: interactive_story_1
+- story: interactive_story_3
   steps:
   - intent: saludo
   - action: utter_saludo
@@ -811,7 +551,7 @@ stories:
   - intent: serie_números
   - slot_was_set:
     - serie_números:
-      - 2, 7, 4
+      - 2, 4, 7
   - action: action_resultado_serie_números_inverso
   - slot_was_set:
     - res_final: 9
@@ -822,3 +562,64 @@ stories:
     - resultado_As: '10'
   - slot_was_set:
     - resultado_As: '10'
+  - action: action_resultado_serie_letras
+  - slot_was_set:
+    - res_final: 10
+  - action: utter_prueba6_serie_7_explicación
+  - action: action_set_reminder_2
+  - intent: serie_7
+  - slot_was_set:
+    - serie_7:
+      - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+  - action: action_resultado_serie_7
+  - slot_was_set:
+    - res_final: 13
+  - action: utter_prueba7_1
+  - intent: frase_1
+  - slot_was_set:
+    - frase_1:
+      - Solo sé que le toca a Juan ayudar hoy.
+  - action: action_resultado_prueba7_1
+  - slot_was_set:
+    - res_final: 14
+  - action: utter_prueba7_2
+  - intent: frase_2
+  - slot_was_set:
+    - frase_2:
+      - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
+  - action: action_resultado_prueba7_2
+  - slot_was_set:
+    - res_final: 15
+  - action: utter_prueba8  
+  - intent: afirmación
+  - action: action_set_reminder_3
+  - intent: palabras_F
+    entities:
+    - lista_F: flor
+    - lista_F: farola
+    - lista_F: feliz
+    - lista_F: felpa
+    - lista_F: fieltro
+    - lista_F: fiesta
+    - lista_F: funambulista
+    - lista_F: frenesí
+    - lista_F: fresa
+    - lista_F: frontón
+    - lista_F: filipino
+  - slot_was_set:
+    - lista_F:
+      - flor
+      - farola
+      - feliz
+      - felpa
+      - fieltro
+      - fiesta
+      - funambulista
+      - frenesí
+      - fresa
+      - frontón
+      - filipino
+  - action: action_resultado_prueba8
+  - slot_was_set:
+    - res_final: 16
+  - action: utter_prueba9_enunciado_1

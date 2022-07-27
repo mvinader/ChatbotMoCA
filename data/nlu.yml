@@ -165,7 +165,7 @@ nlu:
     - [10](resultado_As)
 - intent: serie_7
   examples: |
-    - [93](serie_7), [86](serie_7), [79](serie_7), [72](serie_7), [65](serie_7), [58](serie_7), [51](serie_7), [44](serie_7), [37](serie_7), [30](serie_7), [23](serie_7), [16](serie_7), [9](serie_7), [2](serie_7)
+    - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
 - intent: frase_1
   examples: |
     - Solo sé que le toca a Juan ayudar hoy.

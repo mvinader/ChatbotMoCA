@@ -98,8 +98,7 @@ slots:
     type: list
     influence_conversation: false
     mappings:
-    - type: from_entity
-      entity: serie_7
+    - type: from_text
       intent: serie_7
   frase_1:
     type: text
