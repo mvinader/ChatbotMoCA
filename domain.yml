@@ -1,27 +1,26 @@
 version: '3.1'
 intents:
-- abandono
-- afirmación
-- animales
-- despedida
-- fecha_correcta
-- frase_1
-- frase_2
-- frutas
-- lista_objetos
-- lugar
-- memoria
-- negación
-- palabras_F
-- para_medir
-- para_viajar
-- presentación_nombre
 - probar_chatbot
 - saludo
-- serie_7
+- afirmación
+- negación
+- presentación_nombre
 - serie_alfanumérica
-- serie_letras
+- lista_objetos
+- animales
+- memoria
 - serie_números
+- frase_1
+- frase_2
+- palabras_F
+- frutas
+- para_viajar
+- para_medir
+- fecha_correcta
+- lugar
+#- serie_7
+- despedida
+- abandono
 - EXTERNAL_reminder_1
 - EXTERNAL_reminder_2
 - EXTERNAL_reminder_3
@@ -33,8 +32,7 @@ entities:
 - lista_memoria
 #- serie_números
 #- numeros
-- resultado_As
-- serie_7
+#- resultado_As
 - lista_F
 - día
 - número_fecha
@@ -85,21 +83,14 @@ slots:
     mappings:
     - type: from_text
       intent: serie_números
-  resultado_As:
-    type: float
-    influence_conversation: false
-    initial_value: 0
-    min_value: 0.0
-    mappings:
-    - type: from_entity
-      entity: resultado_As
-      intent: serie_letras
-  serie_7:
-    type: list
-    influence_conversation: false
-    mappings:
-    - type: from_text
-      intent: serie_7
+ # resultado_As:
+ #   type: float
+ #   influence_conversation: false
+ #   initial_value: 0
+ #   min_value: 0.0
+ #   mappings:
+ #   - type: from_text
+ #     intent: serie_números
   frase_1:
     type: text
     influence_conversation: false

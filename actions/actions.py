@@ -243,11 +243,11 @@ class ActionResultadoSerieLetras(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        resultado_6_A = tracker.get_slot("resultado_As")
+        resultado_6_A = tracker.get_slot("serie_números")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
-        if resultado_6_A == 11 or resultado_6_A == 10 or resultado_6_A == 9:
+        if resultado_6_A == 11 or resultado_6_A == 10 or resultado_6_A == ["10"] or resultado_6_A == "10" or resultado_6_A == 9:
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
@@ -285,9 +285,9 @@ class ActionResultadoSerie7(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        resultado_6_serie = tracker.get_slot("serie_7")
+        resultado_6_serie = tracker.get_slot("serie_números")
         resultado_final_contenedor = tracker.slots.get("res_final")
-        i = resultado_6_serie[0] - 7
+        i = resultado_6_serie[0] - '7'
         cuenta = 0
         while i > 0:
             if i in resultado_6_serie:

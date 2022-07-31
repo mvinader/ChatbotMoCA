@@ -64,11 +64,11 @@ stories:
   - action: action_resultado_serie_números_inverso
   - action: utter_prueba6_serie_letras_explicación
   - action: utter_prueba6_serie_letras_secuencia
-  - intent: serie_letras
+  - intent: serie_números
   - action: action_resultado_serie_letras
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
-  - intent: serie_7
+  - intent: serie_números
  # - action: action_react_to_reminder
   - action: action_resultado_serie_7
   - action: utter_prueba7_1
@@ -269,16 +269,71 @@ stories:
     - res_final: 9
   - action: utter_prueba6_serie_letras_explicación
   - action: utter_prueba6_serie_letras_secuencia
-  - intent: serie_letras
-    entities:
-    - resultado_As: '10'
+  - intent: serie_números
   - slot_was_set:
-    - resultado_As: '10'
+    - serie_números:
+      - '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
     - res_final: 10
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números:
+      - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+  - action: action_resultado_serie_7
+  - slot_was_set:
+    - res_final: 13
+  - action: utter_prueba7_1
+  - intent: frase_1
+  - slot_was_set:
+    - frase_1:
+      - Solo sé que le toca a Juan ayudar hoy.
+  - action: action_resultado_prueba7_1
+  - slot_was_set:
+    - res_final: 14
+  - action: utter_prueba7_2
+  - intent: frase_2
+  - slot_was_set:
+    - frase_2:
+      - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
+  - action: action_resultado_prueba7_2
+  - slot_was_set:
+    - res_final: 15
+  - action: utter_prueba8  
+  - intent: afirmación
+  - action: action_set_reminder_3
+  - intent: palabras_F
+    entities:
+    - lista_F: flor
+    - lista_F: farola
+    - lista_F: feliz
+    - lista_F: felpa
+    - lista_F: fieltro
+    - lista_F: fiesta
+    - lista_F: funambulista
+    - lista_F: frenesí
+    - lista_F: fresa
+    - lista_F: frontón
+    - lista_F: filipino
+  - slot_was_set:
+    - lista_F:
+      - flor
+      - farola
+      - feliz
+      - felpa
+      - fieltro
+      - fiesta
+      - funambulista
+      - frenesí
+      - fresa
+      - frontón
+      - filipino
+  - action: action_resultado_prueba8
+  - slot_was_set:
+    - res_final: 16
+  - action: utter_prueba9_enunciado_1
 
 - story: interactive_story_2
   steps:
@@ -413,16 +468,71 @@ stories:
     - res_final: 9
   - action: utter_prueba6_serie_letras_explicación
   - action: utter_prueba6_serie_letras_secuencia
-  - intent: serie_letras
-    entities:
-    - resultado_As: '10'
+  - intent: serie_números
   - slot_was_set:
-    - resultado_As: '10'
+    - serie_números:
+      - '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
     - res_final: 10
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números:
+      - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+  - action: action_resultado_serie_7
+  - slot_was_set:
+    - res_final: 13
+  - action: utter_prueba7_1
+  - intent: frase_1
+  - slot_was_set:
+    - frase_1:
+      - Solo sé que le toca a Juan ayudar hoy.
+  - action: action_resultado_prueba7_1
+  - slot_was_set:
+    - res_final: 14
+  - action: utter_prueba7_2
+  - intent: frase_2
+  - slot_was_set:
+    - frase_2:
+      - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
+  - action: action_resultado_prueba7_2
+  - slot_was_set:
+    - res_final: 15
+  - action: utter_prueba8  
+  - intent: afirmación
+  - action: action_set_reminder_3
+  - intent: palabras_F
+    entities:
+    - lista_F: flor
+    - lista_F: farola
+    - lista_F: feliz
+    - lista_F: felpa
+    - lista_F: fieltro
+    - lista_F: fiesta
+    - lista_F: funambulista
+    - lista_F: frenesí
+    - lista_F: fresa
+    - lista_F: frontón
+    - lista_F: filipino
+  - slot_was_set:
+    - lista_F:
+      - flor
+      - farola
+      - feliz
+      - felpa
+      - fieltro
+      - fiesta
+      - funambulista
+      - frenesí
+      - fresa
+      - frontón
+      - filipino
+  - action: action_resultado_prueba8
+  - slot_was_set:
+    - res_final: 16
+  - action: utter_prueba9_enunciado_1
 
 - story: interactive_story_3
   steps:
@@ -557,19 +667,18 @@ stories:
     - res_final: 9
   - action: utter_prueba6_serie_letras_explicación
   - action: utter_prueba6_serie_letras_secuencia
-  - intent: serie_letras
-    entities:
-    - resultado_As: '10'
+  - intent: serie_números
   - slot_was_set:
-    - resultado_As: '10'
+    - serie_números:
+      - '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
     - res_final: 10
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
-  - intent: serie_7
+  - intent: serie_números
   - slot_was_set:
-    - serie_7:
+    - serie_números:
       - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
   - action: action_resultado_serie_7
   - slot_was_set:
