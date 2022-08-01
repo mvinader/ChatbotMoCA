@@ -176,9 +176,19 @@ nlu:
 - intent: frase_1
   examples: |
     - Solo sé que le toca a Juan ayudar hoy.
+    - Solo se que le toca a juan ayudar hoy
+    - Sé que Juan tiene que ayudar hoy.
+    - Sé que le toca a Juan ayudar esta tarde.
+    - Juan ayudará mañana.
+    - Solo sé que le toca a Pedro ayudar hoy.
 - intent: frase_2
   examples: |
     - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
+    - El gato siempre se esconde debajo del sofa cuando hay perros en la habitacion
+    - El perro siempre se esconde debajo del sofá cuando hay gatos en la habitación.
+    - El gato siempre se va debajo de la mesa cuando hay perros en la habitación.
+    - El gato siempre se esconde debajo del sofá cuando hay un perro en la casa.
+    - El gato siempre huye del perro.
 - intent: palabras_F
   examples: |
     - [flor](lista_F), [farola](lista_F), [feliz](lista_F), [felpa](lista_F), [fieltro](lista_F), [fiesta](lista_F), [funambulista](lista_F), [frenesí](lista_F), [fresa](lista_F), [frontón](lista_F), [filipino](lista_F)

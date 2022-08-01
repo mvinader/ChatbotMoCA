@@ -253,8 +253,7 @@ stories:
   - action: utter_prueba6_serie_números_directo_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 2, 1, 8, 5, 4
+    - serie_números: 2, 1, 8, 5, 4
   - action: action_resultado_serie_números_directo
   - slot_was_set:
     - res_final: 8
@@ -262,8 +261,7 @@ stories:
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 2, 4, 7
+    - serie_números: 2, 4, 7
   - action: action_resultado_serie_números_inverso
   - slot_was_set:
     - res_final: 9
@@ -271,8 +269,7 @@ stories:
   - action: utter_prueba6_serie_letras_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - '10'
+    - serie_números: '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
     - res_final: 10
@@ -280,8 +277,7 @@ stories:
   - action: action_set_reminder_2
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+    - serie_números: 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
   - action: action_resultado_serie_7
   - slot_was_set:
     - res_final: 13
@@ -452,8 +448,7 @@ stories:
   - action: utter_prueba6_serie_números_directo_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 2, 1, 8, 5, 4
+    - serie_números: 2, 1, 8, 5, 4
   - action: action_resultado_serie_números_directo
   - slot_was_set:
     - res_final: 8
@@ -461,8 +456,7 @@ stories:
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 2, 4, 7
+    - serie_números: 2, 4, 7
   - action: action_resultado_serie_números_inverso
   - slot_was_set:
     - res_final: 9
@@ -470,8 +464,7 @@ stories:
   - action: utter_prueba6_serie_letras_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - '10'
+    - serie_números: '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
     - res_final: 10
@@ -479,8 +472,7 @@ stories:
   - action: action_set_reminder_2
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+    - serie_números: 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
   - action: action_resultado_serie_7
   - slot_was_set:
     - res_final: 13
@@ -651,8 +643,7 @@ stories:
   - action: utter_prueba6_serie_números_directo_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 2, 1, 8, 5, 4
+    - serie_números: 2, 1, 8, 5, 4
   - action: action_resultado_serie_números_directo
   - slot_was_set:
     - res_final: 8
@@ -660,8 +651,7 @@ stories:
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 2, 4, 7
+    - serie_números: 2, 4, 7
   - action: action_resultado_serie_números_inverso
   - slot_was_set:
     - res_final: 9
@@ -669,8 +659,7 @@ stories:
   - action: utter_prueba6_serie_letras_secuencia
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - '10'
+    - serie_números: '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
     - res_final: 10
@@ -678,24 +667,21 @@ stories:
   - action: action_set_reminder_2
   - intent: serie_números
   - slot_was_set:
-    - serie_números:
-      - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+    - serie_números: 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
   - action: action_resultado_serie_7
   - slot_was_set:
     - res_final: 13
   - action: utter_prueba7_1
   - intent: frase_1
   - slot_was_set:
-    - frase_1:
-      - Solo sé que le toca a Juan ayudar hoy.
+    - frase_1: Solo sé que le toca a Juan ayudar hoy.
   - action: action_resultado_prueba7_1
   - slot_was_set:
     - res_final: 14
   - action: utter_prueba7_2
   - intent: frase_2
   - slot_was_set:
-    - frase_2:
-      - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
+    - frase_2: El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
   - action: action_resultado_prueba7_2
   - slot_was_set:
     - res_final: 15

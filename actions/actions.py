@@ -284,13 +284,14 @@ class ActionResultadoSerie7(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        
         resultado_6_serie = tracker.get_slot("serie_números")
         resultado_final_contenedor = tracker.slots.get("res_final")
-        i = resultado_6_serie[0] - '7'
+        items = resultado_6_serie.split(', ')
+        i = int(items[0]) - 7
         cuenta = 0
         while i > 0:
-            if i in resultado_6_serie:
+            if str(i) in resultado_6_serie:
                 cuenta += 1
             i -= 7
         resultado = 0    
