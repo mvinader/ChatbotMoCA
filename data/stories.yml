@@ -77,8 +77,7 @@ stories:
   - action: utter_prueba7_2
   - intent: frase_2
   - action: action_resultado_prueba7_2
-  - action: utter_prueba8  
-  - intent: afirmación
+  - action: utter_prueba8
   - action: action_set_reminder_3
   - intent: palabras_F
  # - action: action_react_to_reminder
@@ -161,7 +160,7 @@ stories:
     - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
   - action: action_resultado_prueba1
   - slot_was_set:
-    - res_final: 1
+    - res_final: 2
   - action: utter_prueba2_enunciado
   - action: utter_prueba2_imagen
   - action: action_set_reminder_1
@@ -191,7 +190,7 @@ stories:
       - cuchara
   - action: action_resultado_prueba2
   - slot_was_set:
-    - res_final: 4
+    - res_final: 5
   - action: utter_prueba4
   - action: utter_prueba4_león
   - intent: animales
@@ -201,7 +200,7 @@ stories:
     - animales: león
   - action: action_resultado_animal1
   - slot_was_set:
-    - res_final: 5
+    - res_final: 6
   - action: utter_prueba4_rinoceronte
   - intent: animales
     entities:
@@ -210,7 +209,7 @@ stories:
     - animales: rinoceronte
   - action: action_resultado_animal2
   - slot_was_set:
-    - res_final: 6
+    - res_final: 7
   - action: utter_prueba4_camello
   - intent: animales
     entities:
@@ -219,7 +218,7 @@ stories:
     - animales: camello
   - action: action_resultado_animal3
   - slot_was_set:
-    - res_final: 7
+    - res_final: 8
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
   - intent: memoria
@@ -256,7 +255,7 @@ stories:
     - serie_números: 2, 1, 8, 5, 4
   - action: action_resultado_serie_números_directo
   - slot_was_set:
-    - res_final: 8
+    - res_final: 9
   - action: utter_prueba6_serie_números_inverso_explicación
   - action: utter_prueba6_serie_números_inverso_secuencia
   - intent: serie_números
@@ -264,7 +263,7 @@ stories:
     - serie_números: 2, 4, 7
   - action: action_resultado_serie_números_inverso
   - slot_was_set:
-    - res_final: 9
+    - res_final: 10
   - action: utter_prueba6_serie_letras_explicación
   - action: utter_prueba6_serie_letras_secuencia
   - intent: serie_números
@@ -272,7 +271,7 @@ stories:
     - serie_números: '10'
   - action: action_resultado_serie_letras
   - slot_was_set:
-    - res_final: 10
+    - res_final: 11
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
   - intent: serie_números
@@ -280,7 +279,7 @@ stories:
     - serie_números: 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
   - action: action_resultado_serie_7
   - slot_was_set:
-    - res_final: 13
+    - res_final: 14
   - action: utter_prueba7_1
   - intent: frase_1
   - slot_was_set:
@@ -288,7 +287,7 @@ stories:
       - Solo sé que le toca a Juan ayudar hoy.
   - action: action_resultado_prueba7_1
   - slot_was_set:
-    - res_final: 14
+    - res_final: 15
   - action: utter_prueba7_2
   - intent: frase_2
   - slot_was_set:
@@ -296,9 +295,8 @@ stories:
       - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
   - action: action_resultado_prueba7_2
   - slot_was_set:
-    - res_final: 15
-  - action: utter_prueba8  
-  - intent: afirmación
+    - res_final: 16
+  - action: utter_prueba8
   - action: action_set_reminder_3
   - intent: palabras_F
     entities:
@@ -328,7 +326,7 @@ stories:
       - filipino
   - action: action_resultado_prueba8
   - slot_was_set:
-    - res_final: 16
+    - res_final: 17
   - action: utter_prueba9_enunciado_1
 
 - story: interactive_story_2
@@ -492,8 +490,7 @@ stories:
   - action: action_resultado_prueba7_2
   - slot_was_set:
     - res_final: 15
-  - action: utter_prueba8  
-  - intent: afirmación
+  - action: utter_prueba8
   - action: action_set_reminder_3
   - intent: palabras_F
     entities:
@@ -685,8 +682,7 @@ stories:
   - action: action_resultado_prueba7_2
   - slot_was_set:
     - res_final: 15
-  - action: utter_prueba8  
-  - intent: afirmación
+  - action: utter_prueba8
   - action: action_set_reminder_3
   - intent: palabras_F
     entities:
@@ -718,3 +714,37 @@ stories:
   - slot_was_set:
     - res_final: 16
   - action: utter_prueba9_enunciado_1
+  - intent: frutas
+  - action: utter_prueba9_correcto_1
+  - action: utter_prueba9_enunciado_2
+  - intent: para_viajar
+  - slot_was_set:
+    - para_viajar: medios de transporte
+  - action: action_resultado_prueba9_2
+  - slot_was_set:
+    - res_final: 17
+  - action: utter_prueba9_enunciado_3
+  - intent: para_medir
+  - slot_was_set:
+    - para_medir: para medir
+  - action: action_resultado_prueba9_3
+  - slot_was_set:
+    - res_final: 18
+  - action: utter_prueba10
+  - intent: memoria
+    entities:
+    - lista_memoria: rostro
+    - lista_memoria: seda
+    - lista_memoria: templo
+    - lista_memoria: clavel
+    - lista_memoria: rojo
+  - slot_was_set:
+    - lista_memoria:
+      - rostro
+      - seda
+      - templo
+      - clavel
+      - rojo
+  - action: action_resultado_prueba10
+  - slot_was_set:
+    - res_final: 23

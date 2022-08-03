@@ -273,7 +273,7 @@ responses:
       "Ahora voy a leerle otra frase. Repítala exactamente cuando yo termine: El gato siempre se esconde debajo del sofá cuando hay perros en la habitación."
   utter_prueba8:
   - text: |
-      "Ahora, diga el mayor número posible de palabras que comiencen por la letra F. Le pediré que pare al minuto. No se permiten nombres, números y las formas conjugadas de un verbo. ¿Está  preparado?"
+      "Ahora, diga el mayor número posible de palabras que comiencen por la letra F. Le pediré que pare al minuto. No se permiten nombres, números y las formas conjugadas de un verbo."
   utter_prueba9_enunciado_1:
   - text: |
       "Le diré dos palabras y me gustaría que usted me dijera a qué categoría pertenecen: una naranja y un plátano."

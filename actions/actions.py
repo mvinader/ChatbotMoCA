@@ -383,8 +383,10 @@ class ActionResultadoPrueba8(Action):
         resultado_8 = tracker.get_slot("lista_F")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
+        length = len(resultado_8)
         #topicList:['topic_1', 'topic_2']
-
+        dispatcher.utter_message(text = f"len: {length}")
+        
         if len(resultado_8) >= 11:
             resultado = 1
 
