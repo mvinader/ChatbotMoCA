@@ -407,7 +407,7 @@ class ActionResultadoPrueba9_2(Action):
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
-        if resultado_9_2 == "para_viajar":
+        if resultado_9_2 == "medios de transporte" or resultado_9_2 == "transportes" or resultado_9_2 == "medios de locomoción" or resultado_9_2 == "para viajar":
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
@@ -427,7 +427,7 @@ class ActionResultadoPrueba9_3(Action):
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
-        if resultado_9_3 == "para_medir":
+        if resultado_9_3 == "instrumentos de medición" or resultado_9_3 == "instrumentos de medida" or resultado_9_3 == "para medir":
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
@@ -547,8 +547,14 @@ class ActionResultadoFecha(Action):
         año = date.strftime("%Y")
         #entities = tracker.latest_message.get("entities")
 
-        if resultado_día == día and resultado_mes == mes and resultado_número_día == número_día and resultado_año == año:
-            resultado = 1
+        if resultado_día == día:
+            resultado += 1
+        if resultado_mes == mes:
+            resultado += 1
+        if resultado_número_día == número_día:
+            resultado += 1
+        if resultado_año == año:
+            resultado += 1
 
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]

@@ -208,6 +208,7 @@ nlu:
 - intent: para_medir
   examples: |
     - instrumentos de medición
+    - instrumentos de medida
     - para medir
 - intent: fecha_correcta
   examples: |

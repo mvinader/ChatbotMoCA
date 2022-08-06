@@ -111,13 +111,13 @@ slots:
       entity: lista_F
       intent: palabras_F
   para_viajar:
-    type: list
+    type: text
     influence_conversation: false
     mappings:
     - type: from_text
       intent: para_viajar
   para_medir:
-    type: list
+    type: text
     influence_conversation: false
     mappings:
     - type: from_text
