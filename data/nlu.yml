@@ -93,6 +93,11 @@ nlu:
     - [Jesús](nombre)
     - [Pedro](nombre)
     - [Jesús](nombre)
+    - [Luis](nombre)
+    - [Domingo](nombre)
+    - [Felipe](nombre)
+    - [Fátima](nombre)
+    - [Fran](nombre)
 - intent: serie_alfanumérica
   examples: |
     - 1, A, 2, B, 3, C, 4, D, 5, E
@@ -139,6 +144,9 @@ nlu:
     - [rostro](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria), [clavel](lista_memoria)
     - [rostro](lista_memoria), [rojo](lista_memoria), [templo](lista_memoria), [seda](lista_memoria), [clavel](lista_memoria)
     - [templo](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria)
+    - [seda](lista_memoria), [rostro](lista_memoria), [templo](lista_memoria), [rojo](lista_memoria), [clavel](lista_memoria)
+    - [rojo](lista_memoria), [clavel](lista_memoria), [templo](lista_memoria), [seda](lista_memoria), [rostro](lista_memoria)
+    - [rojo](lista_memoria), [seda](lista_memoria)
 - intent: serie_números
   examples: |
     - 2, 1, 8, 5, 4
@@ -166,13 +174,25 @@ nlu:
     - 10
     - 11
     - 12
-#- intent: serie_7
-#  examples: |
-#    - 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
-#    - 93, 86, 79, 72, 65, 58, 51
-#    - 93, 86, 79, 72
-#    - 92, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
-#    - 92, 85, 78, 71, 64, 57, 50, 43, 36, 29, 22, 15, 8, 1
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+    - 31
 - intent: frase_1
   examples: |
     - Solo sé que le toca a Juan ayudar hoy.
@@ -180,50 +200,98 @@ nlu:
     - Sé que Juan tiene que ayudar hoy.
     - Sé que le toca a Juan ayudar esta tarde.
     - Juan ayudará mañana.
+    - Juan tiene que ayudar hoy.
     - Solo sé que le toca a Pedro ayudar hoy.
 - intent: frase_2
   examples: |
     - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
     - El gato siempre se esconde debajo del sofa cuando hay perros en la habitacion
     - El perro siempre se esconde debajo del sofá cuando hay gatos en la habitación.
-    - El gato siempre se va debajo de la mesa cuando hay perros en la habitación.
+    - El gato siempre se va debajo de la mesa cuando algún perro en el salón.
     - El gato siempre se esconde debajo del sofá cuando hay un perro en la casa.
     - El gato siempre huye del perro.
+    - Los gatos siempre se van debajo del sofá cuando hay algún perro en la habitación.
 - intent: palabras_F
   examples: |
     - [flor](lista_F), [farola](lista_F), [feliz](lista_F), [felpa](lista_F), [fieltro](lista_F), [fiesta](lista_F), [funambulista](lista_F), [frenesí](lista_F), [fresa](lista_F), [frontón](lista_F), [filipino](lista_F)
     - [florero](lista_F), [farolillo](lista_F), [felicidad](lista_F), [felpudo](lista_F), [festejar](lista_F), [fresón](lista_F), [fábula](lista_F), [feroz](lista_F)
     - [florista](lista_F), [festejo](lista_F), [filipino](lista_F), [fabuloso](lista_F), [fresa](lista_F)
     - [florería](lista_F), [festivo](lista_F), [ficha](lista_F), [fiera](lista_F)
+    - [flor](lista_F), [francés](lista_F), [filo](lista_F), [felpa](lista_F), [felicidad](lista_F), [fábula](lista_F), [foca](lista_F), [fémur](lista_F), [fiesta](lista_F), [fofo](lista_F), [fresón](lista_F)
 - intent: frutas
   examples: |
     - fruta
     - frutas
+    - frutos
+    - frutilla
+    - frutillas
 - intent: para_viajar
   examples: |
     - medios de transporte
     - transportes
+    - transporte
     - medios de locomoción
     - para viajar
+    - para viajes
 - intent: para_medir
   examples: |
     - instrumentos de medición
     - instrumentos de medida
+    - instrumentos de medir
     - para medir
+    - para medición
+    - para medida
+    - cosas para medir
 - intent: fecha_correcta
   examples: |
-    - Hoy es [2022](año), [mayo](mes), [29](número_fecha), [domingo](día)
-    - [2022](año), [mayo](mes), [29](número_fecha), [domingo](día)
-    - La fecha de hoy es [2022](año), [mayo](mes), [29](número_fecha), [domingo](día)
-    - Estamos a [2022](año), [mayo](mes), [29](número_fecha), [domingo](día)
+    - Hoy es [domingo](día), 29, [mayo](mes), [2022](año)
+    - Hoy es [domingo](día), 29 de [mayo](mes) de [2022](año)
+    - [domingo](día), 29, [mayo](mes), [2022](año)
+    - [domingo](día), 29 de [mayo](mes) de [2022](año)
+    - La fecha de hoy es [domingo](día), 29, [mayo](mes), [2022](año)
+    - Estamos a [domingo](día), 29, [mayo](mes), [2022](año)
+    - [sábado](día)
+    - [domingo](día)
+    - Hoy es [sábado](día)
+    - Estamos a [sábado](día)
+    - La fecha de hoy es [sábado](día)
+    - [agosto](mes)
+    - [mayo](mes)
+    - Estamos en [agosto](mes)
+    - Estamos en el mes de [agosto](mes)
+    - [2022](año)
+    - Estamos en [2022](año)
+    - Estamos en el año [2022](año)
 - intent: lugar
   examples: |
-    - [Aranjuez](lugar)
-    - En [Aranjuez](lugar)
-    - Estoy en [Aranjuez](lugar)
-    - [Madrid](lugar)
-    - En [Madrid](lugar)
-    - Estoy en [Madrid](lugar)
+    - [Hospital del Tajo](lugar)
+    - [Hospital Doce de Octubre](lugar)
+    - [Doce de Octubre](lugar)
+    - En el [Hospital del Tajo](lugar)
+    - Estoy en el [Hospital del Tajo](lugar)
+    - Estoy en el [hospital](lugar)
+    - Estoy en un [hospital](lugar)
+    - Estoy en el [ambulatorio](lugar)
+    - Estoy en un [ambulatorio](lugar)
+    - Estoy en la [consulta de Neurología](lugar)
+    - Estoy en una [consulta de Neurología](lugar)
+    - Estoy en la [clínica Richer](lugar)
+    - En el [hospital](lugar)
+    - En un [hospital](lugar)
+- intent: localidad
+  examples: |
+    - [Aranjuez](localidad)
+    - [Madrid](localidad)
+    - [Fuenlabrada](localidad)
+    - [Getafe](localidad)
+    - [Leganés](localidad)
+    - [Vallecas](localidad)
+    - [Alcobendas](localidad)
+    - [San Sebastián de los Reyes](localidad)
+    - En [Aranjuez](localidad)
+    - En [Madrid](localidad)
+    - Estoy en [Aranjuez](localidad)
+    - Estoy en [Madrid](localidad)
 - intent: despedida
   examples: |
     - adiós
@@ -283,6 +351,15 @@ nlu:
     - bisonte
     - cocodrilo
     - gacela
+- lookup: día
+  examples: |
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    - domingo
 - lookup: mes
   examples: |
     - enero
@@ -297,3 +374,45 @@ nlu:
     - octubre
     - noviembre
     - diciembre
+#- lookup: año
+#  examples: |
+#    - 1935
+#    - 1936
+#    - 1937
+#    - 1938
+#    - 1939
+#    - 1940
+#    - 1941
+#    - 1942
+#    - 1943
+#    - 1944
+#    - 1945
+#    - 1946
+#    - 1947
+#    - 1948
+#    - 1949
+#    - 1950
+#    - 2000
+#    - 2001
+#    - 2002
+#    - 2003
+#    - 2004
+#    - 2005
+#    - 2006
+#    - 2007
+#    - 2008
+#    - 2009
+#    - 2010
+#    - 2011
+#    - 2012
+#    - 2013
+#    - 2014
+#    - 2015
+#    - 2016
+#    - 2017
+#    - 2018
+#    - 2019
+#    - 2021
+#    - 2022
+#    - 2023
+#    - 2024

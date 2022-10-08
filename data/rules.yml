@@ -7,26 +7,30 @@ rules:
 #  - intent: saludo
 #  - action: utter_saludo
 
-#- rule: activar fecha_form
-#  steps:
-#  - action: utter_prueba11_fecha
-#  - action: fecha_form
-#  - active_loop: fecha_form
-#
-#- rule: entregar fecha_form
-#  # Asegurarse de que se empieza desde un bucle activo
-#  condition:
-#  - active_loop: fecha_form
-#  steps:
-#  - action: fecha_form
-#  # Si no se necesitan más slots
-#  - active_loop: null
-#  - slot_was_set:   # ToDo: comprobar si está bien
-#    - requested_slot: null
-#  # Acciones a llevar a cabo cuando se entrega el formulario
-#  - action: action_resultado_fecha
-#  - action: utter_prueba11_lugar
-#
+- rule: activar fecha_form
+  steps:
+  - action: utter_prueba11_fecha
+  - action: fecha_form
+  - active_loop: fecha_form
+
+- rule: entregar fecha_form
+  # Asegurarse de que se empieza desde un bucle activo
+  condition:
+  - active_loop: fecha_form
+  steps:
+  - action: fecha_form
+  # Si no se necesitan más slots
+  - active_loop: null
+  - slot_was_set:   # ToDo: comprobar si está bien
+    - requested_slot: null
+  # Acciones a llevar a cabo cuando se entrega el formulario
+  - action: action_resultado_fecha
+  - action: lugar_form
+  - action: action_resultado_lugar
+  - action: utter_resultados
+  - action: action_resultado_final
+  - action: utter_despedida
+
 #- rule: interrupción en fecha_form
 #  condition:
 #  # Condición para que el formulario esté activo
@@ -38,6 +42,28 @@ rules:
 #  # Se vuelve al formulario
 #  - action: fecha_form
 #  - active_loop: fecha_form
+
+- rule: activar lugar_form
+  steps:
+  - action: action_resultado_fecha
+  - action: lugar_form
+  - active_loop: lugar_form
+
+- rule: entregar lugar_form
+  # Asegurarse de que se empieza desde un bucle activo
+  condition:
+  - active_loop: lugar_form
+  steps:
+  - action: lugar_form
+  # Si no se necesitan más slots
+  - active_loop: null
+  - slot_was_set:   # ToDo: comprobar si está bien
+    - requested_slot: null
+  # Acciones a llevar a cabo cuando se entrega el formulario
+  - action: action_resultado_lugar
+  - action: utter_resultados
+  - action: action_resultado_final
+  - action: utter_despedida
 
 #- rule: Schedule a reminder
 #  steps:

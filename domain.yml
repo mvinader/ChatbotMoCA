@@ -18,7 +18,6 @@ intents:
 - para_medir
 - fecha_correcta
 - lugar
-#- serie_7
 - despedida
 - abandono
 - EXTERNAL_reminder_1
@@ -30,9 +29,6 @@ entities:
 - lista_objetos
 - animales
 - lista_memoria
-#- serie_números
-#- numeros
-#- resultado_As
 - lista_F
 - día
 - número_fecha
@@ -83,14 +79,6 @@ slots:
     mappings:
     - type: from_text
       intent: serie_números
- # resultado_As:
- #   type: float
- #   influence_conversation: false
- #   initial_value: 0
- #   min_value: 0.0
- #   mappings:
- #   - type: from_text
- #     intent: serie_números
   frase_1:
     type: text
     influence_conversation: false
@@ -124,28 +112,31 @@ slots:
       intent: para_medir
   día:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: día
       conditions:
       - active_loop: fecha_form
+        requested_slot: día
   número_fecha:
     type: float
     influence_conversation: false
     mappings:
-    - type: from_entity
-      entity: número_fecha
+    - type: from_text
+      intent: serie_números
       conditions:
       - active_loop: fecha_form
+        requested_slot: número_fecha
   mes:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: mes
       conditions:
       - active_loop: fecha_form
+        requested_slot: mes
   año:
     type: float
     influence_conversation: false
@@ -154,6 +145,7 @@ slots:
       entity: año
       conditions:
       - active_loop: fecha_form
+        requested_slot: año
   res_final:
     type: float
     initial_value: 0
@@ -162,6 +154,46 @@ slots:
     mappings:
     - type: from_entity
       entity: res_final
+  lugar_a_almacenar:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: lugar
+      intent: lugar
+      conditions:
+      - active_loop: lugar_form
+        requested_slot: lugar_a_almacenar
+  localidad_a_almacenar:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: localidad
+      intent: localidad
+      conditions:
+      - active_loop: lugar_form
+        requested_slot: localidad_a_almacenar
+  lugar:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: lugar
+      intent: lugar
+      conditions:
+      - active_loop: lugar_form
+        requested_slot: lugar
+  localidad:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: localidad
+      intent: localidad
+      conditions:
+      - active_loop: lugar_form
+        requested_slot: localidad
 forms:
   fecha_form:
     required_slots:
@@ -169,6 +201,12 @@ forms:
     - número_fecha
     - mes
     - año
+  lugar_form:
+    required_slots:
+    - lugar_a_almacenar
+    - localidad_a_almacenar
+    - lugar
+    - localidad
 responses:
   utter_default:
   - text: Disculpe, pero no lo he entendido bien. ¿Puede repetirlo?
@@ -294,22 +332,31 @@ responses:
       "Antes le he leído una serie de palabras y le he pedido que las recordase. Dígame ahora todas las palabras de las que se acuerde."
   utter_prueba11_fecha:
   - text: |
-      "Cierre los ojos y dígame el año, el mes, la fecha exacta y el día de la semana."
-  utter_ask_año:
-  - text: |
-      "Dígame el año."
-  utter_ask_mes:
-  - text: |
-      "Dígame el mes."
-  utter_ask_número_fecha:
-  - text: |
-      "Dígame la fecha."
+      "Cierre los ojos y dígame la fecha del día de hoy. Le iré indicando el orden."
   utter_ask_día:
   - text: |
       "Dígame el día."
-  utter_prueba11_lugar:
+  utter_ask_número_fecha:
   - text: |
-      "Ahora, dígame cómo se llama este lugar y en qué localidad nos encontramos."
+      "Dígame la fecha."
+  utter_ask_mes:
+  - text: |
+      "Dígame el mes."
+  utter_ask_año:
+  - text: |
+      "Dígame el año."
+  utter_ask_lugar_a_almacenar:
+  - text: |
+      "Su doctor o responsable de este cuestionario deberá indicar el nombre del centro sanitario donde se encuentran ahora mismo."
+  utter_ask_localidad_a_almacenar:
+  - text: |
+      "Su doctor o responsable de este cuestionario deberá indicar el nombre del centro sanitario donde se encuentran ahora mismo."
+  utter_ask_lugar:
+  - text: |
+      "Volvemos al paciente. Ahora, dígame cómo se llama este lugar."
+  utter_ask_localidad:
+  - text: |
+      "Dígame en qué localidad nos encontramos."
   utter_resultados:
   - text: |
       "A continuación, le proporcionaré unos resultados basados en sus respuestas."
@@ -340,12 +387,9 @@ actions:
 - action_resultado_prueba9_3
 - action_resultado_prueba10
 - action_resultado_fecha
+- action_resultado_lugar
 - action_resultado_final
 - utter_agradecimiento
-- utter_ask_año
-- utter_ask_día
-- utter_ask_mes
-- utter_ask_número_fecha
 - utter_default
 - utter_despedida
 - utter_lista_memoria
@@ -353,9 +397,6 @@ actions:
 - utter_preguntar_nombre
 - utter_presentación
 - utter_prueba1
-- utter_prueba10
-- utter_prueba11_fecha
-- utter_prueba11_lugar
 - utter_prueba2_enunciado
 - utter_prueba2_imagen
 - utter_prueba4
@@ -379,11 +420,19 @@ actions:
 - utter_prueba9_enunciado_2
 - utter_prueba9_enunciado_3
 - utter_prueba9_incorrecto_1
+- utter_prueba11_fecha
+- utter_ask_día
+- utter_ask_número_fecha
+- utter_ask_mes
+- utter_ask_año
+- utter_ask_lugar
+- utter_ask_lugar_a_almacenar
+- utter_prueba10
 - utter_prueba_chatbot
 - utter_resultados
 - utter_saludo
 - utter_siguiente
-- validate_fecha_form
+#- validate_fecha_form
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

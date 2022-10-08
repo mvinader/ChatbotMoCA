@@ -13,7 +13,7 @@ pipeline:
   # - name: WhitespaceTokenizer
    - name: SpacyNLP
      model: "es_core_news_md"
-     case_sensitive: false
+     case_sensitive: true
    - name: SpacyTokenizer
    - name: SpacyFeaturizer
      pooling: mean

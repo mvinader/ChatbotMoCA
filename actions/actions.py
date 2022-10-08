@@ -383,9 +383,7 @@ class ActionResultadoPrueba8(Action):
         resultado_8 = tracker.get_slot("lista_F")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
-        length = len(resultado_8)
         #topicList:['topic_1', 'topic_2']
-        dispatcher.utter_message(text = f"len: {length}")
         
         if len(resultado_8) >= 11:
             resultado = 1
@@ -453,65 +451,65 @@ class ActionResultadoPrueba10(Action):
         resultado_final = resultado_final_contenedor + resultado
         return [SlotSet("res_final", resultado_final)]
 
-class ValidateFechaForm(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_fecha_form"
-
-    @staticmethod
-    def mes_db() -> List[Text]:
-        """Base de datos de meses admitidos"""
-
-        return ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-
-    def validate_mes(self, slot_value: Any, dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict, ) -> Dict[Text, Any]:
-        """Validar el valor del mes"""
-
-        if slot_value.lower() in self.mes_db():
-            # validation succeeded, set the value of the "mes" slot to value
-            return {"mes": slot_value}
-        else:
-            # validation failed, set this slot to None so that the user will be asked for the slot again
-            return {"mes": None}
-
-    @staticmethod
-    def número_fecha_db() -> List[Text]:
-        """Base de datos de números de fecha admitidos"""
-
-        return ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
-                "28", "29", "30", "31", "01", "02", "03", "04", "05", "06", "07", "08", "09"]
-
-    def validate_número_fecha(self, slot_value: Any, dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict, ) -> Dict[Text, Any]:
-        """Validar el valor del mes"""
-
-        if slot_value.lower() in self.mes_db():
-            # validation succeeded, set the value of the "número_fecha" slot to value
-            return {"número_fecha": slot_value}
-        else:
-            # validation failed, set this slot to None so that the user will be asked for the slot again
-            return {"número_fecha": None}
-
-    @staticmethod
-    def día_db() -> List[Text]:
-        """Base de datos de días admitidos"""
-
-        return ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo", "miercoles", "sabado" ]
-
-    def validate_día(self, slot_value: Any, dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict, ) -> Dict[Text, Any]:
-        """Validar el valor del mes"""
-
-        if slot_value.lower() in self.mes_db():
-            # validation succeeded, set the value of the "día" slot to value
-            return {"día": slot_value}
-        else:
-            # validation failed, set this slot to None so that the user will be asked for the slot again
-            return {"día": None}
-
+#class ValidateFechaForm(FormValidationAction):
+#    def name(self) -> Text:
+#        return "validate_fecha_form"
+#
+#    @staticmethod
+#    def día_db() -> List[Text]:
+#        """Base de datos de días admitidos"""
+#
+#        return ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo", "miercoles", "sabado" ]
+#
+#    def validate_día(self, slot_value: Any, dispatcher: CollectingDispatcher,
+#        tracker: Tracker,
+#        domain: DomainDict, ) -> Dict[Text, Any]:
+#        """Validar el valor del mes"""
+#
+#        if slot_value.lower() in self.mes_db():
+#            # validation succeeded, set the value of the "día" slot to value
+#            return {"día": slot_value}
+#        else:
+#            # validation failed, set this slot to None so that the user will be asked for the slot again
+#            return {"día": None}
+#
+#    @staticmethod
+#    def número_fecha_db() -> List[Text]:
+#        """Base de datos de números de fecha admitidos"""
+#
+#        return ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
+#                "28", "29", "30", "31", "01", "02", "03", "04", "05", "06", "07", "08", "09"]
+#
+#    def validate_número_fecha(self, slot_value: Any, dispatcher: CollectingDispatcher,
+#        tracker: Tracker,
+#        domain: DomainDict, ) -> Dict[Text, Any]:
+#        """Validar el valor del mes"""
+#
+#        if slot_value.lower() in self.mes_db():
+#            # validation succeeded, set the value of the "número_fecha" slot to value
+#            return {"número_fecha": slot_value}
+#        else:
+#            # validation failed, set this slot to None so that the user will be asked for the slot again
+#            return {"número_fecha": None}
+#
+#    @staticmethod
+#    def mes_db() -> List[Text]:
+#        """Base de datos de meses admitidos"""
+#
+#        return ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+#
+#    def validate_mes(self, slot_value: Any, dispatcher: CollectingDispatcher,
+#        tracker: Tracker,
+#        domain: DomainDict, ) -> Dict[Text, Any]:
+#        """Validar el valor del mes"""
+#
+#        if slot_value.lower() in self.mes_db():
+#            # validation succeeded, set the value of the "mes" slot to value
+#            return {"mes": slot_value}
+#        else:
+#            # validation failed, set this slot to None so that the user will be asked for the slot again
+#            return {"mes": None}
+            
 #tracker.slots_to_validate OJOOOOOOOOOOOOOOOOO
 
 #class AbstractFormValidatorAction(Action):
@@ -554,6 +552,28 @@ class ActionResultadoFecha(Action):
         if resultado_número_día == número_día:
             resultado += 1
         if resultado_año == año:
+            resultado += 1
+
+        resultado_final = resultado_final_contenedor + resultado
+        return [SlotSet("res_final", resultado_final)]
+
+class ActionResultadoLugar(Action):
+    # return the name of the action
+    def name(self) -> Text:
+        return "action_resultado_lugar"
+
+    #register info in a slot
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        lugar_a_almacenar = tracker.get_slot("lugar_a_almacenar")
+        lugar = tracker.get_slot("lugar")
+        localidad_a_almacenar = tracker.get_slot("localidad_a_almacenar")
+        localidad = tracker.get_slot("localidad")
+        resultado_final_contenedor = tracker.slots.get("res_final")
+        resultado = 0
+        if lugar_a_almacenar == lugar and localidad_a_almacenar == localidad:
             resultado += 1
 
         resultado_final = resultado_final_contenedor + resultado

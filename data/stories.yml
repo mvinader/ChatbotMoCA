@@ -87,9 +87,7 @@ stories:
   - action: utter_prueba9_correcto_1
 #- story: prueba9_incorrecta
 #  steps:
-#  - checkpoint: final_prueba9_enunciado
 #  - action: utter_prueba9_incorrecto_1
-#  - checkpoint: final_prueba9_1
   - action: utter_prueba9_enunciado_2
   - intent: para_viajar
   - action: action_resultado_prueba9_2
@@ -101,27 +99,9 @@ stories:
   - action: action_resultado_prueba10
   - action: utter_prueba11_fecha
   - action: fecha_form
-  - active_loop: fecha_form
-  #- slot_was_set:
-  #  - requested_slot: año
-  #- slot_was_set:
-  #  - año
-  #- slot_was_set:
-  #  - requested_slot: mes
-  #- slot_was_set:
-  #  - mes
-  #- slot_was_set:
-  #  - requested_slot: número_fecha
-  #- slot_was_set:
-  #  - número_fecha
-  #- slot_was_set:
-  #  - requested_slot: día
-  #- slot_was_set:
-  #  - día
-  - active_loop: null
   - action: action_resultado_fecha
-  - action: utter_prueba11_lugar
-  - intent: lugar
+  - action: lugar_form
+  - action: action_resultado_lugar
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
@@ -372,7 +352,9 @@ stories:
   - slot_was_set:
     - requested_slot: número_fecha
   - slot_was_set:
-    - número_fecha: 6
+    - serie_números: '6'
+  - slot_was_set:
+    - número_fecha: '6'
   - slot_was_set:
     - requested_slot: mes
   - slot_was_set:
@@ -380,13 +362,37 @@ stories:
   - slot_was_set:
     - requested_slot: año
   - slot_was_set:
-    - año: 2022
+    - año: '2022'
+  - slot_was_set:
+    - requested_slot: null
   - active_loop: null
   - action: action_resultado_fecha
   - slot_was_set:
     - res_final: 28
-  - action: utter_prueba11_lugar
-  - intent: lugar
+  - action: lugar_form
+  - active_loop: lugar_form
+  - slot_was_set:
+    - requested_slot: lugar_a_almacenar
+  - slot_was_set:
+    - lugar_a_almacenar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad_a_almacenar
+  - slot_was_set:
+    - localidad_a_almacenar: Aranjuez
+  - slot_was_set:
+    - requested_slot: lugar
+  - slot_was_set:
+    - lugar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad
+  - slot_was_set:
+    - localidad: Aranjuez
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_resultado_lugar
+  - slot_was_set:
+    - res_final: 29
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
@@ -581,7 +587,6 @@ stories:
       - frontón
       - filipino
   - action: action_resultado_prueba8
-  - action: action_resultado_prueba8
   - slot_was_set:
     - res_final: 16
   - action: utter_prueba9_enunciado_1
@@ -629,7 +634,9 @@ stories:
   - slot_was_set:
     - requested_slot: número_fecha
   - slot_was_set:
-    - número_fecha: 6
+    - serie_números: '6'
+  - slot_was_set:
+    - número_fecha: '6'
   - slot_was_set:
     - requested_slot: mes
   - slot_was_set:
@@ -637,13 +644,37 @@ stories:
   - slot_was_set:
     - requested_slot: año
   - slot_was_set:
-    - año: 2022
+    - año: '2022'
+  - slot_was_set:
+    - requested_slot: null
   - active_loop: null
   - action: action_resultado_fecha
   - slot_was_set:
     - res_final: 27
-  - action: utter_prueba11_lugar
-  - intent: lugar
+  - action: lugar_form
+  - active_loop: lugar_form
+  - slot_was_set:
+    - requested_slot: lugar_a_almacenar
+  - slot_was_set:
+    - lugar_a_almacenar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad_a_almacenar
+  - slot_was_set:
+    - localidad_a_almacenar: Aranjuez
+  - slot_was_set:
+    - requested_slot: lugar
+  - slot_was_set:
+    - lugar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad
+  - slot_was_set:
+    - localidad: Aranjuez
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_resultado_lugar
+  - slot_was_set:
+    - res_final: 28
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
