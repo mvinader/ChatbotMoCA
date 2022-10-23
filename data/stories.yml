@@ -29,7 +29,7 @@ stories:
   - action: action_menos_12_años_estudios
   - action: utter_agradecimiento
   - action: utter_prueba1
-  - intent: serie_alfanumérica
+  - intent: serie_números
   - action: action_resultado_prueba1
   - action: utter_prueba2_enunciado
   - action: utter_prueba2_imagen
@@ -135,9 +135,9 @@ stories:
     - res_final: 1
   - action: utter_agradecimiento
   - action: utter_prueba1
-  - intent: serie_alfanumérica
+  - intent: serie_números
   - slot_was_set:
-    - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
+    - serie_números: 1, A, 2, B, 3, C, 4, D, 5, E
   - action: action_resultado_prueba1
   - slot_was_set:
     - res_final: 2
@@ -145,29 +145,8 @@ stories:
   - action: utter_prueba2_imagen
   - action: action_set_reminder_1
   - intent: lista_objetos
-    entities:
-    - lista_objetos: tijeras
-    - lista_objetos: taza
-    - lista_objetos: camiseta
-    - lista_objetos: reloj
-    - lista_objetos: plátano
-    - lista_objetos: hoja
-    - lista_objetos: lámpara
-    - lista_objetos: llave
-    - lista_objetos: vela
-    - lista_objetos: cuchara
   - slot_was_set:
-    - lista_objetos:
-      - tijeras
-      - taza
-      - camiseta
-      - reloj
-      - plátano
-      - hoja
-      - lámpara
-      - llave
-      - vela
-      - cuchara
+    - lista_objetos: tijeras, taza, camiseta, reloj, plátano, hoja, lámpara, llave, vela, cuchara
   - action: action_resultado_prueba2
   - slot_was_set:
     - res_final: 5
@@ -202,31 +181,13 @@ stories:
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
   - intent: memoria
-    entities:
-    - lista_memoria: rostro
-    - lista_memoria: rojo
-    - lista_memoria: templo
-    - lista_memoria: seda
-    - lista_memoria: clavel
   - slot_was_set:
-    - lista_memoria:
-      - rostro
-      - rojo
-      - templo
-      - seda
-      - clavel
+    - lista_memoria: rostro, rojo, templo, seda, clavel
   - action: utter_prueba5_repetición_1
   - action: utter_lista_memoria
   - intent: memoria
-    entities:
-    - lista_memoria: templo
-    - lista_memoria: seda
-    - lista_memoria: rojo
   - slot_was_set:
-    - lista_memoria:
-      - templo
-      - seda
-      - rojo
+    - lista_memoria: templo, seda, rojo
   - action: utter_prueba5_repetición_2
   - action: utter_prueba6_serie_números_directo_explicación
   - action: utter_prueba6_serie_números_directo_secuencia
@@ -326,19 +287,8 @@ stories:
     - res_final: 19
   - action: utter_prueba10
   - intent: memoria
-    entities:
-    - lista_memoria: rostro
-    - lista_memoria: seda
-    - lista_memoria: templo
-    - lista_memoria: clavel
-    - lista_memoria: rojo
   - slot_was_set:
-    - lista_memoria:
-      - rostro
-      - seda
-      - templo
-      - clavel
-      - rojo
+    - lista_memoria: rostro, seda, templo, clavel, rojo
   - action: action_resultado_prueba10
   - slot_was_set:
     - res_final: 24
@@ -407,9 +357,9 @@ stories:
   - action: utter_preguntar_nombre
   - intent: presentación_nombre
     entities:
-    - nombre: Marta Vinader
+    - nombre: Marcos
   - slot_was_set:
-    - nombre: Marta Vinader
+    - nombre: Marcos
   - action: utter_preguntar_estudios
   - intent: negación
   - action: action_menos_12_años_estudios
@@ -417,9 +367,9 @@ stories:
     - res_final: 0
   - action: utter_agradecimiento
   - action: utter_prueba1
-  - intent: serie_alfanumérica
+  - intent: serie_números
   - slot_was_set:
-    - serie_alfanumérica: 1, A, 2, B, 3, C, 4, D, 5, E
+    - serie_números: 1, A, 2, B, 3, C, 4, D, 5, E
   - action: action_resultado_prueba1
   - slot_was_set:
     - res_final: 1
@@ -427,29 +377,8 @@ stories:
   - action: utter_prueba2_imagen
   - action: action_set_reminder_1
   - intent: lista_objetos
-    entities:
-    - lista_objetos: tijeras
-    - lista_objetos: taza
-    - lista_objetos: camiseta
-    - lista_objetos: reloj
-    - lista_objetos: plátano
-    - lista_objetos: hoja
-    - lista_objetos: lámpara
-    - lista_objetos: llave
-    - lista_objetos: vela
-    - lista_objetos: cuchara
   - slot_was_set:
-    - lista_objetos:
-      - tijeras
-      - taza
-      - camiseta
-      - reloj
-      - plátano
-      - hoja
-      - lámpara
-      - llave
-      - vela
-      - cuchara
+    - lista_objetos: tijeras, taza, camiseta, reloj, plátano, hoja, lámpara, llave, vela, cuchara
   - action: action_resultado_prueba2
   - slot_was_set:
     - res_final: 4
@@ -484,31 +413,13 @@ stories:
   - action: utter_prueba5_explicación
   - action: utter_lista_memoria
   - intent: memoria
-    entities:
-    - lista_memoria: rostro
-    - lista_memoria: rojo
-    - lista_memoria: templo
-    - lista_memoria: seda
-    - lista_memoria: clavel
   - slot_was_set:
-    - lista_memoria:
-      - rostro
-      - rojo
-      - templo
-      - seda
-      - clavel
+    - lista_memoria: rostro, rojo, templo, seda, clavel
   - action: utter_prueba5_repetición_1
   - action: utter_lista_memoria
   - intent: memoria
-    entities:
-    - lista_memoria: templo
-    - lista_memoria: seda
-    - lista_memoria: rojo
   - slot_was_set:
-    - lista_memoria:
-      - templo
-      - seda
-      - rojo
+    - lista_memoria: templo, seda, rojo
   - action: utter_prueba5_repetición_2
   - action: utter_prueba6_serie_números_directo_explicación
   - action: utter_prueba6_serie_números_directo_secuencia
@@ -608,19 +519,8 @@ stories:
     - res_final: 18
   - action: utter_prueba10
   - intent: memoria
-    entities:
-    - lista_memoria: rostro
-    - lista_memoria: seda
-    - lista_memoria: templo
-    - lista_memoria: clavel
-    - lista_memoria: rojo
   - slot_was_set:
-    - lista_memoria:
-      - rostro
-      - seda
-      - templo
-      - clavel
-      - rojo
+    - lista_memoria: rostro, seda, templo, clavel, rojo
   - action: action_resultado_prueba10
   - slot_was_set:
     - res_final: 23
@@ -678,3 +578,74 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
+
+- story: interactive_story_3
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - action: utter_presentación
+  - action: utter_siguiente
+  - intent: afirmación
+  - action: utter_preguntar_nombre
+  - intent: presentación_nombre
+    entities:
+    - nombre: Juan Carlos
+  - slot_was_set:
+    - nombre: Juan Carlos
+  - action: utter_preguntar_estudios
+  - intent: afirmación
+  - action: action_menos_12_años_estudios
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_agradecimiento
+  - action: utter_prueba1
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 1, A, 2, 3, 4, 5, F
+  - action: action_resultado_prueba1
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_prueba2_enunciado
+  - action: utter_prueba2_imagen
+  - action: action_set_reminder_1
+  - intent: lista_objetos
+  - slot_was_set:
+    - lista_objetos: balón, silla, tenedor, mesa, naranja, plato, regla
+  - action: action_resultado_prueba2
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_prueba4
+  - action: utter_prueba4_león
+  - intent: animales
+    entities:
+    - animales: león
+  - slot_was_set:
+    - animales: león
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - res_final: 2
+  - action: utter_prueba4_rinoceronte
+  - intent: animales
+    entities:
+    - animales: hipopótamo
+  - slot_was_set:
+    - animales: hipopótamo
+  - action: action_resultado_animal2
+  - slot_was_set:
+    - res_final: 2
+  - action: utter_prueba4_camello
+  - intent: animales
+    entities:
+    - animales: elefante
+  - slot_was_set:
+    - animales: elefante
+  - action: action_resultado_animal3
+  - slot_was_set:
+    - res_final: 2
+  - action: utter_prueba5_explicación
+  - action: utter_lista_memoria
+  - intent: memoria
+  - slot_was_set:
+    - lista_memoria: rostro, seda, templo, clavel, rojo
+  - action: utter_prueba5_repetición_1
+  - action: utter_lista_memoria

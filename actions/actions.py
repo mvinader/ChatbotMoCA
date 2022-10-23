@@ -1,30 +1,13 @@
 # This file contains your custom actions which can be used to run custom Python code.
-
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/custom-actions
 
 from typing import Any, Text, Dict, List
-
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType, ReminderScheduled, ReminderCancelled
 from rasa_sdk.types import DomainDict
-
 import datetime, locale
-
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
-
 
 class ActionMenos12AñosEstudios(Action):
     # return the name of the action
@@ -56,7 +39,7 @@ class ActionResultadoPrueba1(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        resultado_1 = tracker.get_slot("serie_alfanumérica")
+        resultado_1 = tracker.get_slot("serie_números")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
 
@@ -112,12 +95,13 @@ class ActionResultadoPrueba2(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         resultado_2 = tracker.get_slot("lista_objetos")
+        palabras = resultado_2.split(", ")
         resultado_final_contenedor = tracker.slots.get("res_final")
         cuenta = 0
-        for i in range(len(resultado_2)):
-            if "tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara" in resultado_2[i]:
+        for i in range(len(palabras)):
+            if ("tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara") == palabras[i]:
                 cuenta += 1
-
+        
         def switch(cuenta):
             resultado_local = 0
             if(cuenta == 9 or cuenta == 10):
@@ -442,10 +426,11 @@ class ActionResultadoPrueba10(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         resultado_prueba = tracker.get_slot("lista_memoria")
+        palabras = resultado_prueba.split(", ")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
-        for i in range(len(resultado_prueba)):
-            if "rostro" or "seda" or "templo" or "clavel" or "rojo" in resultado_prueba[i]:
+        for i in range(len(palabras)):
+            if ("rostro" or "seda" or "templo" or "clavel" or "rojo") == palabras[i]:
                 resultado += 1
 
         resultado_final = resultado_final_contenedor + resultado

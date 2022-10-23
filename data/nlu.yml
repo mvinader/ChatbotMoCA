@@ -28,6 +28,7 @@ nlu:
 - intent: afirmación
   examples: |
     - sí
+    - si
     - sip
     - yes
     - claro
@@ -43,6 +44,7 @@ nlu:
     - genial
     - perfecto
     - maravilloso
+    - afirmativo
 - intent: negación
   examples: |
     - no
@@ -58,17 +60,13 @@ nlu:
 - intent: presentación_nombre
   examples: |
     - [Marta](nombre)
-    - [Marta Vinader](nombre)
     - soy [Marta](nombre)
-    - soy [Marta Vinader](nombre)
     - me llamo [Marta](nombre)
-    - me llamo [Marta Vinader](nombre)
     - mi nombre es [Marta](nombre)
-    - mi nombre es [Marta Vinader](nombre)
     - me llaman [Marta](nombre)
-    - me llaman [Marta Vinader](nombre)
     - [Pepe](nombre)
     - [María del Carmen](nombre)
+    - [Mari Carmen](nombre)
     - [Francisco Javier](nombre)
     - [Esther](nombre)
     - [Pilar](nombre)
@@ -92,27 +90,23 @@ nlu:
     - [Victoria](nombre)
     - [Jesús](nombre)
     - [Pedro](nombre)
-    - [Jesús](nombre)
     - [Luis](nombre)
     - [Domingo](nombre)
     - [Felipe](nombre)
     - [Fátima](nombre)
     - [Fran](nombre)
-- intent: serie_alfanumérica
-  examples: |
-    - 1, A, 2, B, 3, C, 4, D, 5, E
-    - 1, A, , B, 3, C, D, 5, E
-    - A, 2, B, 3, C, 4, 5, E
-    - 1, A, C, 4, D, 5, E
-    - 1, A, 2, B, 3, C, 4
+    - [Juan](nombre)
+    - [Juan Pedro](nombre)
+    - [José Luis](nombre)
+    - [José María](nombre)
+    - [Miguel Ángel](nombre)
 - intent: lista_objetos
   examples: |
-    - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
-    - [cuchara](lista_objetos), [lámpara](lista_objetos), [hoja](lista_objetos), [plátano](lista_objetos), [camiseta](lista_objetos)
-    - [reloj](lista_objetos), [tijeras](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [taza](lista_objetos), [cuchara](lista_objetos)
-    - [taza](lista_objetos), [camiseta](lista_objetos)
-    - [llave](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [cuchara](lista_objetos), [vela](lista_objetos), [tijeras](lista_objetos), [reloj](lista_objetos), [taza](lista_objetos), [lámpara](lista_objetos), [camiseta](lista_objetos)
-    - [tijeras](lista_objetos), [taza](lista_objetos), [camiseta](lista_objetos), [reloj](lista_objetos), [plátano](lista_objetos), [hoja](lista_objetos), [lámpara](lista_objetos), [llave](lista_objetos), [vela](lista_objetos), [cuchara](lista_objetos)
+    - tijeras, taza, camiseta, reloj, plátano, hoja, lámpara, llave, vela, cuchara
+    - cuchara, lámpara, hoja, plátano, camiseta
+    - reloj, tijeras, llave, vela, taza, cuchara
+    - taza, camiseta
+    - llave, plátano, hoja, cuchara, vela, tijeras, reloj, taza, lámpara, camiseta
 - intent: animales
   examples: |
     - [león](animales)
@@ -135,20 +129,23 @@ nlu:
     - [camello](animales)
 - intent: memoria
   examples: |
-    - [rostro](lista_memoria), [seda](lista_memoria), [templo](lista_memoria), [clavel](lista_memoria), [rojo](lista_memoria)
-    - [rojo](lista_memoria), [seda](lista_memoria), [templo](lista_memoria), [rostro](lista_memoria)
-    - [templo](lista_memoria), [clavel](lista_memoria), [rojo](lista_memoria)
-    - [seda](lista_memoria), [clavel](lista_memoria), [rojo](lista_memoria)
-    - [rostro](lista_memoria), [rojo](lista_memoria), [templo](lista_memoria), [seda](lista_memoria), [clavel](lista_memoria)
-    - [templo](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria)
-    - [rostro](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria), [clavel](lista_memoria)
-    - [rostro](lista_memoria), [rojo](lista_memoria), [templo](lista_memoria), [seda](lista_memoria), [clavel](lista_memoria)
-    - [templo](lista_memoria), [seda](lista_memoria), [rojo](lista_memoria)
-    - [seda](lista_memoria), [rostro](lista_memoria), [templo](lista_memoria), [rojo](lista_memoria), [clavel](lista_memoria)
-    - [rojo](lista_memoria), [clavel](lista_memoria), [templo](lista_memoria), [seda](lista_memoria), [rostro](lista_memoria)
-    - [rojo](lista_memoria), [seda](lista_memoria)
+    - rostro, seda, templo, clavel, rojo
+    - rojo, seda, templo, rostro
+    - templo, clavel, rojo
+    - seda, clavel, rojo
+    - rostro, rojo, templo, seda, clavel
+    - templo, seda, rojo
+    - rostro, seda, rojo, clavel
+    - seda, rostro, templo, rojo, clavel
+    - rojo, clavel, templo, seda, rostro
+    - rojo, seda
 - intent: serie_números
   examples: |
+    - 1, A, 2, B, 3, C, 4, D, 5, E
+    - 1, A, B, 3, C, D, 5, E
+    - A, 2, B, 3, C, 4, 5, E
+    - 1, A, C, 4, D, 5, E
+    - 1, A, 2, B, 3, C, 4
     - 2, 1, 8, 5, 4
     - 2, 1, 7, 6
     - 2, 1, 8, 5
@@ -315,24 +312,6 @@ nlu:
     - para
     - no quiero seguir
     - no quiero continuar
-- lookup: serie_alfanumérica
-  examples: |
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
-    - 7
-    - 8
-    - 9
-    - A
-    - B
-    - C
-    - D
-    - E
-    - F
-    - G
 - lookup: animales
   examples: |
     - león
@@ -351,6 +330,7 @@ nlu:
     - bisonte
     - cocodrilo
     - gacela
+    - vaca
 - lookup: día
   examples: |
     - lunes
