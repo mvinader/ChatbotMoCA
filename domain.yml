@@ -1,4 +1,7 @@
-version: '3.1'
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
 - probar_chatbot
 - saludo
@@ -119,6 +122,8 @@ slots:
       conditions:
       - active_loop: fecha_form
         requested_slot: número_fecha
+    max_value: 1.0
+    min_value: 0.0
   mes:
     type: text
     influence_conversation: false
@@ -137,14 +142,17 @@ slots:
       conditions:
       - active_loop: fecha_form
         requested_slot: año
+    max_value: 1.0
+    min_value: 0.0
   res_final:
     type: float
     initial_value: 0
-    min_value: 0.0
-    max_value: 30.0
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: res_final
+    max_value: 30.0
+    min_value: 0.0
   lugar_a_almacenar:
     type: text
     influence_conversation: false
@@ -185,19 +193,10 @@ slots:
       conditions:
       - active_loop: lugar_form
         requested_slot: localidad
-forms:
-  fecha_form:
-    required_slots:
-    - día
-    - número_fecha
-    - mes
-    - año
-  lugar_form:
-    required_slots:
-    - lugar_a_almacenar
-    - localidad_a_almacenar
-    - lugar
-    - localidad
+  requested_slot:
+    type: any
+    influence_conversation: false
+    mappings: []
 responses:
   utter_default:
   - text: Disculpe, pero no lo he entendido bien. ¿Puede repetirlo?
@@ -423,7 +422,16 @@ actions:
 - utter_resultados
 - utter_saludo
 - utter_siguiente
-#- validate_fecha_form
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+forms:
+  fecha_form:
+    required_slots:
+    - día
+    - número_fecha
+    - mes
+    - año
+  lugar_form:
+    required_slots:
+    - lugar_a_almacenar
+    - localidad_a_almacenar
+    - lugar
+    - localidad
