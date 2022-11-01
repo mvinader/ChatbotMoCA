@@ -1,7 +1,5 @@
-version: "3.1"
-
+version: "3.0"
 stories:
-
 - story: inicio
   steps:
   - intent: saludo
@@ -9,13 +7,11 @@ stories:
   - action: utter_presentación
   - action: utter_siguiente
   - checkpoint: final_inicio
-
 - story: sad path
   steps:
   - checkpoint: final_inicio
   - intent: negación
   - action: utter_despedida
-
 - story: happy path
   steps:
   - checkpoint: final_inicio
@@ -35,7 +31,6 @@ stories:
   - action: utter_prueba2_imagen
   - action: action_set_reminder_1
   - intent: lista_objetos
- # - action: action_react_to_reminder
   - action: action_resultado_prueba2
   - action: utter_prueba4
   - action: utter_prueba4_león
@@ -69,7 +64,6 @@ stories:
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
   - intent: serie_números
- # - action: action_react_to_reminder
   - action: action_resultado_serie_7
   - action: utter_prueba7_1
   - intent: frase_1
@@ -80,14 +74,10 @@ stories:
   - action: utter_prueba8
   - action: action_set_reminder_3
   - intent: palabras_F
- # - action: action_react_to_reminder
   - action: action_resultado_prueba8
-  - action: utter_prueba9_enunciado_1  
+  - action: utter_prueba9_enunciado_1
   - intent: frutas
   - action: utter_prueba9_correcto_1
-#- story: prueba9_incorrecta
-#  steps:
-#  - action: utter_prueba9_incorrecto_1
   - action: utter_prueba9_enunciado_2
   - intent: para_viajar
   - action: action_resultado_prueba9_2
@@ -105,7 +95,6 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
-
 - story: interactive_story_0
   steps:
   - intent: saludo
@@ -114,7 +103,6 @@ stories:
   - action: utter_siguiente
   - intent: negación
   - action: utter_despedida
-
 - story: interactive_story_1
   steps:
   - intent: saludo
@@ -346,7 +334,6 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
-
 - story: interactive_story_2
   steps:
   - intent: saludo
@@ -578,7 +565,6 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
-
 - story: interactive_story_3
   steps:
   - intent: saludo
