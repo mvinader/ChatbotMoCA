@@ -1,17 +1,21 @@
-version: "3.0"
+version: "3.1"
+
 stories:
+
 - story: inicio
   steps:
-  - intent: saludo
   - action: utter_saludo
+  - intent: saludo
   - action: utter_presentación
   - action: utter_siguiente
   - checkpoint: final_inicio
+
 - story: sad path
   steps:
   - checkpoint: final_inicio
   - intent: negación
   - action: utter_despedida
+
 - story: happy path
   steps:
   - checkpoint: final_inicio
@@ -27,12 +31,11 @@ stories:
   - action: utter_prueba1
   - intent: serie_números
   - action: action_resultado_prueba1
-  - action: utter_prueba2_enunciado
-  - action: utter_prueba2_imagen
+  - action: utter_prueba2
   - action: action_set_reminder_1
   - intent: lista_objetos
+ # - action: action_react_to_reminder
   - action: action_resultado_prueba2
-  - action: utter_prueba4
   - action: utter_prueba4_león
   - intent: animales
   - action: action_resultado_animal1
@@ -64,6 +67,7 @@ stories:
   - action: utter_prueba6_serie_7_explicación
   - action: action_set_reminder_2
   - intent: serie_números
+ # - action: action_react_to_reminder
   - action: action_resultado_serie_7
   - action: utter_prueba7_1
   - intent: frase_1
@@ -74,10 +78,14 @@ stories:
   - action: utter_prueba8
   - action: action_set_reminder_3
   - intent: palabras_F
+ # - action: action_react_to_reminder
   - action: action_resultado_prueba8
-  - action: utter_prueba9_enunciado_1
+  - action: utter_prueba9_enunciado_1  
   - intent: frutas
   - action: utter_prueba9_correcto_1
+#- story: prueba9_incorrecta
+#  steps:
+#  - action: utter_prueba9_incorrecto_1
   - action: utter_prueba9_enunciado_2
   - intent: para_viajar
   - action: action_resultado_prueba9_2
@@ -95,18 +103,20 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
+
 - story: interactive_story_0
   steps:
-  - intent: saludo
   - action: utter_saludo
+  - intent: saludo
   - action: utter_presentación
   - action: utter_siguiente
   - intent: negación
   - action: utter_despedida
+
 - story: interactive_story_1
   steps:
-  - intent: saludo
   - action: utter_saludo
+  - intent: saludo
   - action: utter_presentación
   - action: utter_siguiente
   - intent: afirmación
@@ -129,8 +139,7 @@ stories:
   - action: action_resultado_prueba1
   - slot_was_set:
     - res_final: 2
-  - action: utter_prueba2_enunciado
-  - action: utter_prueba2_imagen
+  - action: utter_prueba2
   - action: action_set_reminder_1
   - intent: lista_objetos
   - slot_was_set:
@@ -138,7 +147,6 @@ stories:
   - action: action_resultado_prueba2
   - slot_was_set:
     - res_final: 5
-  - action: utter_prueba4
   - action: utter_prueba4_león
   - intent: animales
     entities:
@@ -334,10 +342,11 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
+
 - story: interactive_story_2
   steps:
-  - intent: saludo
   - action: utter_saludo
+  - intent: saludo
   - action: utter_presentación
   - action: utter_siguiente
   - intent: afirmación
@@ -360,8 +369,7 @@ stories:
   - action: action_resultado_prueba1
   - slot_was_set:
     - res_final: 1
-  - action: utter_prueba2_enunciado
-  - action: utter_prueba2_imagen
+  - action: utter_prueba2
   - action: action_set_reminder_1
   - intent: lista_objetos
   - slot_was_set:
@@ -369,7 +377,6 @@ stories:
   - action: action_resultado_prueba2
   - slot_was_set:
     - res_final: 4
-  - action: utter_prueba4
   - action: utter_prueba4_león
   - intent: animales
     entities:
@@ -565,73 +572,3 @@ stories:
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
-- story: interactive_story_3
-  steps:
-  - intent: saludo
-  - action: utter_saludo
-  - action: utter_presentación
-  - action: utter_siguiente
-  - intent: afirmación
-  - action: utter_preguntar_nombre
-  - intent: presentación_nombre
-    entities:
-    - nombre: Juan Carlos
-  - slot_was_set:
-    - nombre: Juan Carlos
-  - action: utter_preguntar_estudios
-  - intent: afirmación
-  - action: action_menos_12_años_estudios
-  - slot_was_set:
-    - res_final: 1
-  - action: utter_agradecimiento
-  - action: utter_prueba1
-  - intent: serie_números
-  - slot_was_set:
-    - serie_números: 1, A, 2, 3, 4, 5, F
-  - action: action_resultado_prueba1
-  - slot_was_set:
-    - res_final: 1
-  - action: utter_prueba2_enunciado
-  - action: utter_prueba2_imagen
-  - action: action_set_reminder_1
-  - intent: lista_objetos
-  - slot_was_set:
-    - lista_objetos: balón, silla, tenedor, mesa, naranja, plato, regla
-  - action: action_resultado_prueba2
-  - slot_was_set:
-    - res_final: 1
-  - action: utter_prueba4
-  - action: utter_prueba4_león
-  - intent: animales
-    entities:
-    - animales: león
-  - slot_was_set:
-    - animales: león
-  - action: action_resultado_animal1
-  - slot_was_set:
-    - res_final: 2
-  - action: utter_prueba4_rinoceronte
-  - intent: animales
-    entities:
-    - animales: hipopótamo
-  - slot_was_set:
-    - animales: hipopótamo
-  - action: action_resultado_animal2
-  - slot_was_set:
-    - res_final: 2
-  - action: utter_prueba4_camello
-  - intent: animales
-    entities:
-    - animales: elefante
-  - slot_was_set:
-    - animales: elefante
-  - action: action_resultado_animal3
-  - slot_was_set:
-    - res_final: 2
-  - action: utter_prueba5_explicación
-  - action: utter_lista_memoria
-  - intent: memoria
-  - slot_was_set:
-    - lista_memoria: rostro, seda, templo, clavel, rojo
-  - action: utter_prueba5_repetición_1
-  - action: utter_lista_memoria

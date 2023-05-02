@@ -27,6 +27,7 @@ class ActionMenos12AñosEstudios(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba1(Action):
@@ -47,6 +48,7 @@ class ActionResultadoPrueba1(Action):
             resultado = 1
             
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionSetReminder1(Action):
@@ -97,24 +99,30 @@ class ActionResultadoPrueba2(Action):
         resultado_2 = tracker.get_slot("lista_objetos")
         palabras = resultado_2.split(", ")
         resultado_final_contenedor = tracker.slots.get("res_final")
-        cuenta = 0
-        for i in range(len(palabras)):
-            if ("tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara") == palabras[i]:
-                cuenta += 1
-        
-        def switch(cuenta):
+        #cuenta = 0
+        #for i in range(len(palabras)):
+        #    if ("tijeras" or "taza" or "camiseta" or "reloj" or "plátano" or "hoja" or "lámpara" or "llave" or "vela" or "cuchara") == palabras[i]:
+        #        cuenta += 1
+        #
+        #def switch(cuenta):
+        lista_solución = ['tijeras','taza','camiseta','reloj','plátano','hoja','lámpara','llave','vela','cuchara']
+        element = [x for x in palabras if x in lista_solución]
+
+        n_palabras = len(element)
+        def switch(n_palabras):
             resultado_local = 0
-            if(cuenta == 9 or cuenta == 10):
+            if(n_palabras == 9 or n_palabras == 10):
                 resultado_local = 3
-            elif(cuenta == 6 or cuenta == 7 or cuenta == 8):
+            elif(n_palabras == 6 or n_palabras == 7 or n_palabras == 8):
                 resultado_local = 2
-            elif(cuenta == 4 or cuenta == 5):
+            elif(n_palabras == 4 or n_palabras == 5):
                 resultado_local = 1
             return resultado_local
 
         resultado = 0
-        resultado = switch(cuenta)
+        resultado = switch(n_palabras)
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoAnimal1(Action):
@@ -135,6 +143,7 @@ class ActionResultadoAnimal1(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoAnimal2(Action):
@@ -155,6 +164,7 @@ class ActionResultadoAnimal2(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoAnimal3(Action):
@@ -175,6 +185,7 @@ class ActionResultadoAnimal3(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoSerieNúmerosDirecto(Action):
@@ -195,6 +206,7 @@ class ActionResultadoSerieNúmerosDirecto(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoSerieNúmerosInverso(Action):
@@ -215,6 +227,7 @@ class ActionResultadoSerieNúmerosInverso(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoSerieLetras(Action):
@@ -235,6 +248,7 @@ class ActionResultadoSerieLetras(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionSetReminder2(Action):
@@ -290,6 +304,7 @@ class ActionResultadoSerie7(Action):
 
         resultado = switch(cuenta)
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba7_1(Action):
@@ -310,6 +325,7 @@ class ActionResultadoPrueba7_1(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba7_2(Action):
@@ -330,6 +346,7 @@ class ActionResultadoPrueba7_2(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionSetReminder2(Action):
@@ -373,6 +390,7 @@ class ActionResultadoPrueba8(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba9_2(Action):
@@ -393,6 +411,7 @@ class ActionResultadoPrueba9_2(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba9_3(Action):
@@ -413,6 +432,7 @@ class ActionResultadoPrueba9_3(Action):
             resultado = 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoPrueba10(Action):
@@ -429,11 +449,15 @@ class ActionResultadoPrueba10(Action):
         palabras = resultado_prueba.split(", ")
         resultado_final_contenedor = tracker.slots.get("res_final")
         resultado = 0
-        for i in range(len(palabras)):
-            if ("rostro" or "seda" or "templo" or "clavel" or "rojo") == palabras[i]:
-                resultado += 1
+        #for i in range(len(palabras)):
+        #    if ("rostro" or "seda" or "templo" or "clavel" or "rojo") == palabras[i]:
+        #        resultado += 1
+        lista_solución = ['rostro','seda','templo','clavel','rojo']
+        element = [x for x in palabras if x in lista_solución]
+        resultado = len(element)
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 #class ValidateFechaForm(FormValidationAction):
@@ -515,7 +539,7 @@ class ActionResultadoFecha(Action):
         domain: Dict[Text, Any] ) -> List[Dict[Text, Any]]:
 
         resultado_día = tracker.get_slot("día")
-        resultado_número_día = tracker.get_slot("número_día")
+        resultado_número_día = tracker.get_slot("número_fecha")
         resultado_mes = tracker.get_slot("mes")
         resultado_año = tracker.get_slot("año")
         resultado_final_contenedor = tracker.slots.get("res_final")
@@ -536,10 +560,15 @@ class ActionResultadoFecha(Action):
             resultado += 1
         if resultado_número_día == número_día:
             resultado += 1
+            print(resultado)
+        else:
+            print(resultado_número_día)
+            print(número_día)
         if resultado_año == año:
             resultado += 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoLugar(Action):
@@ -562,6 +591,7 @@ class ActionResultadoLugar(Action):
             resultado += 1
 
         resultado_final = resultado_final_contenedor + resultado
+        print(resultado_final)
         return [SlotSet("res_final", resultado_final)]
 
 class ActionResultadoFinal(Action):

@@ -1,64 +1,105 @@
-version: "3.0"
+version: "3.1"
+
 rules:
+
+#- rule: Saludar siempre que el usuario salude
+#  steps:
+#  - intent: saludo
+#  - action: utter_saludo
+
 - rule: activar fecha_form
   steps:
   - action: utter_prueba11_fecha
   - action: fecha_form
   - active_loop: fecha_form
+
 - rule: entregar fecha_form
+  # Asegurarse de que se empieza desde un bucle activo
   condition:
   - active_loop: fecha_form
   steps:
   - action: fecha_form
+  # Si no se necesitan más slots
   - active_loop: null
-  - slot_was_set:
+  - slot_was_set:   # ToDo: comprobar si está bien
     - requested_slot: null
+  # Acciones a llevar a cabo cuando se entrega el formulario
   - action: action_resultado_fecha
   - action: lugar_form
   - action: action_resultado_lugar
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
+
+#- rule: interrupción en fecha_form
+#  condition:
+#  # Condición para que el formulario esté activo
+#  - active_loop: fecha_form
+#  steps:
+#  # Unhappy path
+#  - intent: probar_chatbot
+#  - action: utter_prueba_chatbot
+#  # Se vuelve al formulario
+#  - action: fecha_form
+#  - active_loop: fecha_form
+
 - rule: activar lugar_form
   steps:
   - action: action_resultado_fecha
   - action: lugar_form
   - active_loop: lugar_form
+
 - rule: entregar lugar_form
+  # Asegurarse de que se empieza desde un bucle activo
   condition:
   - active_loop: lugar_form
   steps:
   - action: lugar_form
+  # Si no se necesitan más slots
   - active_loop: null
-  - slot_was_set:
+  - slot_was_set:   # ToDo: comprobar si está bien
     - requested_slot: null
+  # Acciones a llevar a cabo cuando se entrega el formulario
   - action: action_resultado_lugar
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida
+
+#- rule: Schedule a reminder
+#  steps:
+#  - intent: ask_remind_call
+#    entities:
+#    - PERSON
+#  - action: action_set_reminder
+
 - rule: Reaccionar a `EXTERNAL_reminder_1`
   steps:
   - intent: EXTERNAL_reminder_1
   - action: action_react_to_reminder
   - action: action_resultado_prueba2
+
 - rule: Reaccionar a `EXTERNAL_reminder_2`
   steps:
   - intent: EXTERNAL_reminder_2
   - action: action_react_to_reminder
   - action: action_resultado_serie_7
+
 - rule: Reaccionar a `EXTERNAL_reminder_3`
   steps:
   - intent: EXTERNAL_reminder_3
   - action: action_react_to_reminder
   - action: action_resultado_prueba8
+
 - rule: Despedirse siempre que el usuario se despida
   steps:
   - intent: despedida
   - action: utter_despedida
+
 - rule: Cancelar siempre que el usuario lo pida
   steps:
   - intent: abandono
   - action: utter_despedida
+
 - rule: Decir "soy un chatbot" siempre que el usuario lo pruebe
   steps:
   - intent: probar_chatbot
