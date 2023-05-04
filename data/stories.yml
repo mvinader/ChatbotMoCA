@@ -4,8 +4,8 @@ stories:
 
 - story: inicio
   steps:
-  - action: utter_saludo
   - intent: saludo
+  - action: utter_saludo
   - action: utter_presentación
   - action: utter_siguiente
   - checkpoint: final_inicio
@@ -106,8 +106,8 @@ stories:
 
 - story: interactive_story_0
   steps:
-  - action: utter_saludo
   - intent: saludo
+  - action: utter_saludo
   - action: utter_presentación
   - action: utter_siguiente
   - intent: negación
@@ -115,8 +115,8 @@ stories:
 
 - story: interactive_story_1
   steps:
-  - action: utter_saludo
   - intent: saludo
+  - action: utter_saludo
   - action: utter_presentación
   - action: utter_siguiente
   - intent: afirmación
@@ -345,8 +345,8 @@ stories:
 
 - story: interactive_story_2
   steps:
-  - action: utter_saludo
   - intent: saludo
+  - action: utter_saludo
   - action: utter_presentación
   - action: utter_siguiente
   - intent: afirmación

@@ -7,6 +7,12 @@ rules:
 #  - intent: saludo
 #  - action: utter_saludo
 
+#- rule: welcome user
+#  conversation_start: true 
+#  steps:
+#    - intent: saludo
+#    - action: utter_saludo
+
 - rule: activar fecha_form
   steps:
   - action: utter_prueba11_fecha

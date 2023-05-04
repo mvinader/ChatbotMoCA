@@ -200,13 +200,11 @@ forms:
     - localidad
 responses:
   utter_default:
-  - text: Disculpe, pero no lo he entendido bien. ¿Puede repetirlo?
+  - text: "Disculpe, pero no lo he entendido bien. ¿Puede repetirlo?"
   utter_prueba_chatbot:
-  - text: |
-      "Soy un chatbot."
+  - text: "Soy un chatbot."
   utter_presentación:
-  - text: |
-      "La Evaluación Cognitiva Montreal (Montreal cognitive assessment / MoCA) ha sido concebida para evaluar las disfunciones cognitivas leves. Este instrumento examina las siguientes habilidades: atención, concentración, funciones ejecutivas (incluyendo la capacidad de abstracción), memoria, lenguaje, capacidades visuoconstructivas, cálculo y orientación. Cualquier persona que comprenda y siga sus instrucciones puede administrar el MoCA, si bien únicamente un profesional de la salud especialista en el ámbito cognitivo podrá interpretar sus resultados. El tiempo de administración requerido es de aproximadamente diez minutos."
+  - text: "La Evaluación Cognitiva Montreal (Montreal cognitive assessment / MoCA) ha sido concebida para evaluar las disfunciones cognitivas leves. Este instrumento examina las siguientes habilidades: atención, concentración, funciones ejecutivas (incluyendo la capacidad de abstracción), memoria, lenguaje, capacidades visuoconstructivas, cálculo y orientación. Cualquier persona que comprenda y siga sus instrucciones puede administrar el MoCA, si bien únicamente un profesional de la salud especialista en el ámbito cognitivo podrá interpretar sus resultados. El tiempo de administración requerido es de aproximadamente diez minutos."
   utter_saludo:
   - text: "¡Hola!"
   - text: "¡Buenas!"
