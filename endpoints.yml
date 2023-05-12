@@ -13,6 +13,7 @@
 action_endpoint:
   url: "http://localhost:5055/webhook"
   #url: "https://8a52-83-61-82-25.ngrok-free.app/webhook"
+  #url: "https://bc15-83-61-82-25.ngrok.io:5055/webhook"
 
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.
