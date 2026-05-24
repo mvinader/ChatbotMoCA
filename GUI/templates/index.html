@@ -9,7 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script type="text/javascript" charset="utf-8">        
         document.addEventListener('DOMContentLoaded', (event) => { //esperar a que la página esté completamente cargada antes de ejecutar el código JavaScript
-            var socket = io.connect('http://' + document.domain + ':' + location.port); //crear la conexión con misma máquina y puerto donde corre Flask
+            //var socket = io.connect('http://' + document.domain + ':' + location.port); //crear la conexión con misma máquina y puerto donde corre Flask
+            var socket = io.connect('https://arachnid-boss-gradually.ngrok-free.app');
             socket.on('connect', function() {
                 console.log('Usuario ha accedido a la web'); //envía un mensaje a la consola (abrir con F12 o 'Inspeccionar')
 
