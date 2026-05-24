@@ -1,0 +1,91 @@
+h1 {
+  font-family: 'Montserrat', 'sans-serif'; /* sans-serif es la fuente de respaldo si Montserrat no carga */
+  color: #1B386D;
+}
+
+h2 {
+  font-family: 'Montserrat', 'sans-serif'; /* sans-serif es la fuente de respaldo si Montserrat no carga */
+  color: #1B386D;
+}
+
+.boton {
+  /*background-color: #347AB7;*/
+  color: white;
+  padding: 14px 28px; /* Espaciado interno: alto y ancho del botón */
+  border: none; /* Elimina el borde por defecto del botón */
+  border-radius: 10px; /* Bordes suavizados */
+  /*font-size: 16px;*/
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer; /* Cambia el cursor a "mano" al pasar por encima */
+  transition: all 0.25s ease; /* Suaviza las animaciones del hover */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra suave */
+
+  /*display: block;   /* Ocupa todo el ancho disponible de la línea */
+  display: none;   /* Por defecto, oculto */
+  margin: 0 auto;
+}
+
+.boton:hover { /* Aplica cuando se pasa el cursor por encima */
+  /*background-color: #1B386D; /* Tono más oscuro */
+  transform: translateY(-2px); /* Ligero efecto de elevación 3D */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.50); /* Sombra más grande para reforzar la elevación */
+}
+
+.boton:active {
+  transform: translateY(0); /* Vuelve a su posición al hacer clic */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.20); /* Sombra más pequeña al presionar */
+}
+
+.botonEmpezar {
+  background-color: Green;
+}
+
+.botonEmpezar:hover {
+  background-color: rgb(1, 101, 1); /* Tono más oscuro */
+}
+
+.botonParar {
+  background-color: Red;
+}
+
+.botonParar:hover {
+  background-color: rgb(198, 1, 1); /* Tono más oscuro */
+}
+
+#chat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.burbuja {
+  max-width: 50%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: 'Montserrat', 'sans-serif'; /* sans-serif es la fuente de respaldo si Montserrat no carga */
+}
+
+.burbuja.mensajeChatbot { /* Elemento con clases burbuja y mensajeChatbot */
+  background-color: #1B386D;
+  color: #a2d1f3;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+.burbuja img { /* Cualquier <img> que esté dentro de un elemento con clase burbuja */
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.burbuja.mensajeUsuario { /* Elemento con clases burbuja y mensajeUsuario */
+  background-color: #347AB7;
+  color: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}

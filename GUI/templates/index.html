@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot MoCA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8">        
+        document.addEventListener('DOMContentLoaded', (event) => { //esperar a que la página esté completamente cargada antes de ejecutar el código JavaScript
+            var socket = io.connect('http://' + document.domain + ':' + location.port); //crear la conexión con misma máquina y puerto donde corre Flask
+            socket.on('connect', function() {
+                console.log('Usuario ha accedido a la web'); //envía un mensaje a la consola (abrir con F12 o 'Inspeccionar')
+
+                const botonEmpezar = document.getElementById("botonEmpezar");
+                botonEmpezar.style.display = "block"; // Mostrar el botón, ocupando todo el ancho disponible de la línea
+            });
+            socket.on('conversacionEmpezada', function() {
+                const botonParar = document.getElementById("botonParar");
+                botonParar.style.display = "block"; // Mostrar el botón, ocupando todo el ancho disponible de la línea
+            });
+            socket.on('debug', (data) => {
+                console.log(data); //envía el 'data' que 'debug' dice desde parte de Python a la consola
+            });
+            socket.on('gestionarMensajeChatbot', (data) => {
+                const burbuja = document.createElement('div');
+                burbuja.textContent = data;
+                burbuja.classList.add("burbuja", "mensajeChatbot"); // crea un <div class="burbuja mensajeChatbot"></div>
+                
+                const chat = document.getElementById('chat');
+                chat.appendChild(burbuja);
+            });
+            socket.on('gestionarImagenChatbot', (data) => {
+                console.log("Imagen recibida."); //envía el 'data' que 'debug' dice desde parte de Python a la consola
+                
+                const burbuja = document.createElement('div');
+                burbuja.classList.add("burbuja", "mensajeChatbot"); // crea un <div class="burbuja mensajeChatbot"></div>
+                
+                const imagen = document.createElement('img');
+                imagen.src = data;
+                burbuja.appendChild(imagen);
+
+                const chat = document.getElementById('chat');
+                chat.appendChild(burbuja);
+            });
+            socket.on('gestionarMensajeUsuario', (data) => {
+                console.log(data); //envía el 'data' que 'debug' dice desde parte de Python a la consola
+
+                const bubble = document.createElement('div');
+                bubble.textContent = data;
+                bubble.classList.add("burbuja", "mensajeUsuario"); // crea un <div class="burbuja mensajeUsuario"></div>
+                
+                const chat = document.getElementById('chat');
+                chat.appendChild(bubble);
+            });
+            document.getElementById("botonEmpezar").onclick = function() { // Se captura el clic del botón
+                socket.emit("empezarConversacion");
+
+                const botonEmpezar = document.getElementById("botonEmpezar");
+                botonEmpezar.style.display = "none"; // Para que el botón desaparezca después de ser pulsado
+            };
+            document.getElementById("botonParar").onclick = function() { // Se captura el clic del botón
+                socket.emit("pararConversacion");
+
+                const botonEmpezar = document.getElementById("botonEmpezar");
+                botonEmpezar.style.display = "block"; // Ocupa todo el ancho disponible de la línea
+
+                const botonParar = document.getElementById("botonParar");
+                botonParar.style.display = "none"; // Para que el botón desaparezca después de ser pulsado
+            };
+            socket.on('conversacionTerminada', function() {
+                const botonEmpezar = document.getElementById("botonEmpezar");
+                botonEmpezar.style.display = "block"; // Mostrar el botón, ocupando todo el ancho disponible de la línea
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>¡Bienvenido/a!</h1>
+    <p><h2>Pulse en el botón para comenzar la conversación.</h2></p>
+    <button id="botonEmpezar" class="boton botonEmpezar">Empezar</button>
+    <div id="chat"></div>
+    <button id="botonParar" class="boton botonParar">Parar</button>
+</body>
+</html>
