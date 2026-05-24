@@ -69,10 +69,12 @@ stories:
   - intent: serie_números
  # - action: action_react_to_reminder
   - action: action_resultado_serie_7
-  - action: utter_prueba7_1
+  - action: utter_prueba7_explicación_1
+  - action: utter_prueba7_frase_1
   - intent: frase_1
   - action: action_resultado_prueba7_1
-  - action: utter_prueba7_2
+  - action: utter_prueba7_explicación_2
+  - action: utter_prueba7_frase_2
   - intent: frase_2
   - action: action_resultado_prueba7_2
   - action: utter_prueba8
@@ -217,7 +219,8 @@ stories:
   - action: action_resultado_serie_7
   - slot_was_set:
     - res_final: 14
-  - action: utter_prueba7_1
+  - action: utter_prueba7_explicación_1
+  - action: utter_prueba7_frase_1
   - intent: frase_1
   - slot_was_set:
     - frase_1:
@@ -225,7 +228,8 @@ stories:
   - action: action_resultado_prueba7_1
   - slot_was_set:
     - res_final: 15
-  - action: utter_prueba7_2
+  - action: utter_prueba7_explicación_2
+  - action: utter_prueba7_frase_2
   - intent: frase_2
   - slot_was_set:
     - frase_2:
@@ -447,7 +451,8 @@ stories:
   - action: action_resultado_serie_7
   - slot_was_set:
     - res_final: 13
-  - action: utter_prueba7_1
+  - action: utter_prueba7_explicación_1
+  - action: utter_prueba7_frase_1
   - intent: frase_1
   - slot_was_set:
     - frase_1:
@@ -455,7 +460,8 @@ stories:
   - action: action_resultado_prueba7_1
   - slot_was_set:
     - res_final: 14
-  - action: utter_prueba7_2
+  - action: utter_prueba7_explicación_2
+  - action: utter_prueba7_frase_2
   - intent: frase_2
   - slot_was_set:
     - frase_2:
@@ -569,6 +575,475 @@ stories:
   - action: action_resultado_lugar
   - slot_was_set:
     - res_final: 28
+  - action: utter_resultados
+  - action: action_resultado_final
+  - action: utter_despedida
+
+- story: interactive_story_3
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - action: utter_presentación
+  - action: utter_siguiente
+  - intent: afirmación
+  - action: utter_preguntar_nombre
+  - intent: presentación_nombre
+    entities:
+    - nombre: Esther
+  - slot_was_set:
+    - nombre: Esther
+  - action: utter_preguntar_estudios
+  - intent: negación
+  - action: action_menos_12_años_estudios
+  - slot_was_set:
+    - res_final: 0
+  - action: utter_agradecimiento
+  - action: utter_prueba1
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 1,a,2,b,3,c,4,d,5,e
+  - action: action_resultado_prueba1
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_prueba2
+  - action: action_set_reminder_1
+  - intent: lista_objetos
+  - slot_was_set:
+    - lista_objetos: tijeras, lampara, hoja, vela, reloj, plátano, cuchara, camiseta, taza, llave
+  - action: action_resultado_prueba2
+  - slot_was_set:
+    - res_final: 4
+  - action: utter_prueba4_león
+  - intent: animales
+    entities:
+    - animales: leon
+  - slot_was_set:
+    - animales: leon
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - res_final: 5
+  - action: utter_prueba4_rinoceronte
+  - intent: animales
+    entities:
+    - animales: rinoceronte
+  - slot_was_set:
+    - animales: rinoceronte
+  - action: action_resultado_animal2
+  - slot_was_set:
+    - res_final: 6
+  - action: utter_prueba4_camello
+  - intent: animales
+    entities:
+    - animales: dromedario
+  - slot_was_set:
+    - animales: dromedario
+  - action: action_resultado_animal3
+  - slot_was_set:
+    - res_final: 7
+  - action: utter_prueba5_explicación
+  - action: utter_lista_memoria
+  - intent: memoria
+  - slot_was_set:
+    - lista_memoria: seda, clavel, rojo
+  - action: utter_prueba5_repetición_1
+  - action: utter_lista_memoria
+  - intent: memoria
+  - slot_was_set:
+    - lista_memoria: rostro, rojo, seda
+  - action: utter_prueba5_repetición_2
+  - action: utter_prueba6_serie_números_directo_explicación
+  - action: utter_prueba6_serie_números_directo_secuencia
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 8, 5, 4
+  - action: action_resultado_serie_números_directo
+  - slot_was_set:
+    - res_final: 7
+  - action: utter_prueba6_serie_números_inverso_explicación
+  - action: utter_prueba6_serie_números_inverso_secuencia
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 7, 4, 2
+  - action: action_resultado_serie_números_inverso
+  - slot_was_set:
+    - res_final: 7
+  - action: utter_prueba6_serie_letras_explicación
+  - action: utter_prueba6_serie_letras_secuencia
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: '9'
+  - action: action_resultado_serie_letras
+  - slot_was_set:
+    - res_final: 7
+  - action: utter_prueba6_serie_7_explicación
+  - action: action_set_reminder_2
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+  - action: action_resultado_serie_7
+  - slot_was_set:
+    - res_final: 10
+  - action: utter_prueba7_explicación_1
+  - action: utter_prueba7_frase_1
+  - intent: frase_1
+  - slot_was_set:
+    - frase_1: solo se que le toca a Juan ayudar hoy
+  - action: action_resultado_prueba7_1
+  - slot_was_set:
+    - res_final: 11
+  - action: utter_prueba7_explicación_2
+  - action: utter_prueba7_frase_2
+  - intent: frase_2
+  - slot_was_set:
+    - frase_2: el gato siempre se esconde debajo del sofa cuando hay perros en la habitacion
+  - action: action_resultado_prueba7_2
+  - slot_was_set:
+    - res_final: 12
+  - action: utter_prueba8
+  - action: action_set_reminder_3
+  - intent: palabras_F
+    entities:
+    - lista_F: familia
+    - lista_F: feliz
+    - lista_F: fiesta
+    - lista_F: fácil
+    - lista_F: fuego
+    - lista_F: flor
+    - lista_F: frío
+    - lista_F: futuro
+    - lista_F: forma
+    - lista_F: fuerza
+    - lista_F: fuerte
+    - lista_F: fin
+    - lista_F: foto
+    - lista_F: favor
+    - lista_F: fondo
+  - slot_was_set:
+    - lista_F:
+      - familia
+      - feliz
+      - fiesta
+      - fácil
+      - fuego
+      - flor
+      - frío
+      - futuro
+      - forma
+      - fuerza
+      - fuerte
+      - fin
+      - foto
+      - favor
+      - fondo
+  - action: action_resultado_prueba8
+  - slot_was_set:
+    - res_final: 13
+  - action: utter_prueba9_enunciado_1
+  - intent: frutas
+  - action: utter_prueba9_correcto_1
+  - action: utter_prueba9_enunciado_2
+  - intent: para_viajar
+  - slot_was_set:
+    - para_viajar: medios de transporte
+  - action: action_resultado_prueba9_2
+  - slot_was_set:
+    - res_final: 14
+  - action: utter_prueba9_enunciado_3
+  - intent: para_medir
+  - slot_was_set:
+    - para_medir: para medir
+  - action: action_resultado_prueba9_3
+  - slot_was_set:
+    - res_final: 15
+  - action: utter_prueba10
+  - intent: memoria
+  - slot_was_set:
+    - lista_memoria: rostro, seda, templo, clavel, rojo
+  - action: action_resultado_prueba10
+  - slot_was_set:
+    - res_final: 20
+  - action: utter_prueba11_fecha
+  - action: fecha_form
+  - active_loop: fecha_form
+  - slot_was_set:
+    - requested_slot: día
+  - slot_was_set:
+    - día: sábado
+  - slot_was_set:
+    - requested_slot: número_fecha
+  - slot_was_set:
+    - serie_números: '25'
+  - slot_was_set:
+    - número_fecha: '25'
+  - slot_was_set:
+    - requested_slot: mes
+  - slot_was_set:
+    - mes: febrero
+  - slot_was_set:
+    - requested_slot: año
+  - slot_was_set:
+    - año: '2024'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_resultado_fecha
+  - slot_was_set:
+    - res_final: 24
+  - action: lugar_form
+  - active_loop: lugar_form
+  - slot_was_set:
+    - requested_slot: lugar_a_almacenar
+  - slot_was_set:
+    - lugar_a_almacenar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad_a_almacenar
+  - slot_was_set:
+    - localidad_a_almacenar: Aranjuez
+  - slot_was_set:
+    - requested_slot: lugar
+  - slot_was_set:
+    - lugar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad
+  - slot_was_set:
+    - localidad: Aranjuez
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_resultado_lugar
+  - slot_was_set:
+    - res_final: 25
+  - action: utter_resultados
+  - action: action_resultado_final
+  - action: utter_despedida
+
+- story: interactive_story_4
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - action: utter_presentación
+  - action: utter_siguiente
+  - intent: afirmación
+  - action: utter_preguntar_nombre
+  - intent: presentación_nombre
+    entities:
+    - nombre: Javier
+  - slot_was_set:
+    - nombre: Javier
+  - action: utter_preguntar_estudios
+  - intent: afirmación
+  - action: action_menos_12_años_estudios
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_agradecimiento
+  - action: utter_prueba1
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 1, 2, 3, 4, 5
+  - action: action_resultado_prueba1
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_prueba2
+  - action: action_set_reminder_1
+  - intent: lista_objetos
+  - slot_was_set:
+    - lista_objetos: taza, cuchara, tijeras
+  - action: action_resultado_prueba2
+  - slot_was_set:
+    - res_final: 1
+  - action: utter_prueba4_león
+  - intent: animales
+    entities:
+    - animales: león
+  - slot_was_set:
+    - animales: león
+  - action: action_resultado_animal1
+  - slot_was_set:
+    - res_final: 2
+  - action: utter_prueba4_rinoceronte
+  - intent: animales
+    entities:
+    - animales: dinosaurio
+  - slot_was_set:
+    - animales: dinosaurio
+  - action: action_resultado_animal2
+  - slot_was_set:
+    - res_final: 2
+  - action: utter_prueba4_camello
+  - intent: animales
+    entities:
+    - animales: camello
+  - slot_was_set:
+    - animales: camello
+  - action: action_resultado_animal3
+  - slot_was_set:
+    - res_final: 3
+  - action: utter_prueba5_explicación
+  - action: utter_lista_memoria
+  - intent: memoria
+  - slot_was_set:
+    - lista_memoria: rostro, rojo, templo, seda, clavel
+  - action: utter_prueba5_repetición_1
+  - action: utter_lista_memoria
+  - intent: memoria
+  - slot_was_set:
+    - lista_memoria: templo, seda, rojo
+  - action: utter_prueba5_repetición_2
+  - action: utter_prueba6_serie_números_directo_explicación
+  - action: utter_prueba6_serie_números_directo_secuencia
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 2, 1, 8, 5, 4
+  - action: action_resultado_serie_números_directo
+  - slot_was_set:
+    - res_final: 4
+  - action: utter_prueba6_serie_números_inverso_explicación
+  - action: utter_prueba6_serie_números_inverso_secuencia
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 2, 4, 7
+  - action: action_resultado_serie_números_inverso
+  - slot_was_set:
+    - res_final: 5
+  - action: utter_prueba6_serie_letras_explicación
+  - action: utter_prueba6_serie_letras_secuencia
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: '10'
+  - action: action_resultado_serie_letras
+  - slot_was_set:
+    - res_final: 6
+  - action: utter_prueba6_serie_7_explicación
+  - action: action_set_reminder_2
+  - intent: serie_números
+  - slot_was_set:
+    - serie_números: 93, 86, 79, 72, 65, 58, 51, 44, 37, 30, 23, 16, 9, 2
+  - action: action_resultado_serie_7
+  - slot_was_set:
+    - res_final: 9
+  - action: utter_prueba7_explicación_1
+  - action: utter_prueba7_frase_1
+  - intent: frase_1
+  - slot_was_set:
+    - frase_1: solo sé que le toca a Juan ayudar hoy
+  - action: action_resultado_prueba7_1
+  - slot_was_set:
+    - res_final: 10
+  - action: utter_prueba7_explicación_2
+  - action: utter_prueba7_frase_2
+  - intent: frase_2
+  - slot_was_set:
+    - frase_2: el gato siempre se esconde debajo del sofá cuando hay perros en la habitación
+  - action: action_resultado_prueba7_2
+  - slot_was_set:
+    - res_final: 11
+  - action: utter_prueba8
+  - action: action_set_reminder_3
+  - intent: palabras_F
+    entities:
+    - lista_F: flor
+    - lista_F: farola
+    - lista_F: feliz
+    - lista_F: felpa
+    - lista_F: fieltro
+    - lista_F: fiesta
+    - lista_F: funambulista
+    - lista_F: frenesí
+    - lista_F: fresa
+    - lista_F: frontón
+    - lista_F: filipino
+  - slot_was_set:
+    - lista_F:
+      - familia
+      - flor
+      - fuego
+      - felicidad
+      - fiesta
+      - fresa
+      - fruta
+      - fútbol
+      - fuente
+      - forma
+      - frío
+      - final
+  - action: action_resultado_prueba8
+  - slot_was_set:
+    - res_final: 12
+  - action: utter_prueba9_enunciado_1
+  - intent: frutas
+  - action: utter_prueba9_correcto_1
+  - action: utter_prueba9_enunciado_2
+  - intent: para_viajar
+  - slot_was_set:
+    - para_viajar: medios de transporte
+  - action: action_resultado_prueba9_2
+  - slot_was_set:
+    - res_final: 13
+  - action: utter_prueba9_enunciado_3
+  - intent: para_medir
+  - slot_was_set:
+    - para_medir: para medir
+  - action: action_resultado_prueba9_3
+  - slot_was_set:
+    - res_final: 14
+  - action: utter_prueba10
+  - intent: memoria
+  - slot_was_set:
+    - lista_memoria: rostro, seda, templo, clavel, rojo
+  - action: action_resultado_prueba10
+  - slot_was_set:
+    - res_final: 19
+  - action: utter_prueba11_fecha
+  - action: fecha_form
+  - active_loop: fecha_form
+  - slot_was_set:
+    - requested_slot: día
+  - slot_was_set:
+    - día: sábado
+  - slot_was_set:
+    - requested_slot: número_fecha
+  - slot_was_set:
+    - serie_números: '26'
+  - slot_was_set:
+    - número_fecha: '26'
+  - slot_was_set:
+    - requested_slot: mes
+  - slot_was_set:
+    - mes: febrero
+  - slot_was_set:
+    - requested_slot: año
+  - slot_was_set:
+    - año: '2024'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_resultado_fecha
+  - slot_was_set:
+    - res_final: 23
+  - action: lugar_form
+  - active_loop: lugar_form
+  - slot_was_set:
+    - requested_slot: lugar_a_almacenar
+  - slot_was_set:
+    - lugar_a_almacenar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad_a_almacenar
+  - slot_was_set:
+    - localidad_a_almacenar: Aranjuez
+  - slot_was_set:
+    - requested_slot: lugar
+  - slot_was_set:
+    - lugar: Hospital del Tajo
+  - slot_was_set:
+    - requested_slot: localidad
+  - slot_was_set:
+    - localidad: Aranjuez
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_resultado_lugar
+  - slot_was_set:
+    - res_final: 24
   - action: utter_resultados
   - action: action_resultado_final
   - action: utter_despedida

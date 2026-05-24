@@ -71,26 +71,19 @@ rules:
   - action: action_resultado_final
   - action: utter_despedida
 
-#- rule: Schedule a reminder
-#  steps:
-#  - intent: ask_remind_call
-#    entities:
-#    - PERSON
-#  - action: action_set_reminder
-
-- rule: Reaccionar a `EXTERNAL_reminder_1`
+- rule: Reaccionar a EXTERNAL_reminder_1
   steps:
   - intent: EXTERNAL_reminder_1
   - action: action_react_to_reminder
   - action: action_resultado_prueba2
 
-- rule: Reaccionar a `EXTERNAL_reminder_2`
+- rule: Reaccionar a EXTERNAL_reminder_2
   steps:
   - intent: EXTERNAL_reminder_2
   - action: action_react_to_reminder
   - action: action_resultado_serie_7
 
-- rule: Reaccionar a `EXTERNAL_reminder_3`
+- rule: Reaccionar a EXTERNAL_reminder_3
   steps:
   - intent: EXTERNAL_reminder_3
   - action: action_react_to_reminder

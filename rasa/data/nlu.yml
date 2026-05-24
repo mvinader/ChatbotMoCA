@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: probar_chatbot
   examples: |
@@ -13,6 +12,8 @@ nlu:
 - intent: saludo
   examples: |
     - hola
+    - Hola
+    - HOLA
     - holi
     - qué pasa
     - qué tal
@@ -29,7 +30,12 @@ nlu:
 - intent: afirmación
   examples: |
     - sí
+    - Sí
     - si
+    - Si
+    - sii
+    - SI
+    - SÍ
     - sip
     - yes
     - claro
@@ -46,9 +52,14 @@ nlu:
     - perfecto
     - maravilloso
     - afirmativo
+    - de acuerdo
 - intent: negación
   examples: |
     - no
+    - No
+    - noo
+    - nop
+    - NO
     - nanai
     - negativo
     - nunca
@@ -69,6 +80,7 @@ nlu:
     - [María del Carmen](nombre)
     - [Mari Carmen](nombre)
     - [Francisco Javier](nombre)
+    - [Javier](nombre)
     - [Esther](nombre)
     - [Pilar](nombre)
     - [Manolo](nombre)
@@ -95,12 +107,16 @@ nlu:
     - [Domingo](nombre)
     - [Felipe](nombre)
     - [Fátima](nombre)
+    - [Francisco](nombre)
     - [Fran](nombre)
+    - [Felisa](nombre)
     - [Juan](nombre)
     - [Juan Pedro](nombre)
     - [José Luis](nombre)
     - [José María](nombre)
     - [Miguel Ángel](nombre)
+    - [León](nombre)
+    - [Mari](nombre)
 - intent: lista_objetos
   examples: |
     - tijeras, taza, camiseta, reloj, plátano, hoja, lámpara, llave, vela, cuchara
@@ -108,9 +124,21 @@ nlu:
     - reloj, tijeras, llave, vela, taza, cuchara
     - taza, camiseta
     - llave, plátano, hoja, cuchara, vela, tijeras, reloj, taza, lámpara, camiseta
+    - tijeras, lampara, hoja, vela, reloj, plátano, cuchara, camiseta, taza, llave
+    - taza, vela
+    - camiseta, cuchara
+    - taza, cuchara, tijeras
+    - tijeras, vela, camiseta, taza, pluma, lámpara, plátano, reloj, llave, cuchara
+    - platano, camiseta, tijeras, cuchara, reloj
+    - tijeras, pluma, cuchara, camiseta, pipa, taza, plátano, lámpara, llave, reloj
+    - platano, tijeras, camiseta, lampara, vela, reloj, hoja
+    - tijeras, lampara, platano, vela, pluma, llave, reloj, camiseta, cuchara
+    - tijeras, camiseta, plátano, reloj, vela, cuchara, llave, pluma, taza
+    - vela, plátano, pluma, cuchara
 - intent: animales
   examples: |
     - [león](animales)
+    - [leon](animales)
     - un [león](animales)
     - es un [león](animales)
     - [rinoceronte](animales)
@@ -125,9 +153,8 @@ nlu:
     - no sé si un [camello](animales) o un [dromedario](animales)
     - no sé si es un [camello](animales) o un [dromedario](animales)
     - o un [camello](animales) o un [dromedario](animales)
-    - [león](animales)
-    - [rinoceronte](animales)
-    - [camello](animales)
+    - [dinosaurio](animales)
+    - [llama](animales)
 - intent: memoria
   examples: |
     - rostro, seda, templo, clavel, rojo
@@ -140,17 +167,42 @@ nlu:
     - seda, rostro, templo, rojo, clavel
     - rojo, clavel, templo, seda, rostro
     - rojo, seda
+    - rostro, rojo, seda
+    - rostro, rojo, clavel
+    - rostro, seda
+    - rojo, seda, templo, rostro
+    - rostro, rojo, clavel, seda
+    - clavel, rojo, seda
+    - templo, seda, clavel, rojo
+    - clavel, templo, seda
+    - seda, rojo, templo
+    - seda, templo, rojo, clavel
+    - seda, rostro, templo
+    - rojo, rostro, templo
+    - rostro, rojo, templo, clavel, seda
 - intent: serie_números
   examples: |
     - 1, A, 2, B, 3, C, 4, D, 5, E
+    - 1 A 2 B 3 C 4 D 5 E
+    - 1,A,2,B,3,C,4,D,5,E
+    - 1, a, 2, b, 3, c, 4, d, 5, e
+    - 1 a 2 b 3 c 4 d 5 e
+    - 1,a,2,b,3,c,4,d,5,e
+    - 1a2b3c4d5e
+    - 1A2B3C4D5E
     - 1, A, B, 3, C, D, 5, E
     - A, 2, B, 3, C, 4, 5, E
     - 1, A, C, 4, D, 5, E
     - 1, A, 2, B, 3, C, 4
     - 2, 1, 8, 5, 4
+    - 2 1 8 5 4
+    - 2,1,8,5,4
     - 2, 1, 7, 6
     - 2, 1, 8, 5
     - 1, 2, 4, 7, 8
+    - 2, 4, 7
+    - 2 4 7
+    - 2,4,7
     - 2, 7, 4
     - 4, 7, 2
     - 2, 7, 8
@@ -191,24 +243,36 @@ nlu:
     - 29
     - 30
     - 31
+    - 1, 2, 3, 4, 5
+    - 2, 1, 8,5,4
+    - 2,4,6
+    - 1,a,2,e,3,i,4,o,5,u
 - intent: frase_1
   examples: |
     - Solo sé que le toca a Juan ayudar hoy.
     - Solo se que le toca a juan ayudar hoy
+    - solo sé que le toca a Juan ayudar hoy
     - Sé que Juan tiene que ayudar hoy.
     - Sé que le toca a Juan ayudar esta tarde.
     - Juan ayudará mañana.
     - Juan tiene que ayudar hoy.
     - Solo sé que le toca a Pedro ayudar hoy.
+    - solo se que le toca a Juan ayudar hoy
+    - solo de que le toca a Juan ayudar hoy
+    - Solo sé que a Juan le toca hoy
 - intent: frase_2
   examples: |
-    - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
     - El gato siempre se esconde debajo del sofa cuando hay perros en la habitacion
+    - El gato siempre se esconde debajo del sofá cuando hay perros en la habitación.
     - El perro siempre se esconde debajo del sofá cuando hay gatos en la habitación.
     - El gato siempre se va debajo de la mesa cuando algún perro en el salón.
     - El gato siempre se esconde debajo del sofá cuando hay un perro en la casa.
     - El gato siempre huye del perro.
     - Los gatos siempre se van debajo del sofá cuando hay algún perro en la habitación.
+    - el gato siempre se esconde debajo del sofá cuando hay perros en la habitación
+    - el gato siempre se esconde debajo del sofa cuando hay perros en la habitacion
+    - el gato siempre se esconde debajo del sofá cuando hay perros en la habitacion
+    - El gato se esconde cuando hay perros
 - intent: palabras_F
   examples: |
     - [flor](lista_F), [farola](lista_F), [feliz](lista_F), [felpa](lista_F), [fieltro](lista_F), [fiesta](lista_F), [funambulista](lista_F), [frenesí](lista_F), [fresa](lista_F), [frontón](lista_F), [filipino](lista_F)
@@ -216,6 +280,15 @@ nlu:
     - [florista](lista_F), [festejo](lista_F), [filipino](lista_F), [fabuloso](lista_F), [fresa](lista_F)
     - [florería](lista_F), [festivo](lista_F), [ficha](lista_F), [fiera](lista_F)
     - [flor](lista_F), [francés](lista_F), [filo](lista_F), [felpa](lista_F), [felicidad](lista_F), [fábula](lista_F), [foca](lista_F), [fémur](lista_F), [fiesta](lista_F), [fofo](lista_F), [fresón](lista_F)
+    - [familia](lista_F), [feliz](lista_F), [fiesta](lista_F), [fácil](lista_F), [fuego](lista_F), [flor](lista_F), [frío](lista_F), [futuro](lista_F), [forma](lista_F), [fuerza](lista_F), [fuerte](lista_F), [fin](lista_F), [foto](lista_F), [favor](lista_F), [fondo](lista_F)
+    - [familia](lista_F), [flor](lista_F), [fuego](lista_F), [felicidad](lista_F), [fiesta](lista_F), [fresa](lista_F), [fruta](lista_F), [fútbol](lista_F), [fuente](lista_F), [forma](lista_F), [frío](lista_F), [final](lista_F)
+    - [florero](lista_F)
+    - [flor](lista_F), [florero](lista_F)
+    - [fiel](lista_F), [falso](lista_F), [foca](lista_F), [feliz](lista_F), [flaca](lista_F), [fuego](lista_F)
+    - [fuego](lista_F), [fuerza](lista_F), [felino](lista_F), [fusta](lista_F), [fiera](lista_F)
+    - [faro](lista_F), [farola](lista_F), [feo](lista_F), [foco](lista_F), [faz](lista_F), [foro](lista_F), [fuego](lista_F), [focal](lista_F), [facha](lista_F), [fecha](lista_F), [ficha](lista_F), [foca](lista_F), [fuera](lista_F), [fantasma](lista_F), [fiera](lista_F), [fiesta](lista_F), [farra](lista_F), [funambulista](lista_F), [funesto](lista_F), [fétido](lista_F), [fugaz](lista_F), [fetén](lista_F), [festejo](lista_F)
+    - [francés](lista_F), [futil](lista_F), [felizmente](lista_F), [frenar](lista_F), [fregar](lista_F), [fiel](lista_F), [fantoche](lista_F), [flauta](lista_F), [fábula](lista_F), [flautín](lista_F), [filigrana](lista_F)
+    - [feliz](lista_F), [fuerte](lista_F), [fuerza](lista_F), [fácil](lista_F), [francés](lista_F), [fantasía](lista_F), [flor](lista_F), [floristería](lista_F), [final](lista_F), [funambulista](lista_F), [fábula](lista_F), [flauta](lista_F)
 - intent: frutas
   examples: |
     - fruta
@@ -239,17 +312,25 @@ nlu:
     - maneras de viajar
     - maneras de moverse
     - maneras de transportarse
+    - vehículos
+    - vehiculos
 - intent: para_medir
   examples: |
     - instrumentos de medición
     - instrumentos de medida
     - instrumentos de medir
+    - herramientas de medición
+    - herramientas de medida
+    - herramientas para medir
     - para medir
     - para medición
     - para medida
+    - para medidas
     - cosas para medir
     - formas de medir
     - maneras de medir
+    - sirven para medir
+    - Sirven para medir
 - intent: fecha_correcta
   examples: |
     - Hoy es [domingo](día), 29, [mayo](mes), [2022](año)
@@ -268,12 +349,19 @@ nlu:
     - Estamos en [agosto](mes)
     - Estamos en el mes de [agosto](mes)
     - [2022](año)
+    - [2023](año)
+    - [2024](año)
     - Estamos en [2022](año)
     - Estamos en el año [2022](año)
 - intent: lugar
   examples: |
     - [Hospital del Tajo](lugar)
     - [Hospital Doce de Octubre](lugar)
+    - [Hospital Reina Sofía](lugar)
+    - [Hospital Infanta Sofía](lugar)
+    - [Hospital Infanta Cristina](lugar)
+    - [La Paz](lugar)
+    - [Clínica Richer](lugar)
     - [Doce de Octubre](lugar)
     - En el [Hospital del Tajo](lugar)
     - Estoy en el [Hospital del Tajo](lugar)
@@ -281,11 +369,15 @@ nlu:
     - Estoy en un [hospital](lugar)
     - Estoy en el [ambulatorio](lugar)
     - Estoy en un [ambulatorio](lugar)
+    - Estoy en un [centro de salud](lugar)
+    - Estoy en una [residencia](lugar)
     - Estoy en la [consulta de Neurología](lugar)
     - Estoy en una [consulta de Neurología](lugar)
     - Estoy en la [clínica Richer](lugar)
     - En el [hospital](lugar)
     - En un [hospital](lugar)
+    - [Ambulatorio de Aranjuez](lugar)
+    - [ambulatorio de Aranjuez](lugar)
 - intent: localidad
   examples: |
     - [Aranjuez](localidad)
@@ -297,8 +389,10 @@ nlu:
     - [Alcobendas](localidad)
     - [San Sebastián de los Reyes](localidad)
     - En [Aranjuez](localidad)
+    - en [Aranjuez](localidad)
     - En [Madrid](localidad)
     - Estoy en [Aranjuez](localidad)
+    - estoy en [Aranjuez](localidad)
     - Estoy en [Madrid](localidad)
 - intent: despedida
   examples: |
@@ -323,9 +417,13 @@ nlu:
     - para
     - no quiero seguir
     - no quiero continuar
+- intent: EXTERNAL_reminder_1
+  examples: |
+    - EXTERNAL: EXTERNAL_reminder_1
 - lookup: animales
   examples: |
     - león
+    - leon
     - rinoceronte
     - camello
     - dromedario
@@ -341,7 +439,8 @@ nlu:
     - bisonte
     - cocodrilo
     - gacela
-    - vaca
+    - dinosaurio
+    - llama
 - lookup: día
   examples: |
     - lunes
@@ -350,6 +449,7 @@ nlu:
     - jueves
     - viernes
     - sábado
+    - sabado
     - domingo
 - lookup: mes
   examples: |
@@ -365,45 +465,3 @@ nlu:
     - octubre
     - noviembre
     - diciembre
-#- lookup: año
-#  examples: |
-#    - 1935
-#    - 1936
-#    - 1937
-#    - 1938
-#    - 1939
-#    - 1940
-#    - 1941
-#    - 1942
-#    - 1943
-#    - 1944
-#    - 1945
-#    - 1946
-#    - 1947
-#    - 1948
-#    - 1949
-#    - 1950
-#    - 2000
-#    - 2001
-#    - 2002
-#    - 2003
-#    - 2004
-#    - 2005
-#    - 2006
-#    - 2007
-#    - 2008
-#    - 2009
-#    - 2010
-#    - 2011
-#    - 2012
-#    - 2013
-#    - 2014
-#    - 2015
-#    - 2016
-#    - 2017
-#    - 2018
-#    - 2019
-#    - 2021
-#    - 2022
-#    - 2023
-#    - 2024
