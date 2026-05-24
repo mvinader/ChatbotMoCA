@@ -24,7 +24,7 @@ recognizer = KaldiRecognizer(modelo, KALDI_FRECUENCIA_MUESTREO)
 print("Modelo de reconocimiento de voz cargado.")
 
 cola = queue.Queue()
-def callback(indata, status):
+def callback(indata, frames, time, status):
     if status:
         print(status)
     cola.put(bytes(indata))
