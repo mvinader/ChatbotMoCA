@@ -1,9 +1,12 @@
 import pyttsx3
+from flask_socketio import emit
 from Configuracion import PYTTSX3_VELOCIDAD_HABLA
 from Configuracion import PYTTSX3_VOLUMEN
+import wave
 
-def crearTTSEngineInstance():
-    print("Cargando la instancia de generación de voz...")
+RESPUESTA_BOT_ARCHIVO = "respuestaBot.wav"
+
+def reproducirTextoPorVoz(textoRespuestaBot):
     ttsEngineInstance = pyttsx3.init()
     # Configurar propiedades de la voz
     ttsEngineInstance.setProperty('rate', PYTTSX3_VELOCIDAD_HABLA)     
@@ -16,4 +19,12 @@ def crearTTSEngineInstance():
             break
     if ttsEngineInstance._inLoop:
         ttsEngineInstance.endLoop()
-    return ttsEngineInstance
+
+    #ttsEngineInstance.say(textoRespuestaBot)
+    ttsEngineInstance.save_to_file(textoRespuestaBot, RESPUESTA_BOT_ARCHIVO)
+    ttsEngineInstance.runAndWait()
+
+    with wave.open(RESPUESTA_BOT_ARCHIVO, "rb") as ficheroWav: # read binary
+        data = ficheroWav.readframes(ficheroWav.getnframes())
+
+    emit("reproducirAudio", data, broadcast=False) # se envían 'bytes' a solo el cliente que lo envió

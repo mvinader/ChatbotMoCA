@@ -4,7 +4,7 @@ from flask_socketio import emit
 from Configuracion import RASA_TRACKER
 from Configuracion import RASA_REST_WEBHOOK
 from Configuracion import EXPLICACIONES_OCULTAR
-from TextToSpeech import crearTTSEngineInstance
+from TextToSpeech import reproducirTextoPorVoz
 
 def obtenerJsonTrackerRasa():
     data = None
@@ -49,9 +49,7 @@ def enviarMensajeAChatbot(mensajeUsuario):
             if textoRespuestaBot not in EXPLICACIONES_OCULTAR:
                 emit('gestionarMensajeChatbot', textoRespuestaBot)
 
-            ttsEngineInstance = crearTTSEngineInstance()
-            ttsEngineInstance.say(textoRespuestaBot) # Reproducir el texto
-            ttsEngineInstance.runAndWait()
+            reproducirTextoPorVoz(textoRespuestaBot)
         elif respuestaChatbotJSON.get('image', '').strip():
             emit('gestionarImagenChatbot', respuestaChatbotJSON['image'])
     return respuestasBotJSON

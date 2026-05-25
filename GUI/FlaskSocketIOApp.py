@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit
 import requests
 from Configuracion import FLASK_CLAVE
 from Configuracion import RASA_TRACKER
-from TextToSpeech import crearTTSEngineInstance
+from TextToSpeech import reproducirTextoPorVoz
 from SpeechToText import procesarAudio
 from SpeechToText import stream
 from GestorRasa import obtenerJsonTrackerRasa
@@ -34,13 +34,8 @@ def reaccionarAConexion():
         emit('debug', {'data': 'Nueva conexión', 'userId': userId}) # sirve para enviar un mensaje a la consola (abrir con F12 o 'Inspeccionar')
         usuariosActivos.add(userId)
 
-        ttsEngineInstance = crearTTSEngineInstance()
-        ttsEngineInstance.say("¡Bienvenido/a!")
-        ttsEngineInstance.runAndWait()
-
-        ttsEngineInstance = crearTTSEngineInstance()
-        ttsEngineInstance.say("Pulse en el botón para comenzar la conversación.")
-        ttsEngineInstance.runAndWait()
+        reproducirTextoPorVoz("¡Bienvenido/a!")
+        reproducirTextoPorVoz("Pulse en el botón para comenzar la conversación.")
 
 @socketio.on('empezarConversacion')
 def gestionarConversacionInicial():

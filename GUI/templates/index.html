@@ -9,8 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script type="text/javascript" charset="utf-8">        
         document.addEventListener('DOMContentLoaded', (event) => { //esperar a que la página esté completamente cargada antes de ejecutar el código JavaScript
-            //var socket = io.connect('http://' + document.domain + ':' + location.port); //crear la conexión con misma máquina y puerto donde corre Flask
-            var socket = io.connect('https://arachnid-boss-gradually.ngrok-free.app');
+            let audioContext; // variable local cuyo valor puede cambiar
+            let audioContextListo = false;
+
+            //const socket = io.connect('http://' + document.domain + ':' + location.port); //crear la conexión con misma máquina y puerto donde corre Flask
+            const socket = io.connect('https://arachnid-boss-gradually.ngrok-free.app');
             socket.on('connect', function() {
                 console.log('Usuario ha accedido a la web'); //envía un mensaje a la consola (abrir con F12 o 'Inspeccionar')
 
@@ -20,6 +23,9 @@
             socket.on('conversacionEmpezada', function() {
                 const botonParar = document.getElementById("botonParar");
                 botonParar.style.display = "block"; // Mostrar el botón, ocupando todo el ancho disponible de la línea
+            
+                audioContext = new AudioContext();
+                audioContextListo = true;
             });
             socket.on('debug', (data) => {
                 console.log(data); //envía el 'data' que 'debug' dice desde parte de Python a la consola
@@ -54,6 +60,16 @@
                 
                 const chat = document.getElementById('chat');
                 chat.appendChild(bubble);
+            });
+            socket.on("reproducirAudio", async data => { // Porque luego se usa 'await'
+                if (audioContextListo)
+                {                    
+                    const source = audioContext.createBufferSource();
+                    const audioBuffer = await audioContext.decodeAudioData(data); // función asíncrona (Socket.IO ya convierte 'data' en ArrayBuffer)
+                    source.buffer = audioBuffer;
+                    source.connect(audioContext.destination); // conecta  el 'AudioBufferSourceNode' al destino para poder escuchar
+                    source.start();
+                }
             });
             document.getElementById("botonEmpezar").onclick = function() { // Se captura el clic del botón
                 socket.emit("empezarConversacion");
