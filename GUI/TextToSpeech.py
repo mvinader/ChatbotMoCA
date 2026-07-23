@@ -20,11 +20,4 @@ def reproducirTextoPorVoz(textoRespuestaBot):
     if ttsEngineInstance._inLoop:
         ttsEngineInstance.endLoop()
 
-    #ttsEngineInstance.say(textoRespuestaBot)
-    ttsEngineInstance.save_to_file(textoRespuestaBot, RESPUESTA_BOT_ARCHIVO)
-    ttsEngineInstance.runAndWait()
-
-    with wave.open(RESPUESTA_BOT_ARCHIVO, "rb") as ficheroWav: # read binary
-        data = ficheroWav.readframes(ficheroWav.getnframes())
-
-    emit("reproducirAudio", data, broadcast=False) # se envían 'bytes' a solo el cliente que lo envió
+    emit("reproducirAudio", textoRespuestaBot)
