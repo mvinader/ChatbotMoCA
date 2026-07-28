@@ -52,3 +52,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 LICENSE
+GUI/.vscode/settings.json
+GUI/__pycache__/Configuracion.cpython-310.pyc
+GUI/__pycache__/GestorRasa.cpython-310.pyc
+GUI/__pycache__/SpeechToText.cpython-310.pyc
+GUI/__pycache__/SpeechToTextTratamientoDatos.cpython-310.pyc
+GUI/__pycache__/TextToSpeech.cpython-310.pyc

@@ -55,7 +55,7 @@
                 const chat = document.getElementById('chat');
                 chat.appendChild(bubble);
             });
-            socket.on("reproducirAudio", (async) => {
+            socket.on("reproducirAudio", (data) => {
                 const msg = new SpeechSynthesisUtterance(data);
                 speechSynthesis.speak(msg);
             });

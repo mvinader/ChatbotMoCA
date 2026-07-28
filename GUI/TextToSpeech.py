@@ -2,7 +2,6 @@ import pyttsx3
 from flask_socketio import emit
 from Configuracion import PYTTSX3_VELOCIDAD_HABLA
 from Configuracion import PYTTSX3_VOLUMEN
-import wave
 
 RESPUESTA_BOT_ARCHIVO = "respuestaBot.wav"
 
