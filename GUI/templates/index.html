@@ -56,8 +56,17 @@
                 chat.appendChild(bubble);
             });
             socket.on("reproducirAudio", (data) => {
-                const msg = new SpeechSynthesisUtterance(data);
-                speechSynthesis.speak(msg);
+                const utter = new SpeechSynthesisUtterance(data);
+                utter.onstart = () => {
+                    socket.emit("reproduccionIniciada"); // avisar al servidor que ha comenzado la reproducción
+                };
+                utter.onend = () => {
+                    socket.emit("reproduccionTerminada"); // avisar al servidor que terminó la reproducción
+                };
+                utter.onerror = () => {
+                    socket.emit("reproduccionTerminada"); // en caso de error también reanudar
+                };
+                speechSynthesis.speak(utter);
             });
             document.getElementById("botonEmpezar").onclick = function() { // Se captura el clic del botón
                 socket.emit("empezarConversacion");

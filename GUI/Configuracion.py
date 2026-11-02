@@ -9,10 +9,6 @@ FLASK_CLAVE = 'secret!'
 # Kaldi
 KALDI_FRECUENCIA_MUESTREO = 16000  # 16 kHz -> los modelos están entrenados a esta frecuencia
 
-# pyttsx3
-PYTTSX3_VELOCIDAD_HABLA = 180 # por defecto es 200
-PYTTSX3_VOLUMEN = 1.0 # entre 0.0 y 1.0
-
 # Detección de audio
 AUDIO_FRECUENCIA_MUESTREO = 16000  # Frecuencia de muestreo en Hz
 AUDIO_TAMANYO_BLOQUE = 8000        # Tamaño de bloque de audio

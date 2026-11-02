@@ -5,6 +5,8 @@ from Configuracion import FLASK_CLAVE
 from Configuracion import RASA_TRACKER
 from TextToSpeech import reproducirTextoPorVoz
 from SpeechToText import procesarAudio
+from SpeechToText import descartarAudio
+from SpeechToText import limpiarEventoReproduccionActiva
 from SpeechToText import stream
 from GestorRasa import obtenerJsonTrackerRasa
 from GestorRasa import enviarMensajeAChatbot
@@ -33,7 +35,7 @@ def reaccionarAConexion():
         print("Nueva conexión de:", userId)
         emit('debug', {'data': 'Nueva conexión', 'userId': userId}) # sirve para enviar un mensaje a la consola (abrir con F12 o 'Inspeccionar')
         usuariosActivos.add(userId)
-
+        
         reproducirTextoPorVoz("¡Bienvenido/a!")
         reproducirTextoPorVoz("Pulse en el botón para comenzar la conversación.")
 
@@ -78,6 +80,14 @@ def gestionarTerminarConversación():
     emit('debug', 'pararConversacion')
     enviarMensajeAChatbot("Adiós")
 
+@socketio.on('reproduccionIniciada')
+def gestionarInicioReproduccionAudio():
+    descartarAudio()
+
+@socketio.on('reproduccionTerminada')
+def gestionarFinReproduccionAudio():
+    limpiarEventoReproduccionActiva()
+    
 if __name__ == '__main__':
     #socketio.run(app) # para pruebas en local
     socketio.run(app, host="0.0.0.0", port=5000) # "0.0.0.0" para que tanto mi PC como ngrok y otros dispositivos puedan conectarse

@@ -4,6 +4,7 @@ from vosk import Model, KaldiRecognizer
 import queue
 import sounddevice
 import json
+import threading
 from Configuracion import KALDI_FRECUENCIA_MUESTREO
 from Configuracion import AUDIO_FRECUENCIA_MUESTREO
 from Configuracion import AUDIO_TAMANYO_BLOQUE
@@ -24,10 +25,17 @@ recognizer = KaldiRecognizer(modelo, KALDI_FRECUENCIA_MUESTREO)
 print("Modelo de reconocimiento de voz cargado.")
 
 cola = queue.Queue()
+eventoReproduccionActiva = threading.Event()  # cuando está activo, NO se procesa una nueva entrada
+
 def callback(indata, frames, time, status):
-    if status:
-        print(status)
-    cola.put(bytes(indata))
+    if eventoReproduccionActiva.is_set():
+        return # ignorar entrada durante reproducción
+    try:
+        cola.put(bytes(indata), block=False)
+    except queue.Full:
+        pass
+    #if status:
+    #    print(status)
     #cola.task_done()
 
 # Configurar la entrada de audio usando constantes
@@ -38,6 +46,20 @@ stream = sounddevice.RawInputStream(
     channels=AUDIO_N_CANALES,
     callback=callback
 )
+
+def descartarAudio():
+    eventoReproduccionActiva.set() # marcar el evento de reproducción como activo
+    # vaciar la cola de entrada para descartar audio capturado durante reproducción
+    print("Descartar audio capturado durante reproducción")
+    try:
+        while True:
+            cola.get_nowait()
+            cola.task_done()
+    except queue.Empty:
+        pass
+
+def limpiarEventoReproduccionActiva():
+    eventoReproduccionActiva.clear()
 
 #def procesarAudio(cola):
 def procesarAudio():
